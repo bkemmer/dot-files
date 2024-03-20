@@ -8,43 +8,79 @@
     "vim.highlightedyank.duration": 250,
     "vim.useSystemClipboard": true,
     "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
-    "vim.normalModeKeyBindings": [
-        {
-          "before": ["g", "p", "d"],
-          "commands": ["editor.action.peekDefinition"]
-        },
-        {
-          "before": ["g", "h"],
-          "commands": ["editor.action.showDefinitionPreviewHover"]
-        },
-        {
-          "before": ["g", "i"],
-          "commands": ["editor.action.goToImplementation"]
-        },
-        {
-          "before": ["g", "p", "i"],
-          "commands": ["editor.action.peekImplementation"]
-        },
-        {
-          "before": ["g", "q"],
-          "commands": ["editor.action.quickFix"]
-        },
-        {
-          "before": ["g", "r"],
-          "commands": ["editor.action.referenceSearch.trigger"]
-        },
-        {
-          "before": ["g", "t"],
-          "commands": ["editor.action.goToTypeDefinition"]
-        },
-        {
-          "before": ["g", "p", "t"],
-          "commands": ["editor.action.peekTypeDefinition"]
-        },
-        {
-            "before": ["<leader>", "e"],
-            "commands": ["workbench.view.explorer"]
-        },
+    
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
+    "breadcrumbs.enabled": true,
+    "breadcrumbs.symbolPath": "off",
+    "breadcrumbs.symbolSortOrder": "position",
+    "editor.renderWhitespace": "none",
+
+    "diffEditor.renderSideBySide": true,
+
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/*.code-search": true,
+      "**/tmp": true,
+      "**/.git": true
+    },
+
+    "search.useReplacePreview": false,
+
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": [
+          "<leader>",
+          "<leader>",
+        ],
+        "commands": [
+          {
+            "command": "workbench.action.openPreviousEditorFromHistory",
+          },
+          {
+            "command": "workbench.action.acceptSelectedQuickOpenItem",
+          },
+        ],
+      },
+      {
+        "before": ["g", "p", "d"],
+        "commands": ["editor.action.peekDefinition"]
+      },
+      {
+        "before": ["g", "h"],
+        "commands": ["editor.action.showDefinitionPreviewHover"]
+      },
+      {
+        "before": ["g", "i"],
+        "commands": ["editor.action.goToImplementation"]
+      },
+      {
+        "before": ["g", "p", "i"],
+        "commands": ["editor.action.peekImplementation"]
+      },
+      {
+        "before": ["g", "q"],
+        "commands": ["editor.action.quickFix"]
+      },
+      {
+        "before": ["g", "r"],
+        "commands": ["editor.action.referenceSearch.trigger"]
+      },
+      {
+        "before": ["g", "t"],
+        "commands": ["editor.action.goToTypeDefinition"]
+      },
+      {
+        "before": ["g", "p", "t"],
+        "commands": ["editor.action.peekTypeDefinition"]
+      },
+      {
+          "before": ["<leader>", "e"],
+          "commands": ["workbench.view.explorer"]
+      },
     ],
 
 }
