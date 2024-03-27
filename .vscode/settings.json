@@ -45,6 +45,63 @@
           },
         ],
       },
+
+    // Easy save
+    {
+      "before": [
+        "<leader>",
+        "w",
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.files.save",
+        },
+      ],
+    },
+
+    // Command-T
+    {
+      "before": [
+        "<leader>",
+        "t",
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.quickOpen",
+        },
+      ],
+    },
+
+    // Join lines with comments
+    {
+      "before": [
+        "J",
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "joinCommentAware.join",
+          "args": [],
+        },
+      ],
+    },
+
+    // vim-vinegar
+    {
+      "before": [
+        "-",
+      ],
+      "commands": [
+        {
+          "command": "breadcrumbs.toggleToOn",
+          "when": "!config.breadcrumbs.enabled",
+        },
+        {
+          "command": "breadcrumbs.focusAndSelect",
+          "when": "breadcrumbsPossible",
+        },
+      ],
+    },
       {
         "before": ["g", "p", "d"],
         "commands": ["editor.action.peekDefinition"]
