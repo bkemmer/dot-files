@@ -135,6 +135,10 @@
         "commands": ["editor.action.peekTypeDefinition"]
       },
       {
+        "before": ["g", "f"],
+        "commands": ["editor.action.referenceSearch.trigger"]
+      },
+      {
           "before": ["<leader>", "e"],
           "commands": ["workbench.view.explorer"]
       },
