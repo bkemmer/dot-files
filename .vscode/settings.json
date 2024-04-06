@@ -28,6 +28,8 @@
 
     "search.useReplacePreview": false,
 
+    "keyboard.dispatch": "keyCode",
+
     "vim.hlsearch": true,
     "vim.leader": "<space>",
     "vim.normalModeKeyBindingsNonRecursive": [
