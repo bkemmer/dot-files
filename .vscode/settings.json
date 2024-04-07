@@ -7,7 +7,7 @@
     "vim.highlightedyank.color": "#a9dc7660",
     "vim.highlightedyank.duration": 250,
     "vim.useSystemClipboard": true,
-    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?_",
     
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
