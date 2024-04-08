@@ -20,3 +20,17 @@ alias python="/usr/bin/python3"
 
 alias cve="source ./venv/bin/activate"
 alias dve="source ~/projects/venv/bin/activate"
+
+# install tmux
+if ! command -v tmux &> /dev/null
+then
+    sudo apt install -y tmux
+fi
+
+# install htop
+if ! command -v htop &> /dev/null
+then
+    sudo apt install -y htop
+fi
+
+export TERM=xterm-256color
