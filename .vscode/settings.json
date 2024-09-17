@@ -32,6 +32,25 @@
 
     "vim.hlsearch": true,
     "vim.leader": "<space>",
+    "vim.visualModeKeyBindings":[
+      {
+          "before": [
+              ">"
+          ],
+          "commands": [
+              "editor.action.indentLines"
+          ]
+      },
+      {
+          "before": [
+              "<"
+          ],
+          "commands": [
+              "editor.action.outdentLines"
+          ]
+      },
+  ],
+
     "vim.normalModeKeyBindingsNonRecursive": [
       {
         "before": [
@@ -144,6 +163,18 @@
           "before": ["<leader>", "e"],
           "commands": ["workbench.view.explorer"]
       },
+      {
+            "before": ["<leader>", "m"],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": ["<leader>", "b"],
+            "commands": [
+                "bookmarks.list"
+            ]
+        }
     ],
 
 }
