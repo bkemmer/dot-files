@@ -50,6 +50,19 @@
           ]
       },
   ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+        "before": [
+            "p",
+        ],
+        "after": [
+            "p",
+            "g",
+            "v",
+            "y"
+        ]
+    }
+],
 
     "vim.normalModeKeyBindingsNonRecursive": [
       {
