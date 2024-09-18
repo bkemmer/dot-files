@@ -193,6 +193,12 @@
             "commands": [
                 "bookmarks.list"
             ]
+        },
+        {
+          "before": ["<leader>", "r"],
+          "commands": [
+            "python.execInTerminal"
+          ]
         }
     ],
 
