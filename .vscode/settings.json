@@ -222,6 +222,30 @@
           ],
         },
         // Github extension
+        {
+          "before": ["<leader>", "g", "a"],
+          "commands": [
+            "openInGitHub.openActions"
+          ],
+        },
+        {
+          "before": ["<leader>", "g", "r"],
+          "commands": [
+            "openInGitHub.openRepository"
+          ],
+        },
+        {
+          "before": ["<leader>", "g", "c"],
+          "commands": [
+            "openInGitHub.openCommits"
+          ],
+        },
+        {
+          "before": ["<leader>", "g", "y"],
+          "commands": [
+            "openInGitHub.copyFilePermalink"
+          ],
+        },
     ],
 
 }
