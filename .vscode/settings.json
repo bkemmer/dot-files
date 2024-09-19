@@ -176,10 +176,24 @@
           "before": ["<leader>", "e"],
           "commands": ["workbench.view.explorer"]
       },
+
+      // Bookmarks extensions
+      {
+            "before": ["<leader>", "l"],
+            "commands": [
+                "bookmarks.toggleLabeled"
+            ]
+      },
+      {
+            "before": ["<leader>", "N"],
+            "commands": [
+                "bookmarks.jumpToPrevious"
+            ]
+      },
       {
             "before": ["<leader>", "n"],
             "commands": [
-                "bookmarks.toggleLabeled"
+                "bookmarks.jumpToNext"
             ]
         },
       {
@@ -194,12 +208,20 @@
                 "bookmarks.list"
             ]
         },
+        // Python run and debugging
         {
           "before": ["<leader>", "r"],
           "commands": [
             "python.execInTerminal"
           ]
-        }
+        },
+        {
+          "before": ["<leader>", "d"],
+          "commands": [
+            "editor.debug.action.triggerByBreakpoint"
+          ],
+        },
+        // Github extension
     ],
 
 }
