@@ -1,0 +1,252 @@
+{
+    "workbench.colorTheme": "One Dark Pro",
+    "window.zoomLevel": 0.5,
+    "editor.fontSize": 14,
+    "vim.smartRelativeLine": true,
+    "editor.cursorSurroundingLines": 8,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "#a9dc7660",
+    "vim.highlightedyank.duration": 250,
+    "vim.useSystemClipboard": true,
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+    
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
+    "breadcrumbs.enabled": true,
+    "breadcrumbs.symbolPath": "off",
+    "breadcrumbs.symbolSortOrder": "position",
+    "editor.renderWhitespace": "none",
+
+    "diffEditor.renderSideBySide": true,
+
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/*.code-search": true,
+      "**/tmp": true,
+      "**/.git": true
+    },
+
+    "search.useReplacePreview": false,
+
+    "keyboard.dispatch": "keyCode",
+
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.visualModeKeyBindings":[
+      {
+          "before": [
+              ">"
+          ],
+          "commands": [
+              "editor.action.indentLines"
+          ]
+      },
+      {
+          "before": [
+              "<"
+          ],
+          "commands": [
+              "editor.action.outdentLines"
+          ]
+      },
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+        "before": [
+            "p",
+        ],
+        "after": [
+            "p",
+            "g",
+            "v",
+            "y"
+        ]
+    }
+],
+
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": [
+          "<leader>",
+          "<leader>",
+        ],
+        "commands": [
+          {
+            "command": "workbench.action.openPreviousEditorFromHistory",
+          },
+          {
+            "command": "workbench.action.acceptSelectedQuickOpenItem",
+          },
+        ],
+      },
+
+    // Easy save
+    {
+      "before": [
+        "<leader>",
+        "w",
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.files.save",
+        },
+      ],
+    },
+
+    // Command-T
+    {
+      "before": [
+        "<leader>",
+        "t",
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.quickOpen",
+        },
+      ],
+    },
+
+    // Join lines with comments
+    {
+      "before": [
+        "J",
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "joinCommentAware.join",
+          "args": [],
+        },
+      ],
+    },
+
+    // vim-vinegar
+    {
+      "before": [
+        "-",
+      ],
+      "commands": [
+        {
+          "command": "breadcrumbs.toggleToOn",
+          "when": "!config.breadcrumbs.enabled",
+        },
+        {
+          "command": "breadcrumbs.focusAndSelect",
+          "when": "breadcrumbsPossible",
+        },
+      ],
+    },
+      {
+        "before": ["g", "p", "d"],
+        "commands": ["editor.action.peekDefinition"]
+      },
+      {
+        "before": ["g", "h"],
+        "commands": ["editor.action.showDefinitionPreviewHover"]
+      },
+      {
+        "before": ["g", "i"],
+        "commands": ["editor.action.goToImplementation"]
+      },
+      {
+        "before": ["g", "p", "i"],
+        "commands": ["editor.action.peekImplementation"]
+      },
+      {
+        "before": ["g", "q"],
+        "commands": ["editor.action.quickFix"]
+      },
+      {
+        "before": ["g", "r"],
+        "commands": ["editor.action.referenceSearch.trigger"]
+      },
+      {
+        "before": ["g", "t"],
+        "commands": ["editor.action.goToTypeDefinition"]
+      },
+      {
+        "before": ["g", "p", "t"],
+        "commands": ["editor.action.peekTypeDefinition"]
+      },
+      {
+        "before": ["g", "f"],
+        "commands": ["editor.action.referenceSearch.trigger"]
+      },
+      {
+          "before": ["<leader>", "e"],
+          "commands": ["workbench.view.explorer"]
+      },
+
+      // Bookmarks extensions
+      {
+            "before": ["<leader>", "l"],
+            "commands": [
+                "bookmarks.toggleLabeled"
+            ]
+      },
+      {
+            "before": ["<leader>", "N"],
+            "commands": [
+                "bookmarks.jumpToPrevious"
+            ]
+      },
+      {
+            "before": ["<leader>", "n"],
+            "commands": [
+                "bookmarks.jumpToNext"
+            ]
+        },
+      {
+            "before": ["<leader>", "m"],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": ["<leader>", "b"],
+            "commands": [
+                "bookmarks.list"
+            ]
+        },
+        // Python run and debugging
+        {
+          "before": ["<leader>", "r"],
+          "commands": [
+            "python.execInTerminal"
+          ]
+        },
+        {
+          "before": ["<leader>", "d"],
+          "commands": [
+            "editor.debug.action.triggerByBreakpoint"
+          ],
+        },
+        // Github extension
+        {
+          "before": ["<leader>", "g", "a"],
+          "commands": [
+            "openInGitHub.openActions"
+          ],
+        },
+        {
+          "before": ["<leader>", "g", "r"],
+          "commands": [
+            "openInGitHub.openRepository"
+          ],
+        },
+        {
+          "before": ["<leader>", "g", "c"],
+          "commands": [
+            "openInGitHub.openCommits"
+          ],
+        },
+        {
+          "before": ["<leader>", "g", "y"],
+          "commands": [
+            "openInGitHub.copyFilePermalink"
+          ],
+        },
+    ],
+
+}
