@@ -73,5 +73,21 @@
         "key": "alt+k",
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+      }, 
+      {
+        "key": "ctrl+w shift+j",
+        "command": "workbench.action.moveEditorToBelowGroup"
+      },
+      {
+        "key": "ctrl+w shift+k",
+        "command": "workbench.action.moveEditorToAboveGroup"
+      },
+      {
+        "key": "ctrl+w shift+h",
+        "command": "workbench.action.moveEditorToPreviousGroup"
+      },
+      {
+        "key": "ctrl+w shift+l",
+        "command": "workbench.action.moveEditorToNextGroup"
       }
 ]
