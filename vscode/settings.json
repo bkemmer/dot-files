@@ -64,7 +64,23 @@
             "v",
             "y",
         ]
-    }
+    },
+    { // evaluate selection on Debug Repl
+      "before": [
+        "g",
+        "e",
+      ],
+      "commands": ["editor.debug.action.selectionToRepl"],
+    },
+    { // add selection on watchlist 
+      "before": [
+        "g",
+        "a",
+        "w",
+      ],
+      "commands": ["editor.debug.action.selectionToWatch"],
+      "when": "debugState == 'active'",
+    },
 ],
     "vim.normalModeKeyBindingsNonRecursive": [
       {
@@ -73,12 +89,8 @@
           "<leader>",
         ],
         "commands": [
-          {
-            "command": "workbench.action.openPreviousEditorFromHistory",
-          },
-          {
-            "command": "workbench.action.acceptSelectedQuickOpenItem",
-          },
+          "workbench.action.openPreviousEditorFromHistory",
+          "workbench.action.acceptSelectedQuickOpenItem",
         ],
       },
       {
@@ -88,6 +100,11 @@
           "r",
         ],
         "commands": ["references-view.findReferences"],
+      },
+      {
+        "before": ["g", "w"],
+        "commands": ["workbench.debug.action.focusWatchView"],
+        "when": "debugState == 'active'",
       },
     // Command-T
     {
