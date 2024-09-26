@@ -79,12 +79,12 @@
         "w",
       ],
       "commands": ["editor.debug.action.selectionToWatch"],
-      "when": "debugState == 'active'",
+      "when": "debugState == 'running'",
     },
     {
       "before": ["g", "w"],
       "commands": ["workbench.debug.action.focusWatchView"],
-      "when": "debugState == 'active'",
+      "when": "debugState == 'running'",
     },
 ],
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -109,7 +109,7 @@
       {
         "before": ["g", "w"],
         "commands": ["workbench.debug.action.focusWatchView"],
-        "when": "debugState == 'active'",
+        "when": "debugState == 'running'",
       },
     // Command-T
     {
