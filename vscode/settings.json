@@ -62,7 +62,7 @@
             "p",
             "g",
             "v",
-            "y"
+            "y",
         ]
     }
 ],
@@ -108,21 +108,6 @@
         },
       ],
     },
-
-    // Join lines with comments
-    {
-      "before": [
-        "J",
-      ],
-      "after": [],
-      "commands": [
-        {
-          "command": "joinCommentAware.join",
-          "args": [],
-        },
-      ],
-    },
-
     // vim-vinegar
     {
       "before": [
@@ -141,113 +126,90 @@
     },
       {
         "before": ["g", "p", "d"],
-        "commands": ["editor.action.peekDefinition"]
+        "commands": ["editor.action.peekDefinition"],
       },
       {
         "before": ["g", "h"],
-        "commands": ["editor.action.showDefinitionPreviewHover"]
+        "commands": ["editor.action.showDefinitionPreviewHover"],
       },
       {
         "before": ["g", "i"],
-        "commands": ["editor.action.goToImplementation"]
+        "commands": ["editor.action.goToImplementation"],
       },
       {
         "before": ["g", "p", "i"],
-        "commands": ["editor.action.peekImplementation"]
+        "commands": ["editor.action.peekImplementation"],
       },
       {
         "before": ["g", "q"],
-        "commands": ["editor.action.quickFix"]
+        "commands": ["editor.action.quickFix"],
       },
       {
         "before": ["g", "r"],
-        "commands": ["editor.action.referenceSearch.trigger"]
+        "commands": ["editor.action.referenceSearch.trigger"],
       },
       {
         "before": ["g", "t"],
-        "commands": ["editor.action.goToTypeDefinition"]
+        "commands": ["editor.action.goToTypeDefinition"],
       },
       {
         "before": ["g", "p", "t"],
-        "commands": ["editor.action.peekTypeDefinition"]
+        "commands": ["editor.action.peekTypeDefinition"],
       },
       {
         "before": ["g", "f"],
-        "commands": ["editor.action.referenceSearch.trigger"]
+        "commands": ["editor.action.referenceSearch.trigger"],
       },
       {
           "before": ["<leader>", "e"],
-          "commands": ["workbench.view.explorer"]
+          "commands": ["workbench.view.explorer"],
       },
-
       // Bookmarks extensions
       {
             "before": ["<leader>", "l"],
-            "commands": [
-                "bookmarks.toggleLabeled"
-            ]
+            "commands": ["bookmarks.toggleLabeled"],
       },
       {
             "before": ["<leader>", "N"],
-            "commands": [
-                "bookmarks.jumpToPrevious"
-            ]
+            "commands": ["bookmarks.jumpToPrevious"],
       },
       {
             "before": ["<leader>", "n"],
-            "commands": [
-                "bookmarks.jumpToNext"
-            ]
+            "commands": ["bookmarks.jumpToNext"],
         },
       {
             "before": ["<leader>", "m"],
-            "commands": [
-                "bookmarks.toggle"
-            ]
+            "commands": ["bookmarks.toggle"],
         },
         {
             "before": ["<leader>", "b"],
-            "commands": [
-                "bookmarks.list"
-            ]
+            "commands": ["bookmarks.list"],
         },
         // Python run and debugging
         {
           "before": ["<leader>", "r"],
-          "commands": [
-            "python.execInTerminal"
-          ]
+          "commands": ["python.execInTerminal"],
         },
         {
           "before": ["<leader>", "d"],
-          "commands": [
-            "editor.debug.action.triggerByBreakpoint"
-          ],
+          "commands": ["editor.debug.action.triggerByBreakpoint"],
         },
         // Github extension
         {
           "before": ["<leader>", "g", "a"],
-          "commands": [
-            "openInGitHub.openActions"
-          ],
+          "commands": ["openInGitHub.openActions"],
         },
         {
           "before": ["<leader>", "g", "r"],
-          "commands": [
-            "openInGitHub.openRepository"
-          ],
+          "commands": ["openInGitHub.openRepository"],
         },
         {
           "before": ["<leader>", "g", "c"],
-          "commands": [
-            "openInGitHub.openCommits"
-          ],
+          "commands": ["openInGitHub.openCommits"],
         },
         {
           "before": ["<leader>", "g", "y"],
-          "commands": [
-            "openInGitHub.copyFilePermalink"
-          ],
+          "commands": ["openInGitHub.copyFilePermalink"],
         },
     ],
 
