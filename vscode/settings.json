@@ -81,6 +81,11 @@
       "commands": ["editor.debug.action.selectionToWatch"],
       "when": "debugState == 'active'",
     },
+    {
+      "before": ["g", "w"],
+      "commands": ["workbench.debug.action.focusWatchView"],
+      "when": "debugState == 'active'",
+    },
 ],
     "vim.normalModeKeyBindingsNonRecursive": [
       {
