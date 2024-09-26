@@ -32,11 +32,14 @@ if ! command -v htop &> /dev/null
 then
     sudo apt install -y htop
 fi
+# Get current branch
+alias gcb='git rev-parse --abbrev-ref HEAD | xclip'
+# alias gcb='git rev-parse --abbrev-ref HEAD | clip.exe'
+# export TERM=xterm-256color
+# alias tmux="tmux -2"
 
-export TERM=xterm-256color
-alias tmux="tmux -2"
+# # start tmux
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#     exec tmux
+# fi
 
-# start tmux
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-    exec tmux
-fi
