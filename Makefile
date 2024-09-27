@@ -7,4 +7,4 @@ update_macos_vscode: ## Same but for MACOS
 	cp vscode/keybidings.json ${HOME}/Library/Application\ Support/Code/User/keybidings.json
 
 install_vscode_extensions: ## install or update the vscode extensions
-	grep -v // extensions | xargs -L1 code --force --install-extension
+	grep -v // vscode/extensions | xargs -L1 code --force --install-extension
