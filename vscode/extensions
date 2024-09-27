@@ -16,3 +16,5 @@ ryanluker.vscode-coverage-gutters
 fabiospampinato.vscode-open-in-github
 // TODO Highlights v2
 jgclark.vscode-todo-highlight
+// Markdown Preview Mermaid Support
+bierner.markdown-mermaid
