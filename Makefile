@@ -3,9 +3,6 @@
 .PHONY: update_vscode
 .PHONY: update_macos_vscode
 .PHONY: install_vscode_extensions
-.PHONY: lambda_deploy
-.PHONY: lint 
-.PHONY: test
 
 update_vscode: ## Update the vscode config files for ubuntu-like SO
 	cp vscode/settings.json ${HOME}/.config/Code/User/settings.json
@@ -21,13 +18,3 @@ install_vscode_extensions: ## install or update the vscode extensions
 print: ## print this message with all availables make commands
 	@grep '^[^#[:space:]\.].*:' Makefile
 
-lambda_deploy: ## Generate files to deploy the lambda as a zip file (expecting venv folder)
-	mkdir package
-	zip package/lambda_deployment_package.zip -r venv/lib/python3.10/site-packages
-	zip package/lambda_deployment_package.zip lambda_function.py
-
-lint: ## pass the ruff linter
-	ruff check --fix
-
-test: ## run the tests
-	pytest tests/
