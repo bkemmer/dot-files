@@ -22,8 +22,9 @@ print: ## print this message with all availables make commands
 	@grep '^[^#[:space:]\.].*:' Makefile
 
 lambda_deploy: ## Generate files to deploy the lambda as a zip file (expecting venv folder)
-	zip lambda_deployment_package.zip -r venv/lib/python3.10/site-packages
-	zip lambda_deployment_package.zip lambda_function.py
+	mkdir package
+	zip package/lambda_deployment_package.zip -r venv/lib/python3.10/site-packages
+	zip package/lambda_deployment_package.zip lambda_function.py
 
 lint: ## pass the ruff linter
 	ruff check --fix
