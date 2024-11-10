@@ -65,12 +65,12 @@
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
       },
       {
-        "key": "alt+j",
+        "key": "alt+k",
         "command": "selectNextSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
       },
       {
-        "key": "alt+k",
+        "key": "alt+j",
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
       },
