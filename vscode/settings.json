@@ -227,5 +227,7 @@
           "commands": ["openInGitHub.copyFilePermalink"],
         },
     ],
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "editor.parameterHints.enabled": false,
 
 }
