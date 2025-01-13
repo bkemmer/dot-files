@@ -1,0 +1,23 @@
+alias ll="ls -lh"
+
+# git
+alias gs="git status"
+alias gc="git commit"
+
+
+alias v="vim"
+
+# typos
+alias sl=ls
+
+# adding configs
+alias mv="mv -i"
+alias mkdir="mkdir -p"
+alias df="df -h"
+
+alias la="ls -A"
+alias lla="la -l"
+
+# python venv
+alias cve="source ./.venv/bin/activate"
+alias dve="source ~/projects/.venv/bin/activate"
