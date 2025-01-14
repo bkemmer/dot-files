@@ -21,3 +21,8 @@ alias lla="la -l"
 # python venv
 alias cve="source ./.venv/bin/activate"
 alias dve="source ~/projects/.venv/bin/activate"
+
+# RHEL
+# alias bat="~/apps/bat/bat"
+alias clear_keyring="rm ~/.local/share/keyrings/login.keyring"
+
