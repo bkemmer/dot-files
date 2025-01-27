@@ -8,5 +8,5 @@ BAT_PATH="$HOME/apps/bat"
 [[ -d $BAT_PATH ]] && PATH="$BAT_PATH:$PATH"
 
 FLAMESHOT_PATH = "$HOME/apps/flameshot"
-[[ -d $FLAMESHOT_PATH ]] && PATH="$FLAMSHOT_PATH:$PATH"
+[[ -d $FLAMESHOT_PATH ]] && PATH="$FLAMESHOT_PATH:$PATH"
 

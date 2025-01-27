@@ -105,8 +105,8 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Test if ~/.aliases exists and source it
-if [ -f ~/.aliases ]; then
-    source ~/.aliases
+if [ -f $HOME/.aliases ]; then
+    source $HOME/.aliases
 fi
 
 # pyenv
@@ -118,7 +118,7 @@ eval "$(pyenv init -)"
 stty -ixon
 
 # red hat specific
-if [[ $(cat /etc/*-releas | grep -q 'Red Hat Enterprise Linux') ]]; then
-	source ~/.rhel_apps
+if [[ cat /etc/*-release | grep -q 'Red Hat Enterprise Linux'; then
+	source $HOME/.rhel_apps
 fi
 
