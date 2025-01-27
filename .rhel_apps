@@ -10,3 +10,5 @@ BAT_PATH="$HOME/apps/bat"
 FLAMESHOT_PATH="$HOME/apps/flameshot"
 [[ -d $FLAMESHOT_PATH ]] && PATH="$FLAMESHOT_PATH:$PATH"
 
+ACK_PATH="$HOME/apps/ack"
+[[ -d $ACK_PATH ]] && PATH="$ACK_PATH:$PATH"
