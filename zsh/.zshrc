@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
@@ -116,4 +116,9 @@ eval "$(pyenv init -)"
 
 # enabling C-s in vim
 stty -ixon
+
+# red hat specific
+if [[ $(cat /etc/*-releas | grep -q 'Red Hat Enterprise Linux') ]]; then
+	source ~/.rhel_apps
+fi
 

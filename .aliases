@@ -22,8 +22,8 @@ alias lla="la -l"
 alias cve="source ./.venv/bin/activate"
 alias dve="source ~/projects/.venv/bin/activate"
 
-# RHEL
-# alias bat="~/apps/bat/bat"
-# alias flameshot="~/apps/flameshot/flameshot.AppImage"
-alias clear_keyring="rm ~/.local/share/keyrings/login.keyring"
+# nvidia
+alias nvidia_monitor="watch -n0.1 nvidia-smi"
 
+# get current branch
+alias gcb='git rev-parse --abbrev-ref HEAD | xclip'
