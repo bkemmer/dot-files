@@ -26,7 +26,11 @@ clone_repo  https://github.com/sheerun/vim-polyglot ~/.vim/pack/plugins/start/vi
 # Lean & mean status/tabline for vim that's light as air.
 clone_repo https://github.com/vim-airline/vim-airline ~/.vim/pack/plugins/start/vim-airline
 
+# Highlight yanked text
+clone_repo https://github.com/machakann/vim-highlightedyank.git ~/.vim/pack/plugins/start/vim-highlightedyank.git 
+
 # opt
 # Onedark color
 clone_repo https://github.com/joshdick/onedark.vim.git ~/.vim/pack/plugins/opt/onedark.vim  
+
 
