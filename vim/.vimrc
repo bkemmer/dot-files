@@ -113,19 +113,14 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
-" NerdTree recomendations
-"nnoremap <leader>e :NERDTreeFocus<CR>
+" NerdTree 
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <Leader>e :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>t
 " show hidden files by default
 let NERDTreeShowHidden=1
-"nnoremap <silent> <expr> <leader>e g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
-
-
 " Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
-
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
