@@ -118,7 +118,7 @@ eval "$(pyenv init -)"
 stty -ixon
 
 # red hat specific
-if cat /etc/*-release) | grep -q 'Red Hat Enterprise Linux'; then
+if cat /etc/*-release | grep -q 'Red Hat Enterprise Linux'; then
 	source $HOME/.rhel_apps
 fi
 
