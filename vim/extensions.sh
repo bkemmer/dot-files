@@ -15,7 +15,7 @@ clone_repo https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/pack/plugins/start/c
 
 # The NERDTree is a file system explorer for the Vim editor. 
 clone_repo https://github.com/preservim/nerdtree.git ~/.vim/pack/plugins/start/nerdtree
-vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
+vim -u NONE -c "helptags ~/.vim/pack/plugins/start/nerdtree/doc" -c q
 
 # Easymotion
 clone_repo https://github.com/easymotion/vim-easymotion.git ~/.vim/pack/plugins/start/vim-easymotion

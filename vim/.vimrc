@@ -84,6 +84,11 @@ set mouse+=a
 noremap <Space> <Nop>
 map <Space> <Leader>
 
+" Alias to replace all to S
+nnoremap S :%s//g<Left><Left>
+
+" Open current window in a new tab | Use <C-W><C-Q> to go back
+nnoremap <Leader>wo  :tab split<CR>
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
@@ -109,11 +114,22 @@ nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
 " NerdTree recomendations
-nnoremap <leader>e :NERDTreeFocus<CR>
+"nnoremap <leader>e :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <Leader>e :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>t
+" show hidden files by default
+let NERDTreeShowHidden=1
+"nnoremap <silent> <expr> <leader>e g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+
+
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " CtrlP command
 nnoremap <C-p> :CtrlP<CR>
+
 
