@@ -118,7 +118,6 @@ nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
 " NerdTree 
-nnoremap <C-n> :NERDTree<CR>
 nnoremap <Leader>e :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>t
 " show hidden files by default
@@ -136,6 +135,9 @@ let g:NERDTreeGitStatusConcealBracklets = 1
 " CtrlP command
 nnoremap <C-p> :CtrlP<CR>
 
+" Jedi-vim
+" Set default autocomplete command
+let g:jedi#completions_command = "<C-N>"
 
 " SO specific
 if has('linux')

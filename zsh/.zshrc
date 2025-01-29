@@ -120,5 +120,6 @@ stty -ixon
 # red hat specific
 if [[ -f /etc/*-release ]] && cat /etc/*-release | grep -q 'Red Hat Enterprise Linux'; then
 	source $HOME/.rhel_apps
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	vim="/usr/local/bin/vim"
 fi
-
