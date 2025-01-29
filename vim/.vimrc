@@ -137,8 +137,9 @@ nnoremap <C-p> :CtrlP<CR>
 
 " Jedi-vim
 " Set default autocomplete command
+nnoremap <C-N> <NOP>
 let g:jedi#completions_command = "<C-N>"
-
+let g:jedi#environment_path = ".venv"
 " SO specific
 if has('linux')
    set clipboard=unnamedplus
