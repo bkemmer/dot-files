@@ -122,13 +122,16 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <Leader>e :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>t
 " show hidden files by default
-let NERDTreeShowHidden=1
+let g:NERDTreeShowHidden=1
 " Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " Hide some folders
-let NERDTreeIgnore=["\.git$", "\.idea$", "\.vscode$", "\.history$"]
+let g:NERDTreeIgnore=['\.github$', '\.git$', '\.idea$', '\.vscode$', '\.history$']
+" DISABLE if using vim-devicons
+let g:NERDTreeGitStatusConcealBracklets = 1 
+
 
 " CtrlP command
 nnoremap <C-p> :CtrlP<CR>
