@@ -93,6 +93,8 @@ nnoremap S :%s//g<Left><Left>
 
 " Open current window in a new tab | Use <C-W><C-Q> to go back
 nnoremap <Leader>wo  :tab split<CR>
+" Shortcut for :tabnew
+nnoremap <C-t> :tabnew<Space>
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
@@ -119,7 +121,8 @@ nmap <silent> <c-l> :wincmd l<CR>
 
 " NerdTree 
 nnoremap <Leader>e :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>t
+nnoremap <Leader>t :NERDTree
+nnoremap <C-f> :NERDTreeFind<CR>
 " show hidden files by default
 let g:NERDTreeShowHidden=1
 " Start NERDTree and put the cursor back in the other window.
@@ -138,8 +141,8 @@ nnoremap <C-p> :CtrlP<CR>
 " Jedi-vim
 " Set default autocomplete command
 nnoremap <C-N> <NOP>
-let g:jedi#completions_command = "<C-N>"
-let g:jedi#environment_path = ".venv"
+"let g:jedi#completions_command = "<C-N>"
+" let g:jedi#environment_path = ".venv"
 " SO specific
 if has('linux')
    set clipboard=unnamedplus

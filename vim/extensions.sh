@@ -58,6 +58,9 @@ clone_repo https://github.com/machakann/vim-highlightedyank.git $VIM_EXTENSIONS_
 
 # Autocompletions for python - jedi vim
 clone_repo https://github.com/davidhalter/jedi-vim.git $VIM_EXTENSIONS_PATH/start/jedi-vim
+cd $VIM_EXTENSIONS_PATH/start/jedi-vim
+# https://github.com/davidhalter/jedi-vim.git
+git submodule update --init --recursive
 
 # opt
 # Onedark color
