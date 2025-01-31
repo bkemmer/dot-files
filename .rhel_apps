@@ -15,18 +15,21 @@ ACK_PATH="$HOME/apps/ack"
 
 # functions
 dl_and_mv_repo(){
-    # $1 url to zip file with the master branch of the repository
-    # $2 name of the unziped folder ex.: dot-file-main
-    # $3 path to the download folder
-    # $4 path to be installed  
-    read -s -k "?Download $1 and press a key to continue..."
+    URL=$1              # url to zip file with the master branch of the repository
+    ZIP=$2              # name of the zip and unziped folder ex.: dot-file-main.zip and dot-file-main
+    DEST=$3             # name of the destination folder
+    DOWNLOAD_FOLDER=$4  # path to the download folder
+    INSTALL_FOLDER=$5   # path to be installed  
+
+    [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] && rm $DOWNLOAD_FOLDER/$ZIP.zip 
+    read -s -k "?Download $URL and press a key to continue..."
     echo ""
-    cd $3
-    unzip -qq $2.zip
-    mv $2 $3
-    rm -r $4/$2
-    mv $3 $4/$2
-    rm $2.zip
+    cd $DOWNLOAD_FOLDER
+    unzip -qq $ZIP.zip
+    mv $ZIP $DEST
+    rm -r $INSTALL_FOLDER/$DEST
+    mv $DEST $INSTALL_FOLDER/$DEST
+    rm $ZIP.zip
     echo ""
 }
 
