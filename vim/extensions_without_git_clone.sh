@@ -7,7 +7,7 @@ dl_and_mv_repo(){
     # $2 name of the unziped folder ex.: jedi-vim-master
     # $3 plugin destination folder ex.: jedi-vim
     # $4 path to be installed ex.: $VIM_EXTENSIONS_PATH/start
-    echo "Downloading $2 plugin"
+    echo "Downloading $3 plugin"
     cd $4
     curl -L -o master.zip $1
     unzip -qq master.zip

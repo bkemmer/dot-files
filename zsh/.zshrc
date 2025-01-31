@@ -118,8 +118,11 @@ eval "$(pyenv init -)"
 stty -ixon
 
 # red hat specific
-if [[ -f /etc/*-release ]] && cat /etc/*-release | grep -q 'Red Hat Enterprise Linux'; then
-	source $HOME/.rhel_apps
-elif [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+	if cat /etc/*-release | grep -q 'Red Hat Enterprise Linux'; then
+		source $HOME/.rhel_apps
+	fi
+if [[ "$OSTYPE" == "darwin"* ]]; then
 	vim="/usr/local/bin/vim"
 fi
+

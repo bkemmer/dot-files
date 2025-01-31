@@ -12,3 +12,20 @@ FLAMESHOT_PATH="$HOME/apps/flameshot"
 
 ACK_PATH="$HOME/apps/ack"
 [[ -d $ACK_PATH ]] && PATH="$ACK_PATH:$PATH"
+
+# functions
+dl_and_mv_repo(){
+    # $1 url to zip file with the master branch of the repository
+    # $2 name of the unziped folder ex.: dot-file-master
+    # $3 plugin destination folder ex.: dot-file
+    # $4 path to be installed  
+    echo "Downloading $3 plugin"
+    cd $4
+    curl -L -o master.zip $1
+    unzip -qq master.zip
+    mv $2 $3
+    rm master.zip
+    echo ""
+}
+
+alias update_dot_files="dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-master dot-files $HOME/projects"
