@@ -1,0 +1,20 @@
+# functions
+dl_and_mv_repo(){
+    URL=$1              # url to zip file with the master branch of the repository
+    ZIP=$2              # name of the zip and unziped folder ex.: dot-file-main.zip and dot-file-main
+    DEST=$3             # name of the destination folder
+    DOWNLOAD_FOLDER=$4  # path to the download folder
+    INSTALL_FOLDER=$5   # path to be installed  
+
+    [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] && rm $DOWNLOAD_FOLDER/$ZIP.zip 
+    read -s -k "?Download $URL and press a key to continue..."
+    echo ""
+    cd $DOWNLOAD_FOLDER
+    unzip -qq $ZIP.zip
+    mv $ZIP $DEST
+    rm -r $INSTALL_FOLDER/$DEST
+    mv $DEST $INSTALL_FOLDER/$DEST
+    rm $ZIP.zip
+    echo ""
+}
+

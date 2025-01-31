@@ -120,6 +120,7 @@ stty -ixon
 # red hat specific
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	if cat /etc/*-release | grep -q 'Red Hat Enterprise Linux'; then
+		source $HOME/.functions
 		source $HOME/.rhel_apps
 	fi
 if [[ "$OSTYPE" == "darwin"* ]]; then

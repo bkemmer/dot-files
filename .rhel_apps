@@ -2,6 +2,7 @@
 
 # alias
 alias clear_keyring="rm ~/.local/share/keyrings/login.keyring"
+alias update_dot_files="dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-main dot-files $HOME/Downloads $HOME/projects"
 
 # Paths
 BAT_PATH="$HOME/apps/bat"
@@ -13,24 +14,3 @@ FLAMESHOT_PATH="$HOME/apps/flameshot"
 ACK_PATH="$HOME/apps/ack"
 [[ -d $ACK_PATH ]] && PATH="$ACK_PATH:$PATH"
 
-# functions
-dl_and_mv_repo(){
-    URL=$1              # url to zip file with the master branch of the repository
-    ZIP=$2              # name of the zip and unziped folder ex.: dot-file-main.zip and dot-file-main
-    DEST=$3             # name of the destination folder
-    DOWNLOAD_FOLDER=$4  # path to the download folder
-    INSTALL_FOLDER=$5   # path to be installed  
-
-    [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] && rm $DOWNLOAD_FOLDER/$ZIP.zip 
-    read -s -k "?Download $URL and press a key to continue..."
-    echo ""
-    cd $DOWNLOAD_FOLDER
-    unzip -qq $ZIP.zip
-    mv $ZIP $DEST
-    rm -r $INSTALL_FOLDER/$DEST
-    mv $DEST $INSTALL_FOLDER/$DEST
-    rm $ZIP.zip
-    echo ""
-}
-
-alias update_dot_files="dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-main dot-files $HOME/Downloads $HOME/projects"
