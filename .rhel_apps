@@ -16,16 +16,18 @@ ACK_PATH="$HOME/apps/ack"
 # functions
 dl_and_mv_repo(){
     # $1 url to zip file with the master branch of the repository
-    # $2 name of the unziped folder ex.: dot-file-master
-    # $3 plugin destination folder ex.: dot-file
+    # $2 name of the unziped folder ex.: dot-file-main
+    # $3 path to the download folder
     # $4 path to be installed  
-    echo "Downloading $3 plugin"
-    cd $4
-    curl -L -o master.zip $1
-    unzip -qq master.zip
+    read -s -k "?Download $1 and press a key to continue..."
+    echo ""
+    cd $3
+    unzip -qq $2.zip
     mv $2 $3
-    rm master.zip
+    rm -r $4/$2
+    mv $3 $4/$2
+    rm $2.zip
     echo ""
 }
 
-alias update_dot_files="dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-master dot-files $HOME/projects"
+alias update_dot_files="dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-main dot-files $HOME/Downloads $HOME/projects"
