@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Flameshot
+Comment=Screenshot Tool
+Exec=$HOME/.local/bin/flameshot
+Icon=$HOME/.local/flameshot/flameshot-icon.svg
+Terminal=false
+Type=Application
+Categories=Utility;
