@@ -1,6 +1,27 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-type dl_and_mv_repo &>/dev/null && echo "dl_and_mv_repo() found" || { echo "dl_and_mv_repo() not found, check ~/.functions"; exit 1}
+dl_and_mv_repo(){
+    URL=$1              # url to zip file with the master branch of the repository
+    ZIP=$2              # name of the zip and unziped folder ex.: dot-file-main.zip and dot-file-main
+    DEST=$3             # name of the destination folder
+    DOWNLOAD_FOLDER=$4  # path to the download folder
+    INSTALL_FOLDER=$5   # path to be installed  
+
+    echo ""
+    [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] && rm $DOWNLOAD_FOLDER/$ZIP.zip 
+    read -s -k "?Download $URL and press a key to continue..."
+    echo ""
+    cd $DOWNLOAD_FOLDER
+    [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] || { echo "$ZIP.zip file not found. Exiting"; exit 1; }
+    unzip -qq $ZIP.zip
+    mv $ZIP $DEST
+    rm -r $INSTALL_FOLDER/$DEST
+    mv $DEST $INSTALL_FOLDER/$DEST
+    rm $ZIP.zip
+    echo ""
+}
+# TODO: make this reusable
+# type dl_and_mv_repo &>/dev/null && echo "dl_and_mv_repo() found" || { echo "dl_and_mv_repo() not found, check ~/.functions"; exit 1; }
 
 echo "VIMCONFIG: $VIMCONFIG"
 
@@ -8,7 +29,6 @@ VIM_EXTENSIONS_PATH="$VIMCONFIG/pack/plugins"
 echo "Installing plugins on $VIM_EXTENSIONS_PATH"
 
 DOWNLOAD_FOLDER=$HOME/Downloads
-alias update_dot_files="dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-main dot-files $HOME/Downloads $HOME/projects"
 
 # Installing jedi-vim
 dl_and_mv_repo https://github.com/davidhalter/jedi-vim/archive/refs/heads/master.zip jedi-vim-master jedi-vim $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start

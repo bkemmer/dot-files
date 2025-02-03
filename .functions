@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # functions
 dl_and_mv_repo(){
     URL=$1              # url to zip file with the master branch of the repository
@@ -18,4 +20,6 @@ dl_and_mv_repo(){
     rm $ZIP.zip
     echo ""
 }
+
+export -f dl_and_mv_repo
 
