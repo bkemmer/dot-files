@@ -18,6 +18,8 @@ apt install git
 apt install stow
 ```
 
+Manual installation script under `scripts/install_stow.sh`
+
 ## Installation
 
 First, check out the dotfiles repo in your $HOME directory using git
