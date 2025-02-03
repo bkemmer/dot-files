@@ -2,8 +2,8 @@
 Version=1.0
 Name=Flameshot
 Comment=Screenshot Tool
-Exec=$HOME/.local/bin/flameshot
-Icon=$HOME/.local/flameshot/flameshot-icon.svg
+Exec=/home/kemmerb/.local/bin/flameshot
+Icon=/home/kemmerb/.local/flameshot/flameshot-icon.svg
 Terminal=false
 Type=Application
 Categories=Utility;
