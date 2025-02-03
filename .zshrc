@@ -19,7 +19,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 
 
 # Preferred editor
-if [[ -x nvim ]]; then
+if [[ -x nvim ]] || [[ -x /usr/bin/nvim ]] ; then
 	export VISUAL=nvim
 	alias vim=nvim
 	alias vi=nvim
