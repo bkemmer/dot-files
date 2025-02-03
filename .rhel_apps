@@ -10,6 +10,7 @@ LOCAL_APPS="$HOME/.local"
 alias clear_keyring="rm ~/.local/share/keyrings/login.keyring"
 alias update_dot_files="dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-main dot-files $HOME/Downloads $HOME/projects"
 
+
 # Paths
 BAT_PATH="$LOCAL_APPS/bat"
 [[ -d $BAT_PATH ]] && PATH="$BAT_PATH:$PATH"

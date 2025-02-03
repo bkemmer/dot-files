@@ -34,3 +34,5 @@ alias gs='command git status'
 # run tree to show hidden files but not .git folder
 alias ta='tree -aI .git '
 
+alias restart_gnome="xdotool key 'Alt+F2+r' && sleep 0.5 && xdotool key 'Return'"
+
