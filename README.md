@@ -33,6 +33,8 @@ then use GNU stow to create symlinks
 $ stow .
 ```
 
+To add the required zsh extensions run the script under `scrips` folder.
+
 ### Vscode
 
 To setup vscode run using Makefile commands
