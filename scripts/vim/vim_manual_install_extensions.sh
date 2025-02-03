@@ -4,6 +4,7 @@ echo "VIMCONFIG: $VIMCONFIG"
 
 VIM_EXTENSIONS_PATH="$VIMCONFIG/pack/plugins"
 echo "Installing plugins on $VIM_EXTENSIONS_PATH"
+[[ -d $VIM_EXTENSIONS_PATH ]] || mkdir -p $VIM_EXTENSIONS_PATH
 
 # TODO: needed to make vim-devicons work
 #if [[ "$OSTYPE" == "linux-gnu"* ]]; then
