@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-VIM_EXTENSIONS_PATH="$HOME/.vim/pack/plugins"
+echo "VIMCONFIG: $VIMCONFIG"
+
+VIM_EXTENSIONS_PATH="$VIMCONFIG/pack/plugins"
+echo "Installing plugins on $VIM_EXTENSIONS_PATH"
 
 dl_and_mv_repo(){
     # $1 url to zip file with the master branch of the vim plugin

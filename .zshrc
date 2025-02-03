@@ -19,10 +19,13 @@ export MANPATH="/usr/local/man:$MANPATH"
 
 
 # Preferred editor
-if [[ -x nvim ]] || [[ -x /usr/bin/nvim ]] ; then
+if [[ -x nvim ]] || [[ -x /usr/bin/nvim ]] || [[ -x /usr/local/bin/nvim ]]; then
+	export VIMCONFIG="$HOME/.config/nvim"
 	export VISUAL=nvim
 	alias vim=nvim
 	alias vi=nvim
+else
+	export VIMCONFIG="$HOME/.vim"
 fi
 
 # Test if ~/.aliases exists and source it
