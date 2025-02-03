@@ -58,6 +58,9 @@ set noerrorbells visualbell t_vb=
 " sometimes be convenient.
 set mouse+=a
 
+" Filetype detection on (defaults on nvim")
+filetype plugin indent on
+
 " Mapping leader from / to Space
 noremap <Space> <Nop>
 map <Space> <Leader>
