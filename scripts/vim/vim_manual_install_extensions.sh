@@ -66,6 +66,9 @@ cd $VIM_EXTENSIONS_PATH/start/jedi-vim
 # https://github.com/davidhalter/jedi-vim.git
 git submodule update --init --recursive
 
+# Vim Commentary
+clone_repo https://tpope.io/vim/commentary.git $VIM_EXTENSIONS_PATH/start/commentary
+
 # opt
 # Onedark color
 clone_repo https://github.com/joshdick/onedark.vim.git $VIM_EXTENSIONS_PATH/opt/onedark.vim  
