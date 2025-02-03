@@ -1,0 +1,21 @@
+# Comments and blank lines are allowed
+
+\.git
+\.gitignore
+\.gitmodules
+
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+
+# custom stow ignore
+Makefile
+scripts
+projects_basics
+vscode
+
+.stowrc
+.stow-local-ignore
+
+

@@ -27,3 +27,10 @@ alias nvidia_monitor="watch -n0.1 nvidia-smi"
 
 # get current branch
 alias gcb='git rev-parse --abbrev-ref HEAD | xclip'
+
+# force gs to be git status command instead of Ghostscript
+alias gs='command git status'
+
+# run tree to show hidden files but not .git folder
+alias ta='tree -aI .git '
+
