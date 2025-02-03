@@ -1,16 +1,21 @@
 # This should be run under 'Red Hat Enterprise Linux'
 
+# Default local all folder
+LOCAL_APPS="$HOME/local"
+PATH="$PATH/$LOCAL_APPS/bin"
+
 # alias
 alias clear_keyring="rm ~/.local/share/keyrings/login.keyring"
 alias update_dot_files="dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-main dot-files $HOME/Downloads $HOME/projects"
 
 # Paths
-BAT_PATH="$HOME/apps/bat"
+BAT_PATH="$LOCAL_APPS/bat"
 [[ -d $BAT_PATH ]] && PATH="$BAT_PATH:$PATH"
 
-FLAMESHOT_PATH="$HOME/apps/flameshot"
+FLAMESHOT_PATH="$LOCAL_APPS/flameshot"
 [[ -d $FLAMESHOT_PATH ]] && PATH="$FLAMESHOT_PATH:$PATH"
 
-ACK_PATH="$HOME/apps/ack"
+ACK_PATH="$LOCAL_APPS/ack"
 [[ -d $ACK_PATH ]] && PATH="$ACK_PATH:$PATH"
+
 
