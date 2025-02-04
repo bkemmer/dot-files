@@ -11,7 +11,8 @@ echo "Installing plugins on $VIM_EXTENSIONS_PATH"
 [[ -d $VIM_EXTENSIONS_PATH ]] || mkdir -p $VIM_EXTENSIONS_PATH/{start,opt}
 
 DOWNLOAD_FOLDER=$HOME/Downloads
-
+echo "Tip: <C-Click> in the URL download the zip using the default's browser"
+echo ""
 # Installing jedi-vim
 dl_and_mv_repo https://github.com/davidhalter/jedi-vim/archive/refs/heads/master.zip jedi-vim-master jedi-vim $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start
 # installing its submodules
