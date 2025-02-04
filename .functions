@@ -8,18 +8,18 @@ dl_and_mv_repo(){
     DOWNLOAD_FOLDER=$4  # path to the download folder
     INSTALL_FOLDER=$5   # path to be installed  
 
+    echo ""
     [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] && rm $DOWNLOAD_FOLDER/$ZIP.zip 
-    read -s -k "?Download $URL and press a key to continue..."
+    read -qs "?Download $URL and press a key to continue..."
     echo ""
     cd $DOWNLOAD_FOLDER
     [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] || { echo "$ZIP.zip file not found. Exiting"; exit 1; }
     unzip -qq $ZIP.zip
     mv $ZIP $DEST
-    rm -r $INSTALL_FOLDER/$DEST
+    [[ -d $INSTALL_FOLDER/$DEST ]] || rm -r $INSTALL_FOLDER/$DEST
     mv $DEST $INSTALL_FOLDER/$DEST
     rm $ZIP.zip
     echo ""
 }
-
-export -f dl_and_mv_repo
+export dl_and_mv_repo
 
