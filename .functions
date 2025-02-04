@@ -19,7 +19,7 @@ dl_and_mv_repo(){
     unzip -qq $ZIP.zip
     mv $ZIP $DEST
     [[ -d $INSTALL_FOLDER/$DEST ]] || rm -r $INSTALL_FOLDER/$DEST
-    mv $DEST $INSTALL_FOLDER/$DEST
+    mv $DEST $INSTALL_FOLDER/
     rm $ZIP.zip
     echo ""
 }
