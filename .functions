@@ -17,8 +17,9 @@ dl_and_mv_repo(){
     cd $DOWNLOAD_FOLDER
     [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] || { echo "$ZIP.zip file not found. Exiting"; exit 1; }
     unzip -qq $ZIP.zip
+    [[ -d $DOWNLOAD_FOLDER/$DEST ]] && rm -r $DOWNLOAD_FOLDER/$DEST
     mv $ZIP $DEST
-    [[ -d $INSTALL_FOLDER/$DEST ]] || rm -r $INSTALL_FOLDER/$DEST
+    [[ -d $INSTALL_FOLDER/$DEST ]] && rm -r $INSTALL_FOLDER/$DEST
     mv $DEST $INSTALL_FOLDER/
     rm $ZIP.zip
     echo ""
