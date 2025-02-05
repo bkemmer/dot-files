@@ -40,7 +40,9 @@ dl_and_mv_repo  https://github.com/davidhalter/typeshed/archive/refs/heads/jedi.
 
 # autostart
  
-# TODO: fzf
+# fzf - fuzzy finder
+https://github.com/junegunn/fzf/archive/refs/heads/master.zip fzf-master fzf $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start
+[[ -x fzf ]] || $VIM_EXTENSIONS_PATH/start/fzf/install --bin
 
 ## Nerdtree
 
@@ -72,3 +74,9 @@ dl_and_mv_repo https://github.com/tpope/vim-commentary/archive/refs/heads/master
 # opt
 # Onedark color
 dl_and_mv_repo https://github.com/joshdick/onedark.vim/archive/refs/heads/main.zip onedark.vim-main onedark.vim $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/opt
+
+
+# Update doc of the plugins
+vim -c ':helptags ALL|q'
+
+
