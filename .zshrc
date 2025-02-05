@@ -52,3 +52,6 @@ fi
 # 	vim="/usr/local/bin/vim"
 # fi
 
+# fzf entry
+[[ -f $HOME/.fzf.zsh ]] && source $HOME/.fzf.zsh
+
