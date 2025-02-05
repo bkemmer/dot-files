@@ -42,6 +42,12 @@ dl_and_mv_repo  https://github.com/davidhalter/typeshed/archive/refs/heads/jedi.
 # ack 
 
 # fzf - fuzzy finder
+
+## Install fzf by cloning the repository and running ./install
+# Installing fzf
+dl_and_mv_repo https://github.com/junegunn/fzf/archive/refs/heads/master.zip fzf-master fzf $DOWNLOAD_FOLDER $HOME/.local
+$HOME/.local/.fzf/install
+# Installing the fzf vim plugin
 dl_and_mv_repo https://github.com/junegunn/fzf/archive/refs/heads/master.zip fzf-master fzf $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start
 
 ## Nerdtree
