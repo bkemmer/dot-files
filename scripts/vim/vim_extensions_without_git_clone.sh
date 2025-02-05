@@ -39,10 +39,10 @@ dl_and_mv_repo  https://github.com/davidhalter/typeshed/archive/refs/heads/jedi.
 ## Others
 
 # autostart
- 
+# ack 
+
 # fzf - fuzzy finder
-https://github.com/junegunn/fzf/archive/refs/heads/master.zip fzf-master fzf $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start
-[[ -x fzf ]] || $VIM_EXTENSIONS_PATH/start/fzf/install --bin
+dl_and_mv_repo https://github.com/junegunn/fzf/archive/refs/heads/master.zip fzf-master fzf $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start
 
 ## Nerdtree
 

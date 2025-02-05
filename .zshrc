@@ -53,7 +53,5 @@ fi
 # fi
 
 # fzf entry
-
 [[ -f $HOME/.fzf.zsh ]] && source $HOME/.fzf.zsh
-[[ -d $VIMCONFIG/pack/plugins/start/fzf/bin ]] && export PATH=$PATH:$VIMCONFIG/pack/plugins/start/fzf/bin
 

@@ -26,12 +26,10 @@ clone_repo(){
 }
 
 # autostart
-
-# Run your favorite search tool from Vim, with an enhanced results list.
-clone_repo  https://github.com/mileszs/ack.vim.git $VIM_EXTENSIONS_PATH/start/ack.vim
-
-# Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-clone_repo https://github.com/ctrlpvim/ctrlp.vim.git $VIM_EXTENSIONS_PATH/start/ctrlp.vim
+# TODO: act
+# fzf - fuzzy files finder
+clone_repo https://github.com/junegunn/fzf.git $VIM_EXTENSIONS_PATH/start/fzf
+[[ -x fzf ]] || $VIM_EXTENSIONS_PATH/start/fzf/install --bin
 
 # The NERDTree is a file system explorer for the Vim editor. 
 clone_repo https://github.com/preservim/nerdtree.git $VIM_EXTENSIONS_PATH/start/nerdtree
