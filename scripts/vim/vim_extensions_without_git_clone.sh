@@ -40,13 +40,13 @@ dl_and_mv_repo  https://github.com/davidhalter/typeshed/archive/refs/heads/jedi.
 
 # autostart
 # ack 
+dl_and_mv_repo https://github.com/mileszs/ack.vim/archive/refs/heads/master.zip ack.vim-master ack.vim $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start
 
 # fzf - fuzzy finder
-
 ## Install fzf by cloning the repository and running ./install
 # Installing fzf
 dl_and_mv_repo https://github.com/junegunn/fzf/archive/refs/heads/master.zip fzf-master fzf $DOWNLOAD_FOLDER $HOME/.local
-$HOME/.local/.fzf/install
+$HOME/.local/fzf/install
 # Installing the fzf vim plugin
 dl_and_mv_repo https://github.com/junegunn/fzf/archive/refs/heads/master.zip fzf-master fzf $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start
 
@@ -76,6 +76,10 @@ dl_and_mv_repo https://github.com/machakann/vim-highlightedyank/archive/refs/hea
 
 # Vim Commentary
 dl_and_mv_repo https://github.com/tpope/vim-commentary/archive/refs/heads/master.zip vim-commentary-master vim-commentary $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start/commentary
+
+# TODO: check this one:
+# https://github.com/mbbill/undotree
+
 
 # opt
 # Onedark color

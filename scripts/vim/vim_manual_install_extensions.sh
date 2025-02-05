@@ -26,7 +26,10 @@ clone_repo(){
 }
 
 # autostart
-# TODO: act
+
+# ACK - Run your favorite search tool from Vim, with an enhanced results list.
+clone_repo  https://github.com/mileszs/ack.vim.git $VIM_EXTENSIONS_PATH/start/ack.vim
+
 # fzf - fuzzy files finder
 clone_repo https://github.com/junegunn/fzf.git $VIM_EXTENSIONS_PATH/start/fzf
 [[ -x fzf ]] || $VIM_EXTENSIONS_PATH/start/fzf/install --bin
@@ -66,6 +69,9 @@ git submodule update --init --recursive
 
 # Vim Commentary
 clone_repo https://tpope.io/vim/commentary.git $VIM_EXTENSIONS_PATH/start/commentary
+
+# TODO: check this one:
+# https://github.com/mbbill/undotree
 
 # opt
 # Onedark color

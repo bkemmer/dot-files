@@ -11,7 +11,7 @@ dl_and_mv_repo(){
     echo ""
     [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] && rm $DOWNLOAD_FOLDER/$ZIP.zip 
     echo "Download $URL waiting for it under $DOWNLOAD_FOLDER with filename: $ZIP.zip" 
-    while ! [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]]; do; sleep 5; done
+    while ! [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]]; do; sleep 1; done
     # read -qs "?Download $URL and press a key to continue..."
     echo ""
     cd $DOWNLOAD_FOLDER
