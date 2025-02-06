@@ -6,23 +6,14 @@ VIM_EXTENSIONS_PATH="$VIMCONFIG/pack/plugins"
 echo "Installing plugins on $VIM_EXTENSIONS_PATH"
 [[ -d $VIM_EXTENSIONS_PATH ]] || mkdir -p $VIM_EXTENSIONS_PATH
 
-# TODO: needed to make vim-devicons work
-#if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-#    mkdir -p ~/.local/share/fonts
-#    cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
-#elif [[ "$OSTYPE" == "darwin"* ]]; then
-#    brew install font-hack-nerd-font
-#else
-#    echo "Platform not expected $OSTYPE"
-#fi
-
 
 clone_repo(){
     # $1 is the url and $2 the path
-    [[ -d $2 ]] || (echo "Installing $1 on $2" && git clone --depth 1 $1 $2)
-    # try to add the documentation if the /doc folder exists
-    [[ -d $2/doc ]] && (echo "Adding helptag on $2" && vim -u NONE -c "helptags $2/doc" -c q)
-    echo ""
+    if ! [[ -d $2 ]]; then echo "Installing $1 on $2" && git clone --depth 1 $1 $2
+        # try to add the documentation if the /doc folder exists
+        [[ -d $2/doc ]] && (echo "Adding helptag on $2" && vim -u NONE -c "helptags $2/doc" -c q)
+        echo ""
+    fi
 }
 
 # autostart
@@ -40,10 +31,6 @@ clone_repo https://github.com/preservim/nerdtree.git $VIM_EXTENSIONS_PATH/start/
 # NERDTree extensions
 # nerdtree-git-plugin
 clone_repo https://github.com/Xuyuanp/nerdtree-git-plugin.git $VIM_EXTENSIONS_PATH/start/nerdtree-git-plugin
-# vim-devicons 
-
-# brew install font-hack-nerd-font
-#clone_repo https://github.com/ryanoasis/vim-devicons.git $VIM_EXTENSIONS_PATH/start/vim-devicons
 # vim-nerdtree-syntax-highlight
 clone_repo https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git $VIM_EXTENSIONS_PATH/start/vim-nerdtree-syntax-highlight
 # nerdtree-visual-selection
@@ -70,10 +57,14 @@ git submodule update --init --recursive
 # Vim Commentary
 clone_repo https://tpope.io/vim/commentary.git $VIM_EXTENSIONS_PATH/start/commentary
 
-# TODO: check this one:
-# https://github.com/mbbill/undotree
+# Vim-slime for REPL
+clone_repo https://github.com/jpalardy/vim-slime.git $VIM_EXTENSIONS_PATH/start/vim-slime
 
 # opt
 # Onedark color
 clone_repo https://github.com/joshdick/onedark.vim.git $VIM_EXTENSIONS_PATH/opt/onedark.vim  
+
+
+
+vim -u NONE -c "helptags ALL" -c q
 

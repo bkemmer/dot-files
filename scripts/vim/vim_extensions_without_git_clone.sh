@@ -75,11 +75,10 @@ dl_and_mv_repo https://github.com/vim-airline/vim-airline/archive/refs/heads/mas
 dl_and_mv_repo https://github.com/machakann/vim-highlightedyank/archive/refs/heads/master.zip vim-highlightedyank-master vim-highlightedyank $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start
 
 # Vim Commentary
-dl_and_mv_repo https://github.com/tpope/vim-commentary/archive/refs/heads/master.zip vim-commentary-master vim-commentary $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start/commentary
+dl_and_mv_repo https://github.com/tpope/vim-commentary/archive/refs/heads/master.zip vim-commentary-master vim-commentary $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start
 
-# TODO: check this one:
-# https://github.com/mbbill/undotree
-
+# Vim-slime for REPL
+clone_repo https://github.com/jpalardy/vim-slime/archive/refs/heads/main.zip vim-slime-main vim-slime $DOWNLOAD_FOLDER $VIM_EXTENSIONS_PATH/start
 
 # opt
 # Onedark color
@@ -87,6 +86,6 @@ dl_and_mv_repo https://github.com/joshdick/onedark.vim/archive/refs/heads/main.z
 
 
 # Update doc of the plugins
-vim -c ':helptags ALL|q'
+vim -u NONE -c "helptags ALL" -c q
 
 
