@@ -1,5 +1,17 @@
 #!/usr/bin/env zsh
 
+ask() {
+  while true; do
+    read -p "Existing $INSTALL_FOLDER/$DEST, should be replaced? ([y]/n) " -r
+    REPLY=${REPLY:-"y"}
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      return 1
+    elif [[ $REPLY =~ ^[Nn]$ ]]; then
+      return 0
+    fi
+  done
+
+}
 # functions
 dl_and_mv_repo(){
     URL=$1              # url to zip file with the master branch of the repository
@@ -7,12 +19,17 @@ dl_and_mv_repo(){
     DEST=$3             # name of the destination folder
     DOWNLOAD_FOLDER=$4  # path to the download folder
     INSTALL_FOLDER=$5   # path to be installed  
-
+    
+    if [[ -d $INSTALL_FOLDER/$DEST ]]; then
+      ask()
+      if $? == 0; then
+        echo "Exiting..." && exit 0
+      fi
+    fi
     echo ""
     [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] && rm $DOWNLOAD_FOLDER/$ZIP.zip 
     echo "Download $URL waiting for it under $DOWNLOAD_FOLDER with filename: $ZIP.zip" 
     while ! [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]]; do; sleep 1; done
-    # read -qs "?Download $URL and press a key to continue..."
     echo ""
     cd $DOWNLOAD_FOLDER
     [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] || { echo "$ZIP.zip file not found. Exiting"; exit 1; }
