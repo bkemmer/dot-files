@@ -98,7 +98,7 @@ nmap <silent> <c-l> :wincmd l<CR>
 
 " NerdTree 
 nnoremap <Leader>e :NERDTreeToggle<CR>
-nnoremap <Leader>t :NERDTree
+nnoremap <Leader>t :NERDTree<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 " show hidden files by default
 let g:NERDTreeShowHidden=1

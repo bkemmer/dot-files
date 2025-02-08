@@ -23,7 +23,7 @@ dl_and_mv_repo(){
     if [[ -d $INSTALL_FOLDER/$DEST ]]; then
       ask()
       if $? == 0; then
-        echo "Exiting..." && exit 0
+        echo "Exiting..." && return 1
       fi
     fi
     echo ""

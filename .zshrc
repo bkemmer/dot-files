@@ -29,7 +29,7 @@ else
 fi
 
 # Test if ~/.aliases exists and source it
-if [ -f $HOME/.aliases ]; then
+if [[ -f $HOME/.aliases ]]; then
     source $HOME/.aliases
 fi
 
