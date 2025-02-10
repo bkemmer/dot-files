@@ -17,6 +17,7 @@ BAT_PATH="$LOCAL_APPS/bat"
 
 # NVM (node.js)
 export NVM_DIR="$HOME/.nvm"
-[[ -d NVM_DIR ]] && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# This loads nvm
+[[ -d $NVM_DIR ]] && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && nvm alias default 18
 
 
