@@ -15,3 +15,8 @@ alias update_dot_files="dl_and_mv_repo https://github.com/bkemmer/dot-files/arch
 BAT_PATH="$LOCAL_APPS/bat"
 [[ -d $BAT_PATH ]] && PATH="$BAT_PATH:$PATH"
 
+# NVM (node.js)
+export NVM_DIR="$HOME/.nvm"
+[[ -d NVM_DIR ]] && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+
