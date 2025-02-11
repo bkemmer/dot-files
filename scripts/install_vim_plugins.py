@@ -40,6 +40,7 @@ for plugin_name in config.sections():
     if plugin_name != 'DEFAULTS':
         print(f"Installing {plugin_name}")
         plugin_config = config[plugin_name]
+        scope = plugin_config['scope']
         mode = plugin_config['mode']
         url = plugin_config['url']
         url_zip = plugin_config['url_zip']
