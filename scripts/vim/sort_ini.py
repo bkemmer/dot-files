@@ -5,7 +5,7 @@
 import sys
 from configparser import ConfigParser
 
-FIRST_SECTIONS = ['DEFAULTS']
+FIRST_SECTIONS = ['DEFAULTS', 'EXAMPLE']
 
 def parse_sections(parser, sorted_parser, sections):
     for s in sections:
@@ -39,7 +39,7 @@ def read_file(file_path):
 
 if __name__ == "__main__":
     ini_file_path = 'vim_plugins.ini'
-    out_file = 'vim_plugins_sorted.ini'
+    out_file = 'vim_plugins.ini'
     if len(sys.argv[1:]) >= 1:
         ini_file_path = sys.argv[1:][1]
     if len(sys.argv[1:]) >= 2:
