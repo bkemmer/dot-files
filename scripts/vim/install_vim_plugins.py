@@ -6,6 +6,7 @@ import argparse
 import zipfile
 import time
 import shutil
+import subprocess
 
 CONFIG_FNAME = 'vim_plugins.ini'
 SECONDS_TO_CHECK_FOR_DOWNLOAD_FILES = 1
@@ -58,7 +59,7 @@ OPT_PATH.mkdir(exist_ok=True, parents=True)
 interactive_mode, manual_mode = setup_args()
 
 for plugin_name in config.sections():
-    if plugin_name != SKIP_SECTIONS:
+    if plugin_name not in SKIP_SECTIONS:
         print(f"\nInstalling {plugin_name}")
         plugin_config = config[plugin_name]
 
@@ -75,10 +76,11 @@ for plugin_name in config.sections():
         assert zip_file.suffix == ".zip"
 
         destination_folder_name = plugin_config['destination_folder_name']
-        extra_cmd = None
-        if 'extra_cmd' in plugin_config:
-            extra_cmd = plugin_config['extra_cmd']
-        
+
+        # optionals
+        extra_cmd = plugin_config.get('extra_cmd')
+        just_in_manual = plugin_config.get('just_in_manual')        
+
         if interactive_mode:
             if ask("Should install plugin_name:") == 0:
                 continue
@@ -98,5 +100,13 @@ for plugin_name in config.sections():
                     shutil.move(DOWNLOAD_PATH/ zip_file.with_suffix(''), DESTINATION_PATH)
                     break
                 time.sleep(SECONDS_TO_CHECK_FOR_DOWNLOAD_FILES)
-
+        else:
+            # if mode == 'start':
+            #     os.chdir(START_PATH)
+            # elif mode == 'opt':
+            #     os.chdir(OPT_PATH)
+            # print(os.getcwd())
+            DESTINATION_PATH = EXT_PATH / mode / destination_folder_name
+            cmd = f"git clone --recursive --depth 1 {url} {DESTINATION_PATH}"
+            subprocess.run(cmd)
 
