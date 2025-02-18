@@ -101,25 +101,10 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
-" NerdTree 
-nnoremap <Leader>e :NERDTreeToggle<CR>
-nnoremap <Leader>t :NERDTree<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-" show hidden files by default
-let g:NERDTreeShowHidden=1
-" Hide some folders
-let g:NERDTreeIgnore=['\.github$', '\.git$', '\.idea$', '\.vscode$', '\.history$', '\.venv$']
-"let g:NERDTreeGitStatusConcealBracklets = 1 
+" Vim slime
+let g:slime_target = "tmux" 
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
 
-
-" CtrlP command
-nnoremap <C-p> :CtrlP<CR>
-
-" Jedi-vim
-" Set default autocomplete command
-nnoremap <C-N> <NOP>
-"let g:jedi#completions_command = "<C-N>"
-" let g:jedi#environment_path = ".venv"
 " SO specific
 if has('linux')
    set clipboard=unnamedplus
