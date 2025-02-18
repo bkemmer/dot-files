@@ -106,6 +106,9 @@ for plugin_name in config.sections():
         else:
             cmd = f"git clone --recursive --depth 1 {url} {DESTINATION_PATH}"
             r = os.system(cmd)
-        
+
+# update helptag"s
+ os.system("vim -u NONE -c 'helptags ALL' -c q")
+
 if len(existing_plugins_list) > 0:
-    print(f"The following plugins directories exists and can be replaced using interactive mode (-i): \n\n{'\n'.join(existing_plugins_list)}")
+    print(f"\nThe following plugins directories exists and can be replaced using interactive mode (-i): \n\n{'\n'.join(existing_plugins_list)}\n")
