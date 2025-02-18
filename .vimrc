@@ -4,7 +4,6 @@ set nocompatible
 
 " Show line numbers.
 set number
-
 " Enable the onedark colors
 packadd! onedark.vim
 
@@ -121,3 +120,7 @@ if has('linux')
 else
   set clipboard=unnamed  
 endif
+
+" Copilot
+" packadd! copilot
+
