@@ -73,6 +73,9 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 
+" No need to show the mode since it's displayed in the statusline
+set noshowmode
+
 " Open current window in a new tab | Use <C-W><C-Q> to go back
 nnoremap <Leader>wo  :tab split<CR>
 " Shortcut for :tabnew
