@@ -122,5 +122,5 @@ else
 endif
 
 " Copilot
-" packadd! copilot
+" packadd! copilot.vim
 
