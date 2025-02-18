@@ -41,74 +41,81 @@ def setup_args():
 
     return interactive_mode, manual_mode
 
-CONFIG_PATH = Path(__file__).parent / CONFIG_FNAME
-if not CONFIG_PATH.is_file():
-    print("{CONFIG_FNAME} not found, exiting...")
-    exit(1)
+def main():
+    CONFIG_PATH = Path(__file__).parent / CONFIG_FNAME
+    if not CONFIG_PATH.is_file():
+        print("{CONFIG_FNAME} not found, exiting...")
+        exit(1)
 
-config = configparser.ConfigParser()
-config.read(CONFIG_PATH)
-print(f"List of plugins in {CONFIG_FNAME}: {config.sections()}")
+    config = configparser.ConfigParser()
+    config.read(CONFIG_PATH)
+    print(f"List of plugins in {CONFIG_FNAME}: {config.sections()}")
 
-VIMCONFIG = os.getenv("VIMCONFIG")
-HOME = os.getenv("HOME")
+    VIMCONFIG = os.getenv("VIMCONFIG")
+    HOME = os.getenv("HOME")
 
-EXT_PATH = Path(VIMCONFIG) / config['DEFAULTS']['extensions_path']
-print(f"Plugins folder: {EXT_PATH} \n")
-DOWNLOAD_PATH = Path(HOME) / config['DEFAULTS']['download_path']
+    EXT_PATH = Path(VIMCONFIG) / config['DEFAULTS']['extensions_path']
+    print(f"Plugins folder: {EXT_PATH} \n")
+    DOWNLOAD_PATH = Path(HOME) / config['DEFAULTS']['download_path']
 
-START_PATH = Path(EXT_PATH) / 'start'
-START_PATH.mkdir(exist_ok=True, parents=True)
-OPT_PATH = Path(EXT_PATH) / 'opt'
-OPT_PATH.mkdir(exist_ok=True, parents=True)
+    START_PATH = Path(EXT_PATH) / 'start'
+    START_PATH.mkdir(exist_ok=True, parents=True)
+    OPT_PATH = Path(EXT_PATH) / 'opt'
+    OPT_PATH.mkdir(exist_ok=True, parents=True)
 
-interactive_mode, manual_mode = setup_args()
-existing_plugins_list = []
-for plugin_name in config.sections():
-    if plugin_name not in configs_dict["SKIP_SECTIONS"]:
-        plugin_config = config[plugin_name]
+    interactive_mode, manual_mode = setup_args()
+    install_plugins()
 
-        mode = plugin_config['mode']
-        assert mode in configs_dict["EXPECTED_MODE_LIST"]
+def install_plugins():
+    existing_plugins_list = []
+    for plugin_name in config.sections():
+        if plugin_name not in configs_dict["SKIP_SECTIONS"]:
+            plugin_config = config[plugin_name]
 
-        url = plugin_config['url']
-        url_zip = plugin_config['url_zip']
+            mode = plugin_config['mode']
+            assert mode in configs_dict["EXPECTED_MODE_LIST"]
 
-        zip_file = Path(plugin_config['zip_file'])
-        assert zip_file.suffix == ".zip"
+            url = plugin_config['url']
+            url_zip = plugin_config['url_zip']
 
-        destination_folder_name = plugin_config['destination_folder_name']
+            zip_file = Path(plugin_config['zip_file'])
+            assert zip_file.suffix == ".zip"
 
-        # optionals
-        extra_cmd = plugin_config.get('extra_cmd')
-        just_in_manual = plugin_config.get('just_in_manual')
+            destination_folder_name = plugin_config['destination_folder_name']
+
+            # optionals
+            extra_cmd = plugin_config.get('extra_cmd')
+            just_in_manual = plugin_config.get('just_in_manual')
 
 
-        DESTINATION_PATH = EXT_PATH / mode / destination_folder_name
-        if interactive_mode:
-            ask_dir_exists(DESTINATION_PATH)
-        elif DESTINATION_PATH.is_dir():
-            existing_plugins_list.append(f"{plugin_name}: {str(DESTINATION_PATH)}")
-            continue
+            DESTINATION_PATH = EXT_PATH / mode / destination_folder_name
+            if interactive_mode:
+                ask_dir_exists(DESTINATION_PATH)
+            elif DESTINATION_PATH.is_dir():
+                existing_plugins_list.append(f"{plugin_name}: {str(DESTINATION_PATH)}")
+                continue
 
-        print(f"\nInstalling {plugin_name}")
-        if manual_mode:
-            # No git clone in this mode
-            print(f'Download {url_zip} waiting for it under {DOWNLOAD_PATH} with filename: {zip_file}')
-            file_path = DOWNLOAD_PATH/zip_file
-            while True:
-                if file_path.is_file():
-                    print(f"Found {file_path}")
-                    unzip(file_path, DOWNLOAD_PATH)
-                    shutil.move(DOWNLOAD_PATH/ zip_file.with_suffix(''), DESTINATION_PATH)
-                    break
-                time.sleep(SECONDS_TO_CHECK_FOR_DOWNLOAD_FILES)
-        else:
-            cmd = f"git clone --recursive --depth 1 {url} {DESTINATION_PATH}"
-            r = os.system(cmd)
+            print(f"\nInstalling {plugin_name}")
+            if manual_mode:
+                # No git clone in this mode
+                print(f'Download {url_zip} waiting for it under {DOWNLOAD_PATH} with filename: {zip_file}')
+                file_path = DOWNLOAD_PATH/zip_file
+                while True:
+                    if file_path.is_file():
+                        print(f"Found {file_path}")
+                        unzip(file_path, DOWNLOAD_PATH)
+                        shutil.move(DOWNLOAD_PATH/ zip_file.with_suffix(''), DESTINATION_PATH)
+                        break
+                    time.sleep(SECONDS_TO_CHECK_FOR_DOWNLOAD_FILES)
+            else:
+                cmd = f"git clone --recursive --depth 1 {url} {DESTINATION_PATH}"
+                r = os.system(cmd)
 
-# update helptag"s
- os.system("vim -u NONE -c 'helptags ALL' -c q")
+    # update helptag"s
+    os.system("vim -u NONE -c 'helptags ALL' -c q")
 
-if len(existing_plugins_list) > 0:
-    print(f"\nThe following plugins directories exists and can be replaced using interactive mode (-i): \n\n{'\n'.join(existing_plugins_list)}\n")
+    if len(existing_plugins_list) > 0:
+        print(f"\nThe following plugins directories exists and can be replaced using interactive mode (-i): \n\n{'\n'.join(existing_plugins_list)}\n")
+
+if __name__ == '__main__':
+    main()
