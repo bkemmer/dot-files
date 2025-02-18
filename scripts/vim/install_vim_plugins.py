@@ -10,9 +10,12 @@ import subprocess
 
 CONFIG_FNAME = 'vim_plugins.ini'
 SECONDS_TO_CHECK_FOR_DOWNLOAD_FILES = 1
-SKIP_SECTIONS = ['DEFAULTS', 'EXAMPLE']
-EXPECTED_SCOPE_LIST = ['system', 'vim']
-EXPECTED_MODE_LIST = ['start', 'opt']
+
+configs_dict = {
+    "SKIP_SECTIONS" : ['DEFAULTS', 'EXAMPLE'],
+    "EXPECTED_SCOPE_LIST" : ['system', 'vim'],
+    "EXPECTED_MODE_LIST" : ['start', 'opt'],
+}
 
 def ask(question_message):
     yes_or_no = input(question_message + ' [Y/n] ')
@@ -59,15 +62,15 @@ OPT_PATH.mkdir(exist_ok=True, parents=True)
 interactive_mode, manual_mode = setup_args()
 
 for plugin_name in config.sections():
-    if plugin_name not in SKIP_SECTIONS:
+    if plugin_name not in configs_dict["SKIP_SECTIONS"]:
         print(f"\nInstalling {plugin_name}")
         plugin_config = config[plugin_name]
 
         scope = plugin_config['scope']
-        assert scope in EXPECTED_SCOPE_LIST
+        assert scope in configs_dict["EXPECTED_SCOPE_LIST"]
 
         mode = plugin_config['mode']
-        assert mode in EXPECTED_MODE_LIST
+        assert mode in configs_dict["EXPECTED_MODE_LIST"]
 
         url = plugin_config['url']
         url_zip = plugin_config['url_zip']
@@ -101,11 +104,6 @@ for plugin_name in config.sections():
                     break
                 time.sleep(SECONDS_TO_CHECK_FOR_DOWNLOAD_FILES)
         else:
-            # if mode == 'start':
-            #     os.chdir(START_PATH)
-            # elif mode == 'opt':
-            #     os.chdir(OPT_PATH)
-            # print(os.getcwd())
             DESTINATION_PATH = EXT_PATH / mode / destination_folder_name
             cmd = f"git clone --recursive --depth 1 {url} {DESTINATION_PATH}"
             subprocess.run(cmd)

@@ -68,6 +68,11 @@ map <Space> <Leader>
 " Alias to replace all to S
 nnoremap S :%s//g<Left><Left>
 
+" Tabs size
+set expandtab
+set shiftwidth=2
+set tabstop=2
+
 " Open current window in a new tab | Use <C-W><C-Q> to go back
 nnoremap <Leader>wo  :tab split<CR>
 " Shortcut for :tabnew
