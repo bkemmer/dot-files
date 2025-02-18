@@ -105,6 +105,9 @@ nmap <silent> <c-l> :wincmd l<CR>
 let g:slime_target = "tmux" 
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
 
+" Vim Airline
+let g:airline_theme = 'onedark'
+
 " SO specific
 if has('linux')
    set clipboard=unnamedplus
