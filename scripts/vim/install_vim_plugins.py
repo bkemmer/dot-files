@@ -108,7 +108,8 @@ for plugin_name in config.sections():
             r = os.system(cmd)
 
 # update helptag"s
- os.system("vim -u NONE -c 'helptags ALL' -c q")
+os.system("vim -u NONE -c 'helptags ALL' -c q")
 
 if len(existing_plugins_list) > 0:
-    print(f"\nThe following plugins directories exists and can be replaced using interactive mode (-i): \n\n{'\n'.join(existing_plugins_list)}\n")
+    existing_plugins_str = '\n'.join(existing_plugins_list)
+    print(f"\nThe following plugins directories exists and can be replaced using interactive mode (-i): \n\n{existing_plugins_str}\n")
