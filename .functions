@@ -1,5 +1,19 @@
 #!/usr/bin/env zsh
 
+prettify_json() {
+  { ! [[ -d $1 ]] } && echo "Creating folder $1" && mkdir $1
+  for file in *; do
+    [[ -f $file ]] && cat $file | jq '.' --tab > $1/$file
+  done
+}
+
+rename_files() {
+  echo "Renaming files removing the following characters $0 with rename"
+  for c in "$@"; do
+    rename "'$c'" '' *
+  done
+}
+
 ask() {
   while true; do
     read -p "Existing $INSTALL_FOLDER/$DEST, should be replaced? ([y]/n) " -r
