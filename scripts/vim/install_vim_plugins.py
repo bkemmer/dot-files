@@ -66,16 +66,18 @@ OPT_PATH.mkdir(exist_ok=True, parents=True)
 interactive_mode, manual_mode = setup_args()
 existing_plugins_list = []
 for plugin_name in plugins_list:
+
+    
     plugin_config = config[plugin_name]
 
     mode = plugin_config['mode']
-    assert mode in configs_dict["EXPECTED_MODE_LIST"]
+    assert mode in configs_dict["EXPECTED_MODE_LIST"], f"{plugin_name}: check 'mode'"
 
     url = plugin_config['url']
     url_zip = plugin_config['url_zip']
 
     zip_file = Path(plugin_config['zip_file'])
-    assert zip_file.suffix == ".zip"
+    assert zip_file.suffix == ".zip", f"{plugin_name}: check 'zip'"
 
     destination_folder_name = plugin_config['destination_folder_name']
 
@@ -90,7 +92,6 @@ for plugin_name in plugins_list:
     elif DESTINATION_PATH.is_dir():
         existing_plugins_list.append(f"{plugin_name}: {str(DESTINATION_PATH)}")
         continue
-
     print(f"\nInstalling {plugin_name}")
     if manual_mode:
         # No git clone in this mode
