@@ -9,6 +9,7 @@ alias v="vim"
 
 # typos
 alias sl=ls
+alias abt=bat
 
 # adding configs
 alias mv="mv -i"

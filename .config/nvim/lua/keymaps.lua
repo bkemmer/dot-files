@@ -40,4 +40,8 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 -- Creates a 'global' paste from clipboard
 vim.keymap.set("n", "gp", '"+p')
 
+-- Move up and down centering the cursos in the middle of the screen
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+
 

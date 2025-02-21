@@ -2,6 +2,13 @@ set encoding=UTF-8
 
 set nocompatible
 
+" Disable netrw
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
+" optionally enable 24-bit colour
+set termguicolors
+"
 " Show line numbers.
 set number
 " Enable the onedark colors
@@ -124,3 +131,56 @@ endif
 " Copilot
 " packadd! copilot.vim
 
+" Git signs
+lua require('gitsigns').setup()
+"autopairs
+lua require("nvim-autopairs").setup()
+" nvim tree
+"lua require("nvim-tree").setup()
+
+" Nvim-tree configs
+" lua << EOL
+" require("nvim-tree").setup({
+"   sort = {
+"     sorter = "case_sensitive",
+"   },
+"   view = {
+"     width = 30,
+"   },
+"   renderer = {
+"     group_empty = true,
+"   },
+"   filters = {
+"     dotfiles = true,
+"   },
+" })
+" EOL
+
+
+
+lua << EOL
+require("nvim-tree").setup({
+        filters = {
+          custom = { "^\\.git$", "\\.pyc$", "__pycache__" },
+        },
+        renderer = {
+          special_files = {},
+          icons = {
+            show = {
+              folder_arrow = false,
+            },
+            glyphs = {
+              default = "",
+              folder = {
+                default = "",
+                open = "",
+                empty = "",
+                empty_open = "",
+              },
+            },
+          },
+        },
+        filters = {
+          dotfiles = true,
+          },
+})
