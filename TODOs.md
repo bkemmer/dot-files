@@ -1,0 +1,1 @@
+- install spaceship using sh 
