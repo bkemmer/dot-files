@@ -1,5 +1,3 @@
 -- Colormap
-vim.cmd [[packadd onedark.vim]]
-vim.cmd.colorscheme('onedark')
-
-
+require'catppuccin'.setup()
+vim.cmd[[colorscheme catppuccin]]
