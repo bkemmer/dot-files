@@ -11,10 +11,4 @@ require("plugins.mini-configs")
 -- kaymaps for the plugins
 require("plugins.plugins_keymaps")
 
--- local packer = require('packer')
--- -- require('packer').startup()
--- packer.startup(function(use)
---     use {
---   'nvim-lualine/lualine.nvim',
--- }
--- end)
+
