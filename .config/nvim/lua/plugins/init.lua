@@ -11,4 +11,5 @@ require("plugins.mini-configs")
 -- kaymaps for the plugins
 require("plugins.plugins_keymaps")
 
-
+-- display images
+require("image").setup()
