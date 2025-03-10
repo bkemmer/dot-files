@@ -7,7 +7,7 @@
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
-
+^/TODOs.md
 
 # custom stow ignore
 Makefile
@@ -17,5 +17,4 @@ vscode
 
 .stowrc
 .stow-local-ignore
-
 
