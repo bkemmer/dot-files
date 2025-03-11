@@ -4,6 +4,7 @@
 # npm i -g pyright
 
 # Install jedi for python 
+pip install -U pyright
 pip install -U jedi-language-server
 
 # Bat Catppuccin for bat
