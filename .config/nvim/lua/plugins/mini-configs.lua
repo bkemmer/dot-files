@@ -4,6 +4,7 @@ require('mini.pairs').setup()
 require('mini.completion').setup()
 require('mini.bracketed').setup()
 require('mini.pick').setup()
+require('mini.extra').setup()
 
 -- replacing lualine
 require('mini.statusline').setup({
