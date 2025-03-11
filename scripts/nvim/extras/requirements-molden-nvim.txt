@@ -1,0 +1,7 @@
+pynvim
+jupyter_client
+cairosvg
+plotly
+kaleido
+pnglatex
+pyperclip

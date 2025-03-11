@@ -21,7 +21,7 @@ alias lla="la -l"
 
 # python venv
 alias cve="source ./.venv/bin/activate"
-alias dve="source ~/projects/.venv/bin/activate"
+alias dve="source ~/.venv/bin/activate"
 
 # nvidia
 alias nvidia_monitor="watch -n0.1 nvidia-smi"
