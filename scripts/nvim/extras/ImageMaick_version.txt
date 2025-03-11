@@ -1,0 +1,4 @@
+# ImageMagick
+Most updated version using glibc 2.28
+7.1.1-23
+https://github.com/ImageMagick/ImageMagick/releases/tag/7.1.1-23
