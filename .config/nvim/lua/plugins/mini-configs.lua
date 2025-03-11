@@ -3,6 +3,7 @@ require('mini.surround').setup()
 require('mini.pairs').setup()
 require('mini.completion').setup()
 require('mini.bracketed').setup()
+require('mini.pick').setup()
 
 -- replacing lualine
 require('mini.statusline').setup({

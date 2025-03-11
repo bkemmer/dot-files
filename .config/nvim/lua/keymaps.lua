@@ -40,8 +40,9 @@ km.set("n", "<c-j>", ":wincmd j<CR>")
 km.set("n", "<c-h>", ":wincmd h<CR>")
 km.set("n", "<c-l>", ":wincmd l<CR>")
 
--- Creates a 'global' paste from clipboard
+-- Creates a 'global' paste/yank from clipboard
 km.set("n", "gp", '"+p')
+km.set("n", "gy", '"+y')
 
 -- Move up and down centering the cursos in the middle of the screen
 km.set("n", "<C-u>", "<C-u>zz")

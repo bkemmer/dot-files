@@ -23,6 +23,9 @@ alias lla="la -l"
 alias cve="source ./.venv/bin/activate"
 alias dve="source ~/.venv/bin/activate"
 
+# dot-files folder
+alias DOTPROJ="$HOME/projects/dot-files"
+
 # nvidia
 alias nvidia_monitor="watch -n0.1 nvidia-smi"
 
