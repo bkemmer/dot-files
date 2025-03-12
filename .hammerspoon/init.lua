@@ -11,4 +11,4 @@ hs.hotkey.bind({}, "f12", function()
     else
         hs.application.launchOrFocus("kitty")
     end
-endr
+end)
