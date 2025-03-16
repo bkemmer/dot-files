@@ -51,4 +51,23 @@ vim.opt.wildmenu = true -- tab complete on command line
 vim.opt.ignorecase = true -- case insensitive search...
 vim.opt.smartcase = true -- unless I use caps
 vim.opt.hlsearch = true -- highlight matching text
+
+-- Clipboard for mac and linux (using tmux)
+vim.g.clipboard = {
+  name = 'myClipboard',
+  copy = {
+    ['+'] = { 'tmux', 'load-buffer', '-' },
+    -- ['+'] = { 'pbcopy' }, -- test for macos later
+    ['*'] = { 'tmux', 'load-buffer', '-' },
+  },
+  paste = {
+    ['+'] = { 'tmux', 'save-buffer', '-' },
+    -- ['+'] = { 'pbpaste' }, -- test for macos later
+    ['*'] = { 'tmux', 'save-buffer', '-' },
+  },
+  cache_enabled = 1,
+}
+
+
+
 vim.opt.incsearch = true -- update results while I type

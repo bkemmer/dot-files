@@ -5,15 +5,16 @@ require('mini.completion').setup()
 require('mini.bracketed').setup()
 require('mini.pick').setup()
 require('mini.extra').setup()
+require('mini.icons').setup()
 
 -- replacing lualine
 require('mini.statusline').setup({
-  use_icons = false,
+  -- use_icons = false,
 })
 
 -- tabline
 require('mini.tabline').setup({
-  show_icons = false,
+  -- show_icons = false, 
 })
 
 -- MINI.HIPATTERNS 'FIXME', 'HACK', 'TODO', 'NOTE'
@@ -81,7 +82,7 @@ require('mini.files').setup({
     -- Predicate for which file system entries to show
     filter = filter_show,
     -- What prefix to show to the left of file system entry
-    prefix = function() end,
+    -- prefix = function() end, -- uncomment this to remove icons
     -- In which order to show file system entries
     -- sort = "case_sensitive"
   },
