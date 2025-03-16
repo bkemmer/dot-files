@@ -54,7 +54,7 @@ fi
 # fi
 
 # fzf entry
-[[ -f $HOME/.fzf.zsh ]] && source $HOME/.fzf.zsh
+[[ -x fzf ]] && source <(fzf --zsh)
 
 # bat theme
 export BAT_THEME="Catppuccin Mocha"
