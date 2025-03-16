@@ -53,11 +53,11 @@ fi
 # 	vim="/usr/local/bin/vim"
 # fi
 
-# fzf entry
-[[ -x fzf ]] && source <(fzf --zsh)
-
 # bat theme
 export BAT_THEME="Catppuccin Mocha"
 
 # using bat as a colorizing pager for `man`
 export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+
+# fzf entry
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
