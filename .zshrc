@@ -73,3 +73,4 @@ export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p
 # neofetch
 if command_exists neofetch; then neofetch; fi
 
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
