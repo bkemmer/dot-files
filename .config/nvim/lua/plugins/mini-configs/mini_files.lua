@@ -1,38 +1,3 @@
-require('mini.ai').setup()
-require('mini.surround').setup()
-require('mini.pairs').setup()
-require('mini.completion').setup()
-require('mini.bracketed').setup()
-require('mini.pick').setup()
-require('mini.extra').setup()
-require('mini.icons').setup()
-
--- replacing lualine
-require('mini.statusline').setup({
-  -- use_icons = false,
-})
-
--- tabline
-require('mini.tabline').setup({
-  -- show_icons = false, 
-})
-
--- MINI.HIPATTERNS 'FIXME', 'HACK', 'TODO', 'NOTE'
-
-local hipatterns = require('mini.hipatterns')
-hipatterns.setup({
-  highlighters = {
-    -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-    fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
-    hack  = { pattern = '%f[%w]()HACK()%f[%W]',  group = 'MiniHipatternsHack'  },
-    todo  = { pattern = '%f[%w]()TODO()%f[%W]',  group = 'MiniHipatternsTodo'  },
-    note  = { pattern = '%f[%w]()NOTE()%f[%W]',  group = 'MiniHipatternsNote'  },
-
-    -- Highlight hex color strings (`#rrggbb`) using that color
-    hex_color = hipatterns.gen_highlighter.hex_color(),
-  },
-})
-
 -- MINI.FILES
 
 local show_dotfiles = true
@@ -127,6 +92,14 @@ require('mini.files').setup({
     width_preview = 50,
   },
 })
+
+-- Mini.Files Open()
+vim.keymap.set("n", "<Leader>e", function()
+      local buf_name = vim.api.nvim_buf_get_name(0)
+      local path = vim.fn.filereadable(buf_name) == 1 and buf_name or vim.fn.getcwd()
+      MiniFiles.open(path)
+      MiniFiles.reveal_cwd()
+    end, { desc = "Open Mini Files" })
 
 
 

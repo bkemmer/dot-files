@@ -7,8 +7,5 @@ require("gitsigns").setup()
 require("plugins.mini-configs")
 require('plugins.py-lsp-config')
 
--- kaymaps for the plugins
-require("plugins.plugins_keymaps")
-
 -- display images
 require("image").setup()

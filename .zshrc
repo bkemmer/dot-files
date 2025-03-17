@@ -15,18 +15,26 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# create a function to test if a command exists
+command_exists() {
+  command -v "$1" >/dev/null 2>&1
+}
+
 # User configuration
 export MANPATH="/usr/local/man:$MANPATH"
 
 
 # Preferred editor
-if [[ -x nvim ]] || [[ -x /usr/bin/nvim ]] || [[ -x /usr/.local/bin/nvim ]] || [[ -x /usr/local/bin/nvim ]]; then
+if command_exists nvim; then
 	export VIMCONFIG="$HOME/.config/nvim"
 	export VISUAL=nvim
+  export EDITOR='nvim'
 	alias vim=nvim
-	alias vi=nvim
+  alias vi=nvim
+  alias v=nvim
 else
 	export VIMCONFIG="$HOME/.vim"
+  export EDITOR='vim'
 fi
 
 # Test if ~/.aliases exists and source it
@@ -63,5 +71,5 @@ export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # neofetch
-[[ -x neofetch ]] && neofetch
+if command_exists neofetch; then neofetch; fi
 
