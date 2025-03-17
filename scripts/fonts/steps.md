@@ -8,7 +8,13 @@ based on: https://gist.github.com/matthewjberger/7dd7e079f282f8138a9dc3b045ebefa
 ex.: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/JetBrainsMono.zip
 
 - unzip and move the folder to:  
+(linux)
 > /.local/share/fonts
+
+(macos)
+> ~/Library/Fonts/
 
 - update the font cache:
 >  fc-cache -fv
+
+

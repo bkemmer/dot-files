@@ -6,3 +6,6 @@ vim.keymap.set("n", "<Leader>g", function() MiniPick.builtin.files({ tool = 'git
 vim.keymap.set("n", "<Leader>b", function() MiniPick.builtin.buffers() end, { desc = "Open Mini Pick for buffers" })
 vim.keymap.set("n", "<Leader>l", function() MiniPick.builtin.grep_live() end, { desc = "Open Mini Pick grep files" })
 
+-- Mini.Extra
+vim.keymap.set("n", "<Leader>h", function() MiniExtra.pickers.visit_paths() end, { desc = "Open Mini Pick for visited paths ordered by robust frecency" })
+

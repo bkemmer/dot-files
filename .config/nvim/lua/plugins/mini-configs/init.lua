@@ -6,6 +6,7 @@ require('mini.completion').setup()
 require('mini.bracketed').setup()
 require('mini.extra').setup()
 require('mini.icons').setup()
+require('mini.visits').setup()
 
 -- replacing lualine
 require('mini.statusline').setup({
