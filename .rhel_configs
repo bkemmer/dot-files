@@ -8,8 +8,7 @@ LOCAL_APPS="$HOME/.local"
 
 # alias
 alias clear_keyring="rm ~/.local/share/keyrings/login.keyring"
-alias update_dot_files="dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-main dot-files $HOME/Downloads $HOME/projects"
-
+alias update_dot_files="dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-main dot-files $HOME/Downloads $HOME/projects ; cd $HOME/projects/dot-files ; git init"
 
 # Paths
 BAT_PATH="$LOCAL_APPS/bat"
