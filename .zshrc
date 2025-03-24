@@ -55,6 +55,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	if cat /etc/*-release | grep -q 'Red Hat Enterprise Linux'; then
 		source $HOME/.functions
 		source $HOME/.rhel_configs
+    [[ -f $HOME/.rhel_others ]] && source $HOME/.rhel_configs
 	fi
 fi
 # if [[ "$OSTYPE" == "darwin"* ]]; then

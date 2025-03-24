@@ -8,7 +8,15 @@ LOCAL_APPS="$HOME/.local"
 
 # alias
 alias clear_keyring="rm ~/.local/share/keyrings/login.keyring"
-alias update_dot_files="dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-main dot-files $HOME/Downloads $HOME/projects ; cd $HOME/projects/dot-files ; git init"
+alias =""
+# functions
+update_dot_files() {
+  dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-main dot-files $HOME/Downloads $HOME/projects/dot-files
+  cd $HOME/projects/dot-files
+  git init > /dev/null
+  git add .
+  git commit -m "default commit"
+  }
 
 # Paths
 BAT_PATH="$LOCAL_APPS/bat"
@@ -26,3 +34,7 @@ alias tmux="TERM=xterm-256color tmux"
 
 # Add path to found custom libraries
 export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
+
+# add autocomplete for fd
+[[ -f ~/.local/fd/autocomplete/fd.bash ]] && source ~/.local/fd/autocomplete/fd.bash
+

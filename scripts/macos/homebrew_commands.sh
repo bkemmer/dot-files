@@ -14,6 +14,10 @@ brew install ripgrep
 # Fuzzy installation
 brew install fzf
 
+# Install fd
+brew install fd
+
 # required to python setup
 brew install imagemagick
 brew install pkg-config
+
