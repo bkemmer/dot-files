@@ -15,7 +15,7 @@ update_dot_files() {
   cd $HOME/projects/dot-files
   git init > /dev/null
   git add .
-  git commit -m "default commit"
+  git commit -m "default commit" > /dev/null
   }
 
 # Paths
