@@ -23,6 +23,9 @@ alias lla="la -l"
 alias cve="source ./.venv/bin/activate"
 alias dve="source ~/.venv/bin/activate"
 
+# create a ipykernel
+alias ipykernel_install="python -m ipykernel install --user --name"
+
 # dot-files folder
 export DOTPROJ='$HOME/projects/dot-files'
 

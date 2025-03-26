@@ -1,4 +1,7 @@
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+local lspconfig = require('lspconfig')
 
--- require('lspconfig').pyright.setup()
+lspconfig['lua_ls'].setup({ capabilities = capabilities })
+lspconfig['jedi_language_server'].setup({ capabilities = capabilities })
+lspconfig['pyright'].setup({ capabilities = capabilities })
 
-require'lspconfig'.jedi_language_server.setup{}

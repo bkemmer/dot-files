@@ -1,0 +1,6 @@
+{
+  "Configuration":{
+    "prefix": "[]", 
+    "body": "[$1]\n; $2\nmode = start\nurl = $3\nurl_zip = $4\nzip_file = $5\ndestination_folder_name = $6\n"
+  }
+}

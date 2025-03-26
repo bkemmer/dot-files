@@ -8,7 +8,7 @@ require('mini.bracketed').setup()
 require('mini.extra').setup()
 require('mini.icons').setup()
 require('mini.visits').setup()
-
+require('mini.diff').setup()
 -- replacing lualine
 require('mini.statusline').setup({
   -- use_icons = false,
@@ -22,3 +22,4 @@ require('mini.tabline').setup({
 require('plugins.mini-configs.mini_hipatterns')
 require('plugins.mini-configs.mini_files')
 require('plugins.mini-configs.mini_pick')
+require('plugins.mini-configs.mini_snippets')

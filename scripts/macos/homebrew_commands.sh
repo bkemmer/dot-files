@@ -21,3 +21,5 @@ brew install fd
 brew install imagemagick
 brew install pkg-config
 
+# lua language server for LSP
+brew install lua-language-server

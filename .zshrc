@@ -47,6 +47,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# venv wrapper
+[[ -f $HOME/.venv_wrapper ]] && source $HOME/.venv_wrapper
 # enabling C-s in vim
 stty -ixon
 
@@ -75,3 +77,4 @@ export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p
 if command_exists neofetch; then neofetch; fi
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
