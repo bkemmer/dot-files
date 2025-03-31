@@ -52,7 +52,14 @@ plugins_list = [s for s in config.sections() if s not in configs_dict['SKIP_SECT
 print(f"List of plugins in {CONFIG_FNAME}: {plugins_list}")
 
 VIMCONFIG = os.getenv("VIMCONFIG")
-HOME = os.getenv("HOME")
+HOME = Path(os.getenv("HOME"))
+if VIMCONFIG is None:
+    if ask(f"Environment variable: {VIMCONFIG} not set, should use `~/.config/nvim`?") == 1:
+        VIMCONFIG = HOME / ".config/nvim"
+    else:
+        exit(1)
+
+
 
 EXT_PATH = Path(VIMCONFIG) / config['DEFAULTS']['extensions_path']
 print(f"Plugins folder: {EXT_PATH} \n")
@@ -114,7 +121,7 @@ for plugin_name in plugins_list:
         r = os.system(cmd)
 
 # update helptag"s
-os.system("vim -u NONE -c 'helptags ALL' -c q")
+os.system("nvim -u NONE -c 'helptags ALL' -c q")
 
 if len(existing_plugins_list) > 0:
     existing_plugins_str = '\n'.join(existing_plugins_list)
