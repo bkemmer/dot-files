@@ -1,6 +1,4 @@
 -- Folding
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldcolumn = "0" -- remove extra info on folds
 vim.opt.foldtext = "" -- the first line of the fold will be syntax highlighted, rather than all be one colour
 vim.opt.foldlevel = 99
