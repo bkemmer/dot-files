@@ -36,16 +36,7 @@ vim.opt.cursorline = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-
--- Folding
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldcolumn = "0" -- remove extra info on folds
-vim.opt.foldtext = "" -- the first line of the fold will be syntax highlighted, rather than all be one colour
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
-vim.opt.foldnestmax = 4 -- This limits how deeply code gets folded
-
+--
 -- Searching
 vim.opt.wildmenu = true -- tab complete on command line
 vim.opt.ignorecase = true -- case insensitive search...
