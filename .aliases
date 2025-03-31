@@ -46,3 +46,7 @@ alias restart_gnome="xdotool key 'Alt+F2+r' && sleep 0.2 && xdotool key 'Return'
 # fzf 
 alias fzfprev='fzf --preview="bat --color=always {}"'
 alias fzfnvim='nvim $(fzf --preview="bat --color=always --style=numbers {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)'
+
+# clipboard
+alias xclipf="xclip $1 -selection clipboard"
+
