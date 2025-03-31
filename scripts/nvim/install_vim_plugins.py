@@ -71,7 +71,8 @@ OPT_PATH = Path(EXT_PATH) / 'opt'
 OPT_PATH.mkdir(exist_ok=True, parents=True)
 
 interactive_mode, manual_mode = setup_args()
-existing_plugins_list = []
+existing_plugins_dict = {}
+all_plugins_dict = {}
 for plugin_name in plugins_list:
 
     
@@ -88,17 +89,19 @@ for plugin_name in plugins_list:
 
     destination_folder_name = plugin_config['destination_folder_name']
 
-    # optionals
-    extra_cmd = plugin_config.get('extra_cmd')
+    # optionals extra_cmd = plugin_config.get('extra_cmd')
     just_in_manual = plugin_config.get('just_in_manual')
 
 
     DESTINATION_PATH = EXT_PATH / mode / destination_folder_name
+
+    all_plugins_dict[plugin_name] = DESTINATION_PATH
     if interactive_mode:
         ask_dir_exists(DESTINATION_PATH)
     elif DESTINATION_PATH.is_dir():
-        existing_plugins_list.append(f"{plugin_name}: {str(DESTINATION_PATH)}")
+        existing_plugins_dict[plugin_name] = DESTINATION_PATH
         continue
+
     print(f"\nInstalling {plugin_name}")
     if manual_mode:
         # No git clone in this mode
@@ -123,6 +126,30 @@ for plugin_name in plugins_list:
 # update helptag"s
 os.system("nvim -u NONE -c 'helptags ALL' -c q")
 
-if len(existing_plugins_list) > 0:
-    existing_plugins_str = '\n'.join(existing_plugins_list)
+if len(existing_plugins_dict) > 0:
+    existing_plugins_str = '\n'.join([k + ': ' + str(v) for k,v in existing_plugins_dict.items()])
     print(f"\nThe following plugins directories exists and can be replaced using interactive mode (-i): \n\n{existing_plugins_str}\n")
+
+
+
+# check if there are old plugins in the destination folders
+def get_found_plugins(BasePath: Path):
+    """ get all the plugins folders in the destination folders """
+    found_plugins_folders_dict = {}
+    modes_folders = BasePath.iterdir()
+    for mode in modes_folders:
+        for dir_ in (BasePath / mode).iterdir():
+            if dir_.is_dir():
+                found_plugins_folders_dict[dir_.name] = dir_
+    return found_plugins_folders_dict
+
+def found_old_plugins(all_plugins_dict: dict, found_plugins_folders_dict: dict):
+    """ check if there are old plugins in the destination folders """
+    all_paths = all_plugins_dict.values()
+    for found_plugin_name, found_plugin_path in found_plugins_folders_dict.items():
+            if found_plugin_path not in all_paths:
+                print("found path", found_plugin_path)
+                if ask(f"{found_plugin_name} not found in {CONFIG_FNAME}, should remove it?") == 1:
+                    shutil.rmtree(found_plugin_path)
+found_plugins_folders_dict = get_found_plugins(EXT_PATH)
+found_old_plugins(all_plugins_dict, found_plugins_folders_dict)
