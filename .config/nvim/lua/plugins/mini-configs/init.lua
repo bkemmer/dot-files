@@ -9,6 +9,9 @@ require('mini.extra').setup()
 require('mini.icons').setup()
 require('mini.visits').setup()
 require('mini.diff').setup()
+require('mini.comment').setup()
+require('mini.bufremove').setup()
+require('mini.trailspace').setup()
 -- replacing lualine
 require('mini.statusline').setup({
   -- use_icons = false,
