@@ -12,6 +12,7 @@ require('mini.diff').setup()
 require('mini.comment').setup()
 require('mini.bufremove').setup()
 require('mini.trailspace').setup()
+require('mini.cursorword').setup()
 -- replacing lualine
 require('mini.statusline').setup({
   -- use_icons = false,
