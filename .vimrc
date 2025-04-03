@@ -69,7 +69,7 @@ filetype plugin indent on
 
 " Mapping leader from / to Space
 noremap <Space> <Nop>
-map <Space> <Leader>
+map <Space> <leader>
 
 " Alias to replace all to S
 nnoremap S :%s//g<Left><Left>
@@ -83,7 +83,7 @@ set tabstop=2
 set noshowmode
 
 " Open current window in a new tab | Use <C-W><C-Q> to go back
-nnoremap <Leader>wo  :tab split<CR>
+nnoremap <leader>wo  :tab split<CR>
 " Shortcut for :tabnew
 nnoremap <C-t> :tabnew<Space>
 
