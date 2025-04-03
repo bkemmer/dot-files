@@ -1,7 +1,6 @@
 -- Simples configurations
 require('tiny-glimmer').setup()
--- require("gitsigns").setup()
-
+-- require("early-retirement").setup()
 -- Using external configuration files
 -- require("plugins.slime")
 require("plugins.mini-configs")

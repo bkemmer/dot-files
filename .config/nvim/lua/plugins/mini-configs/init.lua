@@ -15,6 +15,8 @@ require('mini.bufremove').setup()
 require('mini.trailspace').setup()
 require('mini.cursorword').setup()
 require('mini.move').setup()
+require('mini.jump').setup()
+require('mini.notify').setup()
 -- replacing lualine
 require('mini.statusline').setup({
   -- use_icons = false,
