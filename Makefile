@@ -5,6 +5,8 @@
 .PHONY: install_vscode_extensions
 .PHONY: setup
 
+OSTYPE := $(shell uname -msr)
+
 symlink_linux_vscode: ## Update the vscode config files for ubuntu-like SO
 	ln -s ${PWD}/vscode/settings.json ${HOME}/.config/Code/User/settings.json
 	ln -s ${PWD}/vscode/keybidings.json ${HOME}/.config/Code/User/keybidings.json
@@ -19,6 +21,8 @@ install_vscode_extensions: ## install or update the vscode extensions
 setup: ## Setup the environment
 	@echo "Setting up the environment"
 	./scripts/nvim/pre_install.sh
+	# @[[ "${OSTYPE}" == "darwin"* ]] && echo 'MacOS homebrew installs' && ./scripts/macos/homebrew_commands.sh
+	# [[ "${OSTYPE}" == linux-gnu* ]] && echo 'Linux installs' && ./scripts/linux/setup.sh
 	./scripts/nvim/install_vim_plugins.py
 	./scripts/nvim/post_install.sh
 

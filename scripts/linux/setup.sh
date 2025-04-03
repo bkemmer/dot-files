@@ -9,5 +9,5 @@ sudo apt install -y fd findutils ripgrep fzf bat eza
 #
 # install kitty terminal on last version
 # curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-# 
-echo 'install tdrop' 
+#
+[[ command -v tdrop ]] || echo 'install tdrop' 
