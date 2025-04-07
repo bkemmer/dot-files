@@ -18,6 +18,7 @@ require('mini.cursorword').setup()
 require('mini.move').setup()
 require('mini.jump').setup()
 require('mini.notify').setup()
+require('mini.sessions').setup()
 -- replacing lualine
 require('mini.statusline').setup({
   -- use_icons = false,

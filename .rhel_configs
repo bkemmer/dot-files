@@ -8,7 +8,7 @@ LOCAL_APPS="$HOME/.local"
 
 # alias
 alias clear_keyring="rm ~/.local/share/keyrings/login.keyring"
-alias =""
+
 # functions
 update_dot_files() {
   dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-main dot-files $HOME/Downloads $HOME/projects/dot-files
