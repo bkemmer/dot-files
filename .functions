@@ -50,6 +50,7 @@ dl_and_mv_repo(){
     unzip -qq $ZIP.zip
     [[ -d $DOWNLOAD_FOLDER/$DEST ]] && rm -r $DOWNLOAD_FOLDER/$DEST
     mv $ZIP $DEST
+    [[ -d $INSTALL_FOLDER/$DEST/.git ]] && rm -rf $INSTALL_FOLDER/$DEST/.git
     [[ -d $INSTALL_FOLDER/$DEST ]] && rm -r $INSTALL_FOLDER/$DEST
     mv $DEST $INSTALL_FOLDER/
     rm $ZIP.zip
