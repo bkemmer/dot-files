@@ -47,3 +47,6 @@ km.set("n", "<C-d>", "<C-d>zz")
 -- For substitute using : as separators
 km.set("n", "<leader>;;", ":%s:::g<Left><Left><Left>")
 km.set("n", "<leader>;c", ":%s:::gc<Left><Left><Left><Left>")
+-- km.set("n", "<leader>;<backslash>", "\(\)<Left><Left>")
+
+vim.keymap.set("c", [[;\]], [[\(\)<Left><Left>]])
