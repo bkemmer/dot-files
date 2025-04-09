@@ -78,3 +78,6 @@ if command_exists neofetch; then neofetch; fi
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [[ "$TERM" = "xterm-kitty" ]]; then
+  tmux attach || exec tmux new -s kitty
+fi
