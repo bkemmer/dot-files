@@ -31,9 +31,7 @@ M.on_attach = function(client, bufnr)
         vim.lsp.inlay_hint.enable(true)
     end
 end
-
-local ok, blink_cmp = pcall(require, "blink.cmp")
-M.capabilities = ok and blink_cmp.get_lsp_capabilities() or vim.lsp.protocol.make_client_capabilities()
+M.capabilities = require("blink.cmp").get_lsp_capabilities()
 
 return M
 
