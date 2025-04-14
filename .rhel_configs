@@ -29,8 +29,9 @@ export NVM_DIR="$HOME/.nvm"
 # Command to change defautl node version:
 # nvm alias default 18
 
-# Tmux was complaining to run with TERM=kitty
-alias tmux="TERM=xterm-256color tmux"
+# Tmux was complaining to run with TERM=xterm-kitty
+# so c[ustom]tmux alias
+alias ctmux="TERM=xterm-256color tmux"
 
 # Add path to found custom libraries
 export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
