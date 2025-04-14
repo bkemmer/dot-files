@@ -27,9 +27,9 @@ M.on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>q", vim.diagnostic.setqflist, keymapOptions("Set quickfix list"))
     vim.keymap.set("n", "<leader>Q", toggle_diagnostic, keymapOptions("Toggle diagnostics"))
 
-    if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(true)
-    end
+    -- if client.server_capabilities.inlayHintProvider then
+    --     vim.lsp.inlay_hint.enable(true)
+    -- end
 end
 M.capabilities = require("blink.cmp").get_lsp_capabilities()
 
