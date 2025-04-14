@@ -23,3 +23,6 @@ brew install pkg-config
 
 # lua language server for LSP
 brew install lua-language-server
+
+# install yazi
+brew install yazi
