@@ -50,3 +50,6 @@ alias fzfnvim='nvim $(fzf --preview="bat --color=always --style=numbers {}" --bi
 # clipboard
 alias xclipf="xclip $1 -selection clipboard"
 
+# date
+alias fdate="date +'%F %A'"
+
