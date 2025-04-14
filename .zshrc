@@ -79,5 +79,6 @@ if command_exists neofetch; then neofetch; fi
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [[ "$TERM" = "xterm-kitty" ]]; then
+  [[ $(command -v tmux) == *.local* ]] && tmux='TERM=xterm-256color tmux'
   tmux attach || exec tmux new -s kitty
 fi
