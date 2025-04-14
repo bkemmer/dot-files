@@ -1,2 +1,1 @@
-jedi-language-server
-pyright
+basedpyright
