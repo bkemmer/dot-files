@@ -1,12 +1,5 @@
-local capabilities = require('blink.cmp').get_lsp_capabilities()
-local lspconfig = require('lspconfig')
-
--- lspconfig['jedi_language_server'].setup({ capabilities = capabilities })
--- lspconfig['pyright'].setup({ capabilities = capabilities })
-lspconfig['basedpyright'].setup({ capabilities = capabilities })
-
-lspconfig['lua_ls'].setup {
-  capabilities = capabilities,
+require('lspconfig')['lua_ls'].setup {
+  capabilities = require("lsp.attach").capabilities,
   on_init = function(client)
     if client.workspace_folders then
       local path = client.workspace_folders[1].name
