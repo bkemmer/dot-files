@@ -133,6 +133,7 @@ if len(existing_plugins_dict) > 0:
 
 
 # check if there are old plugins in the destination folders
+
 def get_found_plugins(BasePath: Path):
     """ get all the plugins folders in the destination folders """
     found_plugins_folders_dict = {}
