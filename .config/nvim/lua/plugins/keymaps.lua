@@ -40,10 +40,13 @@ km.set('n', "<leader>dr", function() dap.repl.toggle() end, { silent = true, des
 km.set('n', "<leader>ds", function() dap.session() end, { silent = true, desc = "Debug: Session" })
 km.set('n', "<leader>dt", function() dap.terminate() end, { silent = true, desc = "Debug: Terminate" })
 km.set('n', "<leader>dw", function() require("dap.ui.widgets").hover() end, { silent = true, desc = "Debug: Widgets" })
-km.set('n', '<leader>df', function() local widgets = require"dap.ui.widgets"; widgets.centered_float(widgets.frames) end, 
+km.set('n', '<leader>df', function() local widgets = require"dap.ui.widgets"; widgets.centered_float(widgets.frames) end,
   { silent = true, desc = "Debug: Widgets centered" })
 -- OSV (lua debug)
 vim.keymap.set('n', '<leader>dl', function() require"osv".launch({port = 8086}) end, { noremap = true , desc = "Debug: Lauch OSV (lua debug)"})
 -- Dap view
 -- vim.keymap.set("n", "<leader>dv", function() require("dap-view").toggle() end, { desc = "Debug: Toggle nvim-dap-view" })
 -- Dap ui
+km.set('n', "<leader>du", function() require("dapui").toggle({ }) end, { silent = true, desc = "Debug: Dap UI" })
+km.set('n', "<leader>de", function() require("dapui").eval() end, { silent = true, desc = "Debug: UI Eval" })
+km.set({"n", "v"}, "<leader>de", function() require("dapui").eval() end, { silent = true, desc = "Debug: UI Eval" })

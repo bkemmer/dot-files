@@ -75,7 +75,7 @@ existing_plugins_dict = {}
 all_plugins_dict = {}
 for plugin_name in plugins_list:
 
-    
+
     plugin_config = config[plugin_name]
 
     mode = plugin_config['mode']
