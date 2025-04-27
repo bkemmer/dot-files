@@ -32,8 +32,8 @@ dl_and_mv_repo(){
     ZIP=$2              # name of the zip and unziped folder ex.: dot-file-main.zip and dot-file-main
     DEST=$3             # name of the destination folder
     DOWNLOAD_FOLDER=$4  # path to the download folder
-    INSTALL_FOLDER=$5   # path to be installed  
-    
+    INSTALL_FOLDER=$5   # path to be installed
+
     if [[ -d $INSTALL_FOLDER/$DEST ]]; then
       ask()
       if $? == 0; then
@@ -41,8 +41,8 @@ dl_and_mv_repo(){
       fi
     fi
     echo ""
-    [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] && rm $DOWNLOAD_FOLDER/$ZIP.zip 
-    echo "Download $URL waiting for it under $DOWNLOAD_FOLDER with filename: $ZIP.zip" 
+    [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] && rm $DOWNLOAD_FOLDER/$ZIP.zip
+    echo "Download $URL waiting for it under $DOWNLOAD_FOLDER with filename: $ZIP.zip"
     while ! [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]];do sleep 1; done
     echo ""
     cd $DOWNLOAD_FOLDER
@@ -57,4 +57,13 @@ dl_and_mv_repo(){
     echo ""
 }
 export dl_and_mv_repo
+
+# Function to install vim motions on jupyter
+jupyter_vi_motion_extensions(){
+  pip install jupyter_contrib_nbextensions
+  mkdir -p $(jupyter --data-dir)/nbextensions
+  cd $(jupyter --data-dir)/nbextensions
+  git clone https://github.com/lambdalisue/jupyter-vim-binding vim_binding
+  jupyter nbextension enable vim_binding/vim_binding
+}
 
