@@ -7,7 +7,7 @@ local filter_show = function(fs_entry) return true end
 local filter_hide = function(fs_entry)
     return not vim.startswith(fs_entry.name, '.')
 end
-  
+
 local toggle_dotfiles = function()
     show_dotfiles = not show_dotfiles
     local new_filter = show_dotfiles and filter_show or filter_hide
@@ -23,10 +23,6 @@ vim.api.nvim_create_autocmd('User', {
   end,
 })
 
-
-local minifiles_toggle = function(...)
-  if not MiniFiles.close() then MiniFiles.open(...) end
-end
 
 local set_mark = function(id, path, desc)
   MiniFiles.set_bookmark(id, path, { desc = desc })
@@ -57,11 +53,11 @@ require('mini.files').setup({
   mappings = {
     close       = 'q',
     go_in       = 'l',
-    go_in_plus  = 'L',
+    go_in_plus  = '<CR>', -- Enter directory or open file, currently the only difference between the defaults
     go_out      = 'h',
     go_out_plus = 'H',
     mark_goto   = "'",
-    mark_set    = 'm',
+    markset    = 'm',
     reset       = '<BS>',
     reveal_cwd  = '@',
     show_help   = 'g?',
