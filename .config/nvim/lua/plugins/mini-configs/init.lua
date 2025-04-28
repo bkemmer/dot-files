@@ -18,7 +18,9 @@ require('mini.cursorword').setup()
 require('mini.move').setup()
 require('mini.jump').setup()
 require('mini.notify').setup()
-require('mini.sessions').setup()
+require('mini.sessions').setup({
+  autoread = true
+})
 -- replacing lualine
 require('mini.statusline').setup({
   -- use_icons = false,
@@ -26,7 +28,7 @@ require('mini.statusline').setup({
 
 -- tabline
 require('mini.tabline').setup({
-  -- show_icons = false, 
+  -- show_icons = false,
 })
 
 require('plugins.mini-configs.mini_hipatterns')
