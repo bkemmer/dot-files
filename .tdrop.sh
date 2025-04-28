@@ -9,3 +9,5 @@
 # Create a custom shortcut to run this command with a keybinding
 tdrop -ma -h 100% -s dropdown kitty
 
+# If needed add the --override argument in the kitty.desktop file
+# kitty -o hide_window_decorations=no
