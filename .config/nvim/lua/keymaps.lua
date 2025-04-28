@@ -49,4 +49,6 @@ km.set("n", "<leader>;;", ":%s:::g<Left><Left><Left>")
 km.set("n", "<leader>;c", ":%s:::gc<Left><Left><Left><Left>")
 -- km.set("n", "<leader>;<backslash>", "\(\)<Left><Left>")
 
-vim.keymap.set("c", [[;\]], [[\(\)<Left><Left>]])
+km.set("c", [[;\]], [[\(\)<Left><Left>]])
+km.set("n", "<leader>nh", ":nohlsearch<CR>", {desc = "No Highlight Search"})
+
