@@ -1,11 +1,11 @@
-local dap = require("dap")
-
 require('nvim-dap-repl-highlights').setup()
 require("nvim-dap-virtual-text").setup()
 require("dapui").setup()
 
 -- Python
 require("dap-python").setup("~/.virtualenvs/neovim/bin/python")
+
+local dap = require("dap")
 
 -- Lua
 dap.configurations.lua = {
