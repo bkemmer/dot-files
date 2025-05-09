@@ -1,4 +1,3 @@
-
 local km = vim.keymap
 
 -- leader key to space
@@ -51,4 +50,3 @@ km.set("n", "<leader>;c", ":%s:::gc<Left><Left><Left><Left>")
 
 km.set("c", [[;\]], [[\(\)<Left><Left>]])
 km.set("n", "<leader>nh", ":nohlsearch<CR>", {desc = "No Highlight Search"})
-
