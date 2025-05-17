@@ -1,6 +1,8 @@
 -- Mini.deps is a minimal plugin manager for Neovim
 -- installs using git clone
+
 local MiniDeps = require("config.mini_deps")
+
 Add, Now, Later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
 -- Lsp
@@ -91,5 +93,11 @@ Add({
     "kiyoon/magick.nvim",
   },
 })
-
-
+--
+-- for i, value in ipairs(MiniDeps.get_session()) do
+--   print(i)
+--   for k, v in pairs(value) do
+--     print(k, v)
+--   end
+--
+-- end

@@ -18,5 +18,36 @@ end
 local MiniDeps = require('mini.deps')
 MiniDeps.setup({ path = { package = path_package } })
 
+-- This is a hack to echo the repository zip link if it can't clone it
+-- nvim --cmd "lua manual_install=true"
+-- Therefore, I am replacing the original plugs_install function
+MiniDeps.plugs_install = function(plugs)
+  if manual_install then
+    for k,v in pairs(plugs) do
+      print(k, v)
+    end
+  else
+    return MiniDeps.plugs_install(plugs)
+  end
+end
+
+-- function(plugs)
+--   -- Clone
+--   local prepare = function(p)
+--     if p.source == nil and #p.job.err == 0 then p.job.err = { 'SPECIFICATION HAS NO `source` TO INSTALL PLUGIN.' } end
+--     p.job.command = H.git_cmd('clone', p.source or '', p.path)
+--     p.job.exit_msg = string.format('Installed `%s`', p.name)
+--   end
+--   H.plugs_run_jobs(plugs, prepare)
+--
+--   -- Checkout
+--   vim.tbl_map(function(p) p.job.cwd = p.path end, plugs)
+--   H.plugs_checkout(plugs, { exec_hooks = false, all_helptags = true })
+--
+--   -- Show warnings and errors
+--   H.plugs_show_job_notifications(plugs, 'installing plugin')
+-- end
+--
+
 return MiniDeps
 

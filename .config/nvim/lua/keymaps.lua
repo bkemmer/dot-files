@@ -48,5 +48,11 @@ km.set("n", "<leader>;;", ":%s:::g<Left><Left><Left>")
 km.set("n", "<leader>;c", ":%s:::gc<Left><Left><Left><Left>")
 -- km.set("n", "<leader>;<backslash>", "\(\)<Left><Left>")
 
-km.set("c", [[;\]], [[\(\)<Left><Left>]])
-km.set("n", "<leader>nh", ":nohlsearch<CR>", {desc = "No Highlight Search"})
+km.set("c", [[;\]], [[\(\)<Left><Left>]], { desc = "Adds a group selection to the substitute command" })
+km.set("n", "<leader>nh", ":nohlsearch<CR>", { desc = "No Highlight Search" })
+
+-- For running lua scripts
+km.set("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Run current file" })
+km.set("n", "<space>x", ":.lua<CR>", { desc = "Run current lua line" })
+km.set("v", "<space>x", ":lua<CR>", { desc = "Run visually selected lua lines" })
+

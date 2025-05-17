@@ -1,0 +1,59 @@
+
+
+
+{ {
+    depends = {},
+    hooks = {},
+    name = "nvim-lspconfig",
+    path = "/Users/bkemmer/.local/share/nvim/site/pack/deps/opt/nvim-lspconfig",
+    source = "https://github.com/neovim/nvim-lspconfig"
+  }, {
+    checkout = "master",
+    depends = {},
+    hooks = {
+      post_checkout = <function 1>
+    },
+    name = "nvim-treesitter",
+    path = "/Users/bkemmer/.local/share/nvim/site/pack/deps/opt/nvim-treesitter",
+    source = "https://github.com/nvim-treesitter/nvim-treesitter"
+  }, {
+    depends = {},
+    hooks = {},
+    name = "tokyonight.nvim",
+    path = "/Users/bkemmer/.local/share/nvim/site/pack/deps/opt/tokyonight.nvim",
+    source = "https://github.com/folke/tokyonight.nvim"
+  }, {
+    depends = {},
+    hooks = {},
+    name = "tiny-glimmer.nvim",
+    path = "/Users/bkemmer/.local/share/nvim/site/pack/deps/opt/tiny-glimmer.nvim",
+    source = "https://github.com/rachartier/tiny-glimmer.nvim"
+  }, {
+    depends = {},
+    hooks = {},
+    name = "copilot.lua",
+    path = "/Users/bkemmer/.local/share/nvim/site/pack/deps/opt/copilot.lua",
+    source = "https://github.com/zbirenbaum/copilot.lua"
+  }, {
+    depends = {},
+    hooks = {},
+    name = "friendly-snippets",
+    path = "/Users/bkemmer/.local/share/nvim/site/pack/deps/opt/friendly-snippets",
+    source = "https://github.com/rafamadriz/friendly-snippets"
+  }, {
+    checkout = "v1.2.0",
+    depends = { "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets", "rafamadriz/friendly-snippets" },
+    hooks = {},
+    name = "blink.cmp",
+    path = "/Users/bkemmer/.local/share/nvim/site/pack/deps/opt/blink.cmp",
+    source = "https://github.com/saghen/blink.cmp"
+  }, {
+    depends = { "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua", "zbirenbaum/copilot.lua" },
+    hooks = {},
+    name = "blink-cmp-copilot",
+    path = "/Users/bkemmer/.local/share/nvim/site/pack/deps/opt/blink-cmp-copilot",
+    source = "https://github.com/giuxtaposition/blink-cmp-copilot"
+  }, {
+    depends = {},
+    hooks = {},
+
