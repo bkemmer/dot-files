@@ -18,8 +18,6 @@ local mini_path = path_package .. 'pack/deps/start/mini2.nvim'
 if not vim.loop.fs_stat(mini_path) then
   print("manual_installs: " .. manual_installs)
   if manual_installs then
-    print("a")
-    print("a")
     vim.cmd('echo "Manual install:"' .. get_zip_url_from_github('echasnovski/mini.nvim') .. '"')
     -- vim.fn.system('xdg-open')
   else

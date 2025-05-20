@@ -1,4 +1,5 @@
 require('mini.basics').setup()
+require('mini.notify').setup()
 require('mini.ai').setup()
 require('mini.surround').setup()
 require('mini.operators').setup()
@@ -17,7 +18,6 @@ require('mini.trailspace').setup()
 require('mini.cursorword').setup()
 require('mini.move').setup()
 require('mini.jump').setup()
-require('mini.notify').setup()
 require('mini.sessions').setup({
   autoread = true
 })
@@ -31,6 +31,10 @@ require('mini.tabline').setup({
   -- show_icons = false,
 })
 
+-- wrapper for vim.notify
+local opts = { ERROR = { duration = 10000 } }
+vim.notify = require('mini.notify').make_notify(opts)
+--
 require('plugins.mini-configs.mini_hipatterns')
 require('plugins.mini-configs.mini_files')
 require('plugins.mini-configs.mini_keymaps')
