@@ -40,10 +40,15 @@ MD.setup = function(config)
   MD.config = H.setup_config(config)
 end
 
+---@param author_repo_name string The repository name in the pattern: bkemmer/dot-files
+---@param branch string The branch name
+---@return string success Return the url with the author/repository_name/branch
 MD.get_branch_url = function(author_repo_name, branch)
   return string.format(MD.config.github_zip_base_str_pattern, author_repo_name, branch)
 end
 
+---@param url string The URL
+---@return boolean|nil
 MD.test_url_exists = function(url)
   local curl_cmd = {
     'curl', '--head', '-s', url
@@ -55,19 +60,50 @@ MD.test_url_exists = function(url)
   end
 end
 
+---@return string|nil ,string|nil
+MD.get_valid_url = function(author_repo_name, custom_branch)
+
+  local function test_url(author_repo_name, branch)
+    local url = MD.get_branch_url(author_repo_name, branch)
+    local exists = MD.test_url_exists(url)
+    if exists then return url, branch
+      else return nil, nil end
+  end
+
+  if custom_branch ~= nil then
+    return test_url(author_repo_name, custom_branch)
+  else
+    local branchs = {'main', 'master'}
+    for i=1, #branchs do
+      local url, branch = test_url(author_repo_name, branchs[i])
+      if url ~= nil then return url, branch end
+    end
+  end
+end
+
+MD.download_using_external_program = function(url)
+  local download_program = 'xdg-open'
+  if vim.fn.has('macunix') == 1 then download_program = 'open' end
+  vim.fn.system({
+    download_program, url
+  })
+end
+
+---@param filename string Filename to wait under download folder
+---@return boolean, string R true|false and file_path
 MD.wait_for_file = function(filename)
   local full_path = vim.fs.joinpath(MD.config.paths.download, filename)
   local i = 0
-
+  local found = false
   local function check_file()
     if vim.loop.fs_stat(full_path) then
       vim.notify("File found: " .. full_path)
-      return
+      return true
     end
 
     if i >= MD.config.max_retries_for_zip_file then
       vim.notify("Max retries reached. File not found: " .. full_path, vim.log.levels.ERROR)
-      return
+      return false
     end
 
     vim.notify(i .. ": File not present in: " .. full_path .. " waiting " .. MD.config.wait_seconds .. "s")
@@ -75,15 +111,17 @@ MD.wait_for_file = function(filename)
 
     vim.defer_fn(check_file, MD.config.wait_seconds * 1000)
   end
-
-  check_file()
-  return full_path
+  found = check_file()
+  return found, full_path
 end
 
-MD.unzip_file = function(zip_path, output_dir)
+---@param zip_path string Full path to zip file
+---@param output_dir string Output folder to extract the zip file
+---@return nil
+MD.unzip_file = function(full_zip_path, output_dir)
   local handle
   handle = vim.loop.spawn("unzip", {
-    args = { zip_path, "-d", output_dir },
+    args = { full_zip_path, "-d", output_dir },
     stdio = {nil, nil, nil}
   }, function(code, signal)
     if code ~= 0 then
@@ -93,10 +131,50 @@ MD.unzip_file = function(zip_path, output_dir)
   end)
 end
 
+MD.get_repo_name = function(author_repo_name)
+  local parts = vim.split(author_repo_name, "/", { plain = true })
+  return parts[#parts]
+end
+
+MD.get_zip_file_name = function(repo_name, branch)
+  return string.format('%s-%s.zip', repo_name, branch)
+end
+
+
+---@param author_repo_name string The repository name in the pattern: bkemmer/dot-files
+---@param custom_branch string|nil Specific branch to be used
+MD.downloader = function(author_repo_name, output_dir, custom_branch)
+  H.check_type('ops', custom_branch, 'string', true)
+
+  -- check if this branch hierarchy exists
+  local repo_name = MD.get_repo_name(author_repo_name)
+  local url, branch  = MD.get_valid_url(author_repo_name, custom_branch)
+  if url ~= nil then
+    -- MD.download_using_external_program(url)
+    print(url, branch)
+    local zip_file_name = MD.get_zip_file_name(repo_name, branch)
+    MD.download_using_external_program(url)
+    local found, full_file_path = MD.wait_for_file(zip_file_name)
+    print("found:")
+    vim.wait(10)
+    print(found)
+    if found then
+      vim.notify("Unzipping file: " .. full_file_path .. " to " .. output_dir)
+      MD.unzip_file(full_file_path, '.')
+
+    else
+        print("not")
+    end
+  end
+end
+
 -- tests
+
+MD.downloader("bkemmer/dot-files")
+-- MD.downloader("Olivine-Labs/lua-style-guide")
 -- local full_path = MD.wait_for_file('obs2.png')
 
-local full_path = MD.wait_for_file("enel.zip")
-MD.unzip_file(full_path, MD.config.paths.download)
+-- local full_path = MD.wait_for_file("enel.zip")
+-- MD.unzip_file(full_path, MD.config.paths.download)
 return MD
 
