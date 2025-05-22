@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+json_echo() {
+  echo $1 | jq '.' --tab | bat --color=always -l json
+}
+
 prettify_json() {
   { ! [[ -d $1 ]] } && echo "Creating folder $1" && mkdir $1
   for file in *; do
