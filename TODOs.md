@@ -5,4 +5,5 @@ add new keybindings to latex
 
 
 ## lua port of scripts
-- [ ] Check if the folder exists on destination and asks for removal
+- [x] Check if the folder exists on destination and asks for removal
+- [ ] Check output of mini.deps and adapt the code to adhere

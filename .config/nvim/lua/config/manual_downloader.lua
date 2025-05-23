@@ -23,6 +23,17 @@ H.setup_config = function(config)
   return config
 end
 
+-- print a table
+H.tprint = function(t_, notify)
+  for i, e in ipairs(t_) do
+    if notify ~= nil then
+      vim.notify(i .. ": " .. e)
+    else
+      print(i .. ": " .. e)
+    end
+  end
+end
+
 -- end helpers
 
 MD.config = {
@@ -32,6 +43,8 @@ MD.config = {
   github_zip_base_str_pattern = "https://codeload.github.com/%s/zip/refs/heads/%s",
   wait_seconds = 5,
   max_retries_for_zip_file = 5,
+  branchs = {'main', 'master'},
+  unzip_wait_time = 1000, -- time to wait for unzip operation
   -- silent = false,
 }
 
@@ -73,7 +86,7 @@ MD.get_valid_url = function(author_repo_name, custom_branch)
   if custom_branch ~= nil then
     return test_url(author_repo_name, custom_branch)
   else
-    local branchs = {'main', 'master'}
+    local branchs = MD.config.branchs
     for i=1, #branchs do
       local url, branch = test_url(author_repo_name, branchs[i])
       if url ~= nil then return url, branch end
@@ -146,7 +159,7 @@ MD.get_zip_filename = function(repo_name, branch)
 end
 
 ---@return boolean|nil success Returns true if file exists and nil otherwise
-MD.check_if_file_already_exists_on_downloads = function(full_filename)
+MD.check_if_path_already_exists = function(full_filename)
   if vim.loop.fs_stat(full_filename) ~= nil then return true end
 end
 
@@ -160,11 +173,37 @@ MD.ask_remove_file = function(full_filepath)
     -- User confirmed, remove the file
     local success, err = os.remove(full_filepath)
     if success then
-      print(string.format("File '%s' removed successfully", full_filepath))
+      vim.notify(string.format("File '%s' removed successfully", full_filepath))
     else
-      print(string.format("Error removing file: %s", err))
+      vim.notify(string.format("Error removing file: %s", err))
     end
   end
+end
+
+---@param origin string Full path of unziped folder usually with the posfix -<branch_name>
+MD.rename_folder = function(origin)
+  local parts = vim.split(origin, "-", { plain = true })
+  local last_part = parts[#parts]
+  for _, branch in ipairs(MD.config.branchs) do
+    if branch == last_part then
+      local destination = {}
+      table.move(parts, 1, #parts - 1, 1, destination) -- Removing the posfix
+      local destination_str = table.concat(destination, '-') -- returning any previous -
+      vim.notify("Renaming " .. origin .. " to " .. destination_str)
+      local success, err = vim.loop.fs_rename(origin, destination_str)
+      if not success then
+        vim.notify("Failure to rename the folder with err: " .. err, vim.log.levels.ERROR)
+      end
+      return
+    end
+  end
+end
+
+---@return string path folder without file extention
+MD.stem_path = function(path)
+  local parts = vim.split(path, '/', { plain = true })
+  local last_part = parts[#parts]
+  return vim.split(last_part, '.', { plain = true })[1]
 end
 
 ---@param author_repo_name string The repository name in the pattern: bkemmer/dot-files
@@ -183,19 +222,29 @@ MD.downloader = function(author_repo_name, output_dir, custom_branch)
 
     local zip_filename = MD.get_zip_filename(repo_name, branch)
     local full_filepath = MD.get_full_path_with_downloads_folder(zip_filename)
-    if MD.check_if_file_already_exists_on_downloads(full_filepath) then
+
+    local destination_folder = output_dir .. '/' .. MD.stem_path(full_filepath)
+    if MD.check_if_path_already_exists(destination_folder) then
+      vim.notify("Folder " .. destination_folder .. " already exists.", vim.log.levels.ERROR)
+      return
+    end
+
+    -- check if zip file already exists
+    if MD.check_if_path_already_exists(full_filepath) then
       MD.ask_remove_file(full_filepath)
     end
 
     MD.download_using_external_program(url)
 
-    MD.wait_for_file(zip_filename, function(success, full_file_path)
+    MD.wait_for_file(zip_filename, function(success, full_filepath)
       if success then
-        vim.notify("File ready at: " .. full_file_path)
-        vim.notify("Unzipping file: " .. full_file_path .. " to " .. output_dir)
-        MD.unzip_file(full_file_path, output_dir)
+        vim.notify("File ready at: " .. full_filepath)
+        vim.notify("Unzipping file: " .. full_filepath .. " to " .. output_dir)
+        MD.unzip_file(full_filepath, output_dir)
+        vim.wait(MD.config.unzip_wait_time) -- wait some time to the unzip operation
+        MD.rename_folder(destination_folder)
       else
-        vim.notify("File not found: " .. full_file_path)
+        vim.notify("File not found: " .. full_filepath)
       end
     end)
 
@@ -205,8 +254,7 @@ end
 
 
 -- tests
-
-MD.downloader("bkemmer/dot-files", ".")
+MD.downloader("bkemmer/dot-files", vim.env.HOME .. "/projects/tmp")
 -- MD.downloader("Olivine-Labs/lua-style-guide")
 -- local full_path = MD.wait_for_file('obs2.png')
 
