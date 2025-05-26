@@ -28,6 +28,7 @@ alias ipykernel_install="python -m ipykernel install --user --name"
 
 # dot-files folder
 export DOTPROJ='$HOME/projects/dot-files'
+export PLUGINS_NVIM="$HOME/.local/share/nvim/site/pack/deps"
 
 # nvidia
 alias nvidia_monitor="watch -n0.1 nvidia-smi"
