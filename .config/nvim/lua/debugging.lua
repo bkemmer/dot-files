@@ -1,4 +1,4 @@
-require('nvim-dap-repl-highlights').setup()
+-- require('nvim-dap-repl-highlights').setup()
 require("nvim-dap-virtual-text").setup()
 require("dapui").setup()
 

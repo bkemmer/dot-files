@@ -30,8 +30,7 @@ Add({source = "zbirenbaum/copilot.lua"})
 
 -- Blink
 Add({
-  source = "saghen/blink.cmp",
-  depends = { "rafamadriz/friendly-snippets" },
+  source = "saghen/blink.cmp", depends = { "rafamadriz/friendly-snippets" },
   checkout = "v1.2.0",
 })
 -- Completion for Blink & Copilot

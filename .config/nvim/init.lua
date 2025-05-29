@@ -6,6 +6,8 @@ Now(function() require('vim_configs') end)
 Now(function() require('keymaps') end)
 Later(function() require('plugins.blink') end)
 
+
+
 require('lsp')
 require('spellcheck')
 require('folding')
@@ -22,5 +24,11 @@ Later(function() require("plugins.mini-configs") end)
 Later(function() require("plugins.image") end)
 Later(function() require("plugins.molten-config") end)
 Later(function() require("plugins.blink") end)
+--
+-- -- -- FIXME:
+-- if init_debug then
+--   require"osv".launch({port=8086, blocking=true})
+-- end
 
-
+Add("folke/flash.nvim")
+print("a")
