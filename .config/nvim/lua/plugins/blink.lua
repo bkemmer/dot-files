@@ -11,40 +11,43 @@ require("blink.cmp").setup({
   --     download = true, -- false,
   --   },
   -- },
+  fuzzy = { implementation = "prefer_rust_with_warning" },
   keymap = {
-    preset = 'super-tab',
-      ["<S-k>"] = { "scroll_documentation_up", "fallback" },
-      ["<S-j>"] = { "scroll_documentation_down", "fallback" }
+      preset = "enter",
+      ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
   },
   completion = {
-  menu = {
-    draw = {
-      components = {
-        kind_icon = {
-          text = function(ctx)
-            local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind) return kind_icon
-          end,
-          -- (optional) use highlights from mini.icons
-          highlight = function(ctx)
-            local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
-            return hl
-          end,
+    list = {
+        selection = { preselect = false, auto_insert = true }
         },
-        kind = {
-          -- (optional) use highlights from mini.icons
-          highlight = function(ctx)
-            local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
-            return hl
-          end,
+    menu = {
+      draw = {
+        components = {
+          kind_icon = {
+            text = function(ctx)
+              local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind) return kind_icon
+            end,
+            -- (optional) use highlights from mini.icons
+            highlight = function(ctx)
+              local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+              return hl
+            end,
+          },
+          kind = {
+            -- (optional) use highlights from mini.icons
+            highlight = function(ctx)
+              local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+              return hl
+            end,
+          }
         }
       }
-    }
   },
   trigger = {
     show_in_snippet = false,
+    },
   },
-},
-  fuzzy = { implementation = "prefer_rust_with_warning" },
   snippets = { preset = 'mini_snippets' },
     -- ensure you have the `snippets` source (enabled by default)
     sources = {

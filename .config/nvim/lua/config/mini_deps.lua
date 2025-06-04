@@ -13,46 +13,65 @@
 --
 --
 -- -- Clone 'mini.nvim' manually in a way that it gets managed by 'mini.deps'
+-- Clone 'mini.nvim' manually in a way that it gets managed by 'mini.deps'
+
 local path_package = vim.fn.stdpath('data') .. '/site/'
-local mini_path = path_package .. 'pack/deps/start/mini.nvim'
+local mini_path = path_package .. 'pack/deps/start/mini.deps'
 if not vim.loop.fs_stat(mini_path) then
---   print("manual_installs: ");print(manual_installs)
---
---   if manual_installs then
---     vim.cmd('echo "Manual install:"' .. get_zip_url_from_github('echasnovski/mini.nvim') .. '"')
---     -- vim.fn.system('xdg-open')
---   else
-    vim.cmd('echo "Installing `mini.nvim`" | redraw')
-    local clone_cmd = {
-      'git', 'clone', '--filter=blob:none',
-    'https://github.com/echasnovski/mini.nvim', mini_path
-    }
-    vim.fn.system(clone_cmd)
-    vim.cmd('packadd mini.nvim | helptags ALL')
-    vim.cmd('echo "Installed `mini.nvim`" | redraw')
-  -- end
+  vim.cmd('echo "Installing `mini.deps`" | redraw')
+  local clone_cmd = {
+    'git', 'clone', '--filter=blob:none',
+    -- 'https://github.com/echasnovski/mini.nvim', mini_path
+    'https://github.com/bkemmer/mini.deps', mini_path
+  }
+  vim.fn.system(clone_cmd)
+  vim.cmd('packadd mini.nvim | helptags ALL')
+  vim.cmd('echo "Installed `mini.nvim`" | redraw')
 end
-
-
 
 -- Set up 'mini.deps'
 local MiniDeps = require('mini.deps')
 MiniDeps.setup({ path = { package = path_package } })
 
--- This is a hack to echo the repository zip link if it can't clone it
--- nvim --cmd "lua manual_installs=true"
--- Therefore, I am replacing the original plugs_install function
-MiniDeps.plugs_install = function(plugs)
-  if manual_installs then
-    for k,v in pairs(plugs) do
-    local input = vim.fn.input('Enter something: ')
-      vim.notify(k .. ": " .. v)
-    end
-  else
-    return MiniDeps.plugs_install(plugs)
-  end
-end
 
+
+-- local path_package = vim.fn.stdpath('data') .. '/site/'
+-- local mini_path = path_package .. 'pack/deps/start/mini.nvim'
+-- if not vim.loop.fs_stat(mini_path) then
+-- --   print("manual_installs: ");print(manual_installs)
+-- --
+-- --   if manual_installs then
+-- --     vim.cmd('echo "Manual install:"' .. get_zip_url_from_github('echasnovski/mini.nvim') .. '"')
+-- --     -- vim.fn.system('xdg-open')
+-- --   else
+--     vim.cmd('echo "Installing `mini.nvim`" | redraw')
+--     local clone_cmd = {
+--       'git', 'clone', '--filter=blob:none',
+--     -- 'https://github.com/echasnovski/mini.nvim', mini_path
+--     'https://github.com/bkemmer/mini.nvim', mini_path
+--     }
+--     vim.fn.system(clone_cmd)
+--     vim.cmd('packadd mini.nvim | helptags ALL')
+--     vim.cmd('echo "Installed `mini.nvim`" | redraw')
+--   -- end
+-- end
+--
+
+
+-- -- This is a hack to echo the repository zip link if it can't clone it
+-- -- nvim --cmd "lua manual_installs=true"
+-- -- Therefore, I am replacing the original plugs_install function
+-- MiniDeps.plugs_install = function(plugs)
+--   if manual_installs then
+--     for k,v in pairs(plugs) do
+--     local input = vim.fn.input('Enter something: ')
+--       vim.notify(k .. ": " .. v)
+--     end
+--   else
+--     return MiniDeps.plugs_install(plugs)
+--   end
+-- end
+--
 -- function(plugs)
 --   -- Clone
 --   local prepare = function(p)

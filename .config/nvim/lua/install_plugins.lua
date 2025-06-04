@@ -1,9 +1,10 @@
 -- Mini.deps is a minimal plugin manager for Neovim
 -- installs using git clone
-
 local MiniDeps = require("config.mini_deps")
-
 Add, Now, Later = MiniDeps.add, MiniDeps.now, MiniDeps.later
+
+-- Mini
+Add({source = 'echasnovski/mini.nvim'})
 
 -- Lsp
 Add({source = 'neovim/nvim-lspconfig'})
@@ -31,7 +32,7 @@ Add({source = "zbirenbaum/copilot.lua"})
 -- Blink
 Add({
   source = "saghen/blink.cmp", depends = { "rafamadriz/friendly-snippets" },
-  checkout = "v1.2.0",
+  checkout = "v1.3.1",
 })
 -- Completion for Blink & Copilot
 Add({source = "giuxtaposition/blink-cmp-copilot",
