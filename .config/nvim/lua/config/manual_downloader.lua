@@ -133,20 +133,33 @@ MD.wait_for_file = function(filename, callback)
   check_file()
 end
 
+-- ---@param full_zip_path string Full path to zip file
+-- ---@param output_dir string Output folder to extract the zip file
+-- ---@return nil
+-- MD.unzip_file = function(full_zip_path, output_dir)
+--   local handle
+--   handle = vim.loop.spawn("unzip", {
+--     args = { full_zip_path, "-d", output_dir },
+--     stdio = {nil, nil, nil}
+--   }, function(code, signal)
+--     if code ~= 0 then
+--       vim.notify("Unzip finished with exit code: " .. code, vim.log.levels.ERROR)
+--     end
+--     handle:close()
+--   end)
+-- end
+
 ---@param full_zip_path string Full path to zip file
 ---@param output_dir string Output folder to extract the zip file
 ---@return nil
 MD.unzip_file = function(full_zip_path, output_dir)
-  local handle
-  handle = vim.loop.spawn("unzip", {
-    args = { full_zip_path, "-d", output_dir },
-    stdio = {nil, nil, nil}
-  }, function(code, signal)
-    if code ~= 0 then
-      vim.notify("Unzip finished with exit code: " .. code, vim.log.levels.ERROR)
-    end
-    handle:close()
-  end)
+  vim.notify('Unziping ' .. full_zip_path .. ' to output: ' .. output_dir, vim.log.levels.INFO)
+  local obj = vim.system({ 'unzip', full_zip_path, '-d', output_dir }):wait()
+  if obj.code == 0 then
+    vim.notify('Finished unziping file.', vim.log.levels.INFO)
+  else
+    vim.notify('Failure unziping file.', vim.log.levels.ERROR)
+  end
 end
 
 MD.get_repo_name = function(author_repo_name)
@@ -182,6 +195,11 @@ end
 
 ---@param origin string Full path of unziped folder usually with the posfix -<branch_name>
 MD.rename_folder = function(origin)
+
+  -- FIXME: THE CURRENT PROBLEM IS HERE
+  -- we need to constuct a way to divide mini.deps.zip
+  -- into mini.deps
+  vim.notify("DEBUG: " .. origin)
   local parts = vim.split(origin, "-", { plain = true })
   local last_part = parts[#parts]
   for _, branch in ipairs(MD.config.branchs) do
@@ -201,10 +219,27 @@ end
 
 ---@return string path folder without file extention
 MD.stem_path = function(path)
-  local parts = vim.split(path, '/', { plain = true })
-  local last_part = parts[#parts]
-  return vim.split(last_part, '.', { plain = true })[1]
+    -- Extract filename from path
+    local filename = path:match("([^/\\]+)$") or path
+    -- Remove extension to get stem
+    local stem = filename:match("(.+)%.[^%.]*$") or filename
+    -- FIXME: 
+    vim.notify("DEBUG - filename: " .. filename)
+    vim.notify("DEBUG - stem: " .. stem)
+    return stem
 end
+--
+-- ---@return string path folder without file extention
+-- MD.stem_path = function(path)
+--   vim.notify("DEBUG - PATH: " .. path)
+--   local parts = vim.split(path, '/', { plain = true })
+--   local last_part = parts[#parts]
+--   vim.notify("DEBUG - last_part: " .. last_part)
+--   local splits_by_dots = vim.split(last_part, '.', { plain = true })
+--   local output = splits_by_dots[#splits_by_dots - 1]
+--   vim.notify("DEBUG - output: " .. output)
+--   return output
+-- end
 
 ---@param author_repo_name string The repository name in the pattern: bkemmer/dot-files
 ---@param output_dir string Destination folder to be downloaded
@@ -239,9 +274,8 @@ MD.downloader = function(author_repo_name, output_dir, custom_branch)
     MD.wait_for_file(zip_filename, function(success, full_filepath)
       if success then
         vim.notify("File ready at: " .. full_filepath)
-        vim.notify("Unzipping file: " .. full_filepath .. " to " .. output_dir)
         MD.unzip_file(full_filepath, output_dir)
-        vim.wait(MD.config.unzip_wait_time) -- wait some time to the unzip operation
+        -- vim.wait(MD.config.unzip_wait_time) -- wait some time to the unzip operation
         MD.rename_folder(destination_folder)
       else
         vim.notify("File not found: " .. full_filepath)
@@ -254,7 +288,7 @@ end
 
 
 -- tests
-MD.downloader("bkemmer/dot-files", vim.env.HOME .. "/projects/tmp")
+-- MD.downloader("bkemmer/dot-files", vim.env.HOME .. "/projects/tmp")
 -- MD.downloader("Olivine-Labs/lua-style-guide")
 -- local full_path = MD.wait_for_file('obs2.png')
 
