@@ -1,3 +1,6 @@
+-- Disable the tutor
+vim.g.loaded_tutor_mode_plugin = 1
+require("manual-installs").setup()
 -- Install plugins using Mini.Deps
 -- Also instanciates the globals Now, Later, Add
 require("install_plugins")

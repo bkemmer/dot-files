@@ -3,6 +3,7 @@
 local MiniDeps = require("config.mini_deps")
 Add, Now, Later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
+
 -- Mini
 Add({source = 'echasnovski/mini.nvim'})
 
