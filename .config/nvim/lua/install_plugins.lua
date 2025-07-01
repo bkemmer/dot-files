@@ -3,6 +3,8 @@
 local MiniDeps = require("config.mini_deps")
 Add, Now, Later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
+require("manual-installs")
+
 
 -- Mini
 Add({source = 'echasnovski/mini.nvim'})
@@ -94,6 +96,10 @@ Add({
     "kiyoon/magick.nvim",
   },
 })
+
+-- Plenary
+Add({source = 'nvim-lua/plenary.nvim'})
+
 --
 -- for i, value in ipairs(MiniDeps.get_session()) do
 --   print(i)

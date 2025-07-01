@@ -111,13 +111,13 @@ nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
 " Vim slime
-let g:slime_target = "tmux" 
+let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
 
 " Vim lightline
 let g:lightline                  = {}
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]} 
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}  
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
 let g:lightline.colorscheme = 'onedark'
 
@@ -125,7 +125,7 @@ let g:lightline.colorscheme = 'onedark'
 if has('linux')
    set clipboard=unnamedplus
 else
-  set clipboard=unnamed  
+  set clipboard=unnamed
 endif
 
 " Copilot

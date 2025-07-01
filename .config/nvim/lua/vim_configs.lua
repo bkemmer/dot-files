@@ -1,6 +1,6 @@
 -- Disable netrw
 vim.g.loaded_netrw = 1
-vim.g.load_netrwPlugin = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- Show line numbers
 vim.opt.number = true
@@ -30,7 +30,7 @@ vim.opt.breakindent = true
 
 
 -- Hightlight line cursor is on
-vim.opt.cursorline = true 
+vim.opt.cursorline = true
 
 -- Tabs size
 vim.opt.tabstop = 2
