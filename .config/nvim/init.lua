@@ -1,6 +1,5 @@
 -- Disable the tutor
 vim.g.loaded_tutor_mode_plugin = 1
-require("manual-installs").setup()
 -- Install plugins using Mini.Deps
 -- Also instanciates the globals Now, Later, Add
 require("install_plugins")
@@ -32,6 +31,5 @@ Later(function() require("plugins.blink") end)
 -- if init_debug then
 --   require"osv".launch({port=8086, blocking=true})
 -- end
-
-Add("folke/flash.nvim")
-print("a")
+Later(function() require("globals") end)
+-- Add("folke/flash.nvim")
