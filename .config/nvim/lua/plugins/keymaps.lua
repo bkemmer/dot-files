@@ -50,3 +50,5 @@ vim.keymap.set('n', '<leader>dl', function() require"osv".launch({port = 8086}) 
 km.set('n', "<leader>du", function() require("dapui").toggle({ }) end, { silent = true, desc = "Debug: Dap UI" })
 km.set('n', "<leader>de", function() require("dapui").eval() end, { silent = true, desc = "Debug: UI Eval" })
 km.set({"n", "v"}, "<leader>de", function() require("dapui").eval() end, { silent = true, desc = "Debug: UI Eval" })
+
+km.set("n", "<leader>t", ":PlenaryBustedFile %'<CR>", {desc = "Run Plenary tests on current file"})
