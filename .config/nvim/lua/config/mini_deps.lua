@@ -8,7 +8,7 @@ if not vim.loop.fs_stat(mini_path) then
   if manual_installs then
     -- when running 'nvim --cmd "lua manual_installs=true" ' it will run in manual mode.
     local MD = require("config.manual_downloader")
-    MD.downloader("bkemmer/mini.deps", start_packages) -- Had to fork it to allow changing a funcion in the H helper table.
+    -- MD.downloader("bkemmer/mini.deps", start_packages) -- Had to fork it to allow changing a funcion in the H helper table.
   else
     local clone_cmd = {
       'git', 'clone', '--filter=blob:none',

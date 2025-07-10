@@ -17,15 +17,24 @@ require('lspconfig')['lua_ls'].setup {
         library = {
           vim.env.VIMRUNTIME,
           "${3rd}/luv/library",
-          -- Depending on the usage, you might want to add additional paths here.
-          -- "${3rd}/busted/library",
         }
-        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-        -- library = vim.api.nvim_get_runtime_file("", true)
       }
     })
   end,
   settings = {
-    Lua = {}
+    Lua = {
+      version = 'LuaJIT',
+      diagnostics = {
+        globals = {
+          'vim',
+          "describe",
+          "it",
+          "before_each",
+          "after_each",
+          "pending",
+        },
+      },
+    }
   }
 }
+

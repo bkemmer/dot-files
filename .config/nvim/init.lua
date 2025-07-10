@@ -13,10 +13,10 @@ Later(function() require('plugins.blink') end)
 require('lsp')
 require('spellcheck')
 require('folding')
+require("debugging")
 require("treesitter")
 require("lsp")
 require("exiting")
-require("debugging")
 
 -- -- Simples configurations
 Now(function() require('plugins.keymaps') end)
