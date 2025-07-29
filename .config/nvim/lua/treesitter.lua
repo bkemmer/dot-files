@@ -1,7 +1,7 @@
 -- Install treesitter in a local setting without git clone
 -- it requires that treesitter-cli is installed
 
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+-- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 -- parser_config.python = {
 --   install_info = {
 --     url = "~/projects/neovim/tree-sitter-python", -- local path to your tree-sitter-python clone
@@ -22,5 +22,5 @@ local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "python", "dap_repl"},
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "python",} -- "dap_repl"},
 }

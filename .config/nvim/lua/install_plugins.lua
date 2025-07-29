@@ -47,7 +47,7 @@ Add({
   source = "rcarriga/nvim-dap-ui",
   depends = { "mfussenegger/nvim-dap",
               "nvim-neotest/nvim-nio",
-              "LiadOz/nvim-dap-repl-highlights",
+              -- "LiadOz/nvim-dap-repl-highlights",
               "theHamsta/nvim-dap-virtual-text",
            }
 })
