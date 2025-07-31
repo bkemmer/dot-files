@@ -31,6 +31,7 @@ else
   -- Set up 'mini.deps'
   MD = require('mini.deps')
   MD.setup({ path = { package = path_packages } })
-
 end
+
+return MD
 

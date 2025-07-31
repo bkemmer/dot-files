@@ -3,9 +3,6 @@
 local MiniDeps = require("config.mini_deps")
 Add, Now, Later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
-require("manual-installs")
-
-
 -- Mini
 Add({source = 'echasnovski/mini.nvim'})
 
@@ -15,11 +12,10 @@ Add({source = 'neovim/nvim-lspconfig'})
 -- Quickstart configs for Nvim LSP
 Add({
   source = 'nvim-treesitter/nvim-treesitter',
-  checkout = 'master',
+  -- checkout = 'master',
   -- Perform action after every checkout
   hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
 })
-Later(function() require'nvim-treesitter.configs'.setup{highlight={enable=true}} end)
 
 -- Colormap
 Add({source = "folke/tokyonight.nvim"})
@@ -100,11 +96,3 @@ Add({
 -- Plenary
 Add({source = 'nvim-lua/plenary.nvim'})
 
---
--- for i, value in ipairs(MiniDeps.get_session()) do
---   print(i)
---   for k, v in pairs(value) do
---     print(k, v)
---   end
---
--- end
