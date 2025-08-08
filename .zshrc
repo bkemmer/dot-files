@@ -43,9 +43,12 @@ if [[ -f $HOME/.aliases ]]; then
 fi
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+PYENV_ROOT="$HOME/.pyenv"
+if [[ -d $PYENV_ROOT/bin ]] then
+  export PYENV_ROOT
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
 
 # venv wrapper
 [[ -f $HOME/.venv_wrapper ]] && source $HOME/.venv_wrapper
