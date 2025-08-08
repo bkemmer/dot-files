@@ -25,13 +25,16 @@ BAT_PATH="$LOCAL_APPS/bat"
 # NVM (node.js)
 export NVM_DIR="$HOME/.nvm"
 # This loads nvm
-[[ -d $NVM_DIR ]] && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+[[ -d $NVM_DIR ]] && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # Command to change defautl node version:
 # nvm alias default 18
 
 # Tmux was complaining to run with TERM=xterm-kitty
 # so c[ustom]tmux alias
 alias ctmux="TERM=xterm-256color tmux"
+
+# Pomotroid ot use GPU and avoid the error: "GPU process isn't usable. Goodbye"
+alias pomotroid="pomotroid --disable-gpu-sandbox"
 
 # Add path to found custom libraries
 export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"

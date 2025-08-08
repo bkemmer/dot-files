@@ -1,17 +1,34 @@
 #!/usr/bin/env zsh
 
 json_echo() {
+# prettify json content
   echo $1 | jq '.' --tab | bat --color=always -l json
 }
 
+
 prettify_json() {
+# Pretty-print JSON files with proper indentation and save to specified folder
+# Usage: prettify_json "output_folder"
+# Examples:
+#   prettify_json "formatted"     # Creates 'formatted' folder with prettified JSON files
+# Note: Processes all files in current directory, creates output folder if needed
+
   { ! [[ -d $1 ]] } && echo "Creating folder $1" && mkdir $1
   for file in *; do
     [[ -f $file ]] && cat $file | jq '.' --tab > $1/$file
   done
 }
 
+
 rename_files() {
+# Remove specified characters from all filenames in current directory
+# Usage: rename_files "char1" "char2" "char3" ...
+# Examples: 
+#   rename_files " "           # Remove spaces
+#   rename_files " " "_"       # Remove spaces and underscores
+#   rename_files "(" ")" "[" "]"  # Remove brackets/parentheses
+# Requires: rename command installed
+
   echo "Renaming files removing the following characters $0 with rename"
   for c in "$@"; do
     rename "'$c'" '' *
