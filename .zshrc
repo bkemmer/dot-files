@@ -11,6 +11,7 @@ plugins=(
 	git
 	zsh-syntax-highlighting
 	zsh-autosuggestions
+  zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -87,3 +88,5 @@ export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 #   fi
 #   tmux attach || exec tmux new -s kitty
 # fi
+
+. "$HOME/.local/bin/env"

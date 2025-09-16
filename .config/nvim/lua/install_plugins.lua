@@ -23,7 +23,7 @@ Now(function() vim.cmd[[colorscheme tokyonight-storm]] end)
 
 -- A tiny Neovim plugin that adds subtle animations to various operations.
 Add({source = 'rachartier/tiny-glimmer.nvim'})
-Later(function() require('tiny-glimmer').setup() end)
+Now(function() require('tiny-glimmer').setup() end)
 
 -- Copilot
 Add({source = "zbirenbaum/copilot.lua"})
@@ -71,7 +71,7 @@ Add({source = "nvim-neotest/neotest-python"})
 -- Early Retirement
 -- Send buffers into early retirement by automatically closing them after x minutes of inactivity.
 Add({source = "chrisgrieser/nvim-early-retirement"})
-Later(function() require("early-retirement").setup({}) end)
+Now(function() require("early-retirement").setup({}) end)
 
 --DiffView
 Add({source = "sindrets/diffview.nvim"})

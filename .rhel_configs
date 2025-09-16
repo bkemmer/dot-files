@@ -36,9 +36,16 @@ alias ctmux="TERM=xterm-256color tmux"
 # Pomotroid ot use GPU and avoid the error: "GPU process isn't usable. Goodbye"
 alias pomotroid="pomotroid --disable-gpu-sandbox"
 
+# Alias to run nvim with manual_installs instead of mini.deps package manager for nvim
+alias manual_installs_nvim="nvim --cmd 'lua manual_installs=true'"
+
+# Alias for podman
+alias docker=podman
+
 # Add path to found custom libraries
 export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
 
 # add autocomplete for fd
 [[ -f ~/.local/fd/autocomplete/fd.bash ]] && source ~/.local/fd/autocomplete/fd.bash
+
 
