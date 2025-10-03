@@ -19,7 +19,7 @@ Add({
 
 -- Colormap
 Add({source = "folke/tokyonight.nvim"})
-Now(function() vim.cmd[[colorscheme tokyonight-storm]] end)
+Later(function() vim.cmd[[colorscheme tokyonight-storm]] end)
 
 -- A tiny Neovim plugin that adds subtle animations to various operations.
 Add({source = 'rachartier/tiny-glimmer.nvim'})

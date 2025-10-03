@@ -4,6 +4,7 @@ local path_packages = vim.fn.stdpath('data') .. '/site/'
 local start_packages = path_packages .. 'pack/deps/start/'
 local mini_path = start_packages .. 'mini.deps'
 
+
 if not vim.loop.fs_stat(mini_path) then
   if manual_installs then
     local manual_installs_path = start_packages .. 'manual-installs.nvim'
@@ -24,6 +25,13 @@ if not vim.loop.fs_stat(mini_path) then
     vim.cmd('echo "Installed `mini.nvim`" | redraw')
   end
 end
+
+
+-- if manual_installs then
+--   require("mini.deps").add("jbyuki/one-small-step-for-vimkind")
+--   require"osv".launch({port=8086, blocking=true})
+-- end
+
 
 if manual_installs then
   MD = require('manual-installs')

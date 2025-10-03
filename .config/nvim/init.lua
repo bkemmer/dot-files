@@ -2,6 +2,12 @@
 vim.g.loaded_tutor_mode_plugin = 1
 -- Install plugins using Mini.Deps
 -- Also instanciates the globals Now, Later, Add
+
+if manual_installs then
+  require("mini.deps").add("jbyuki/one-small-step-for-vimkind")
+  require"osv".launch({port=8086, blocking=true})
+end
+
 require("install_plugins")
 
 Now(function() require('vim_configs') end)
