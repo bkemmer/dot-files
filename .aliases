@@ -50,7 +50,7 @@ alias fzfprev='fzf --preview="bat --color=always {}"'
 alias fzfnvim='nvim $(fzf --preview="bat --color=always --style=numbers {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)'
 
 # clipboard
-alias xclipf="xclip $1 -selection clipboard"
+alias xclipc="xclip $1 -selection clipboard"
 
 # date
 alias fdate="date +'%F %A'"

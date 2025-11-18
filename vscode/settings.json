@@ -1,24 +1,24 @@
 {
-    "workbench.colorTheme": "One Dark Pro",
-    "window.zoomLevel": 0.5,
+    "telemetry.telemetryLevel": "off",
+    "extensions.verifySignature": false,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'MonoLisa', 'Droid Sans Mono', 'monospace'",
+    "workbench.colorTheme": "Tokyo Night Storm",
     "editor.fontSize": 14,
-    "vim.smartRelativeLine": true,
+    "window.zoomLevel": 0.5,
     "editor.cursorSurroundingLines": 8,
-    "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "#a9dc7660",
-    "vim.highlightedyank.duration": 250,
-    "vim.useSystemClipboard": true,
     "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
-    
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
+    "editor.renderWhitespace": "none",
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": true,
     "breadcrumbs.enabled": true,
     "breadcrumbs.symbolPath": "off",
     "breadcrumbs.symbolSortOrder": "position",
-    "editor.renderWhitespace": "none",
-
+    "explorer.confirmDragAndDrop": false,
     "diffEditor.renderSideBySide": true,
-
+    "git.autofetch": true,
     "search.exclude": {
       "**/node_modules": true,
       "**/bower_components": true,
@@ -27,12 +27,24 @@
       "**/.git": true
     },
 
-    "search.useReplacePreview": false,
-
+    "[python]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll.ruff": "explicit",
+        "source.organizeImports.ruff": "explicit",
+      },
+    },
+    "github.copilot.enable": {
+      "*": false,
+    },
     "keyboard.dispatch": "keyCode",
     "extensions.experimental.affinity": {
       "vscodevim.vim": 1
     },
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "#a9dc7660",
+    "vim.highlightedyank.duration": 250,
+    "vim.useSystemClipboard": true,
+    "vim.smartRelativeLine": true,
     "vim.hlsearch": true,
     "vim.leader": "<space>",
     "vim.visualModeKeyBindings":[
@@ -54,17 +66,16 @@
       },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
-    {
-        "before": [
-            "p",
-        ],
-        "after": [
-            "p",
-            "g",
-            "v",
+      {
+          "before": [
+              "<leader>",
+              "y",
+          ],
+          "after": [
+            "\"+",
             "y",
-        ]
-    },
+          ],
+      },
     { // evaluate selection on Debug Repl
       "before": [
         "g",
@@ -88,6 +99,16 @@
     },
 ],
     "vim.normalModeKeyBindingsNonRecursive": [
+      {
+          "before": [
+              "<leader>",
+              "y",
+          ],
+          "after": [
+            "\"+",
+            "y",
+          ],
+      },
       {
         "before": [
           "<leader>",
