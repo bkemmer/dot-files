@@ -26,3 +26,5 @@ brew install lua-language-server
 
 # install yazi
 brew install yazi
+
+brew install zoxide

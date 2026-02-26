@@ -82,4 +82,4 @@ if command_exists neofetch; then neofetch; fi
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
-
+eval "$(zoxide init zsh)"
