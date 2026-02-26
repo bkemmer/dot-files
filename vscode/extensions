@@ -2,19 +2,23 @@
 njpwerner.autodocstring
 // Bookmarks
 alefragnani.Bookmarks
-// One Dark Pro
-zhuangtongfa.Material-theme
+// Tokyo Night
+enkia.tokyo-night
 // Prettify JSON
 mohsen1.prettify-json
 // Rainbow CSV
 mechatroner.rainbow-csv
 // Vim
 vscodevim.vim
-// Coverage Gutters
+// Coverage Gutters (?)
 ryanluker.vscode-coverage-gutters
 // Open in GitHub
 fabiospampinato.vscode-open-in-github
 // TODO Highlights v2
 jgclark.vscode-todo-highlight
-// Markdown Preview Mermaid Support
+// Markdown Preview Mermaid Support (?)
 bierner.markdown-mermaid
+//jupyter
+ms-toolsai.jupyter
+//ruff
+charliermarsh.ruff
