@@ -10,15 +10,13 @@ mohsen1.prettify-json
 mechatroner.rainbow-csv
 // Vim
 vscodevim.vim
-// Coverage Gutters (?)
-ryanluker.vscode-coverage-gutters
 // Open in GitHub
 fabiospampinato.vscode-open-in-github
 // TODO Highlights v2
 jgclark.vscode-todo-highlight
-// Markdown Preview Mermaid Support (?)
-bierner.markdown-mermaid
 //jupyter
 ms-toolsai.jupyter
 //ruff
 charliermarsh.ruff
+//pyrefly by Meta
+meta.pyrefly
