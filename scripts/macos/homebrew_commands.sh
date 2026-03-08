@@ -28,3 +28,5 @@ brew install lua-language-server
 brew install yazi
 
 brew install zoxide
+
+brew install nvim
