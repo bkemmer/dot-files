@@ -1,35 +1,25 @@
--- Disable the tutor
-vim.g.loaded_tutor_mode_plugin = 1
--- Install plugins using Mini.Deps
--- Also instanciates the globals Now, Later, Add
-require("install_plugins")
+require('config')
 
-Now(function() require('vim_configs') end)
-Now(function() require('keymaps') end)
-Later(function() require('plugins.blink') end)
+vim.pack.add({
+        'https://github.com/nvim-mini/mini.nvim',
+        'https://github.com/folke/tokyonight.nvim',
+        'https://github.com/rachartier/tiny-glimmer.nvim',
+        'https://github.com/rafamadriz/friendly-snippets',
+        'https://github.com/folke/snacks.nvim',
+        'https://github.com/folke/which-key.nvim',
+        'https://github.com/Vigemus/iron.nvim',
+        -- '',
+        -- '',
+        -- '',
+})
+vim.pack.add({
+  {
+    src = 'https://github.com/saghen/blink.cmp',
+    version = 'v1'
+  },
+})
 
+vim.cmd.colorscheme('tokyonight-storm')
 
-
-require('lsp')
-require('spellcheck')
-require('folding')
-require("debugging")
-require("treesitter")
-require("lsp")
-require("exiting")
-
--- -- Simples configurations
-Now(function() require('plugins.keymaps') end)
---
--- -- Using external configuration files
-Later(function() require("plugins.mini-configs") end)
-Later(function() require("plugins.image") end)
-Later(function() require("plugins.molten-config") end)
-Later(function() require("plugins.blink") end)
---
--- -- -- FIXME:
--- if init_debug then
---   require"osv".launch({port=8086, blocking=true})
--- end
-Later(function() require("globals") end)
--- Add("folke/flash.nvim")
+require('plugins')
+require('tiny-glimmer')
