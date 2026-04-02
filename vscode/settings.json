@@ -1,87 +1,88 @@
 {
-    "telemetry.telemetryLevel": "off",
-    "extensions.verifySignature": false,
-    "terminal.integrated.defaultProfile.linux": "zsh",
-    "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'MonoLisa', 'Droid Sans Mono', 'monospace'",
-    "workbench.colorTheme": "Tokyo Night Storm",
-    "editor.fontSize": 14,
-    "window.zoomLevel": 0.5,
-    "editor.cursorSurroundingLines": 8,
-    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
-    "editor.autoClosingBrackets": "never",
-    "editor.autoClosingQuotes": "never",
-    "editor.renderWhitespace": "none",
-    "editor.fontLigatures": true,
-    "editor.formatOnSave": true,
-    "breadcrumbs.enabled": true,
-    "breadcrumbs.symbolPath": "off",
-    "breadcrumbs.symbolSortOrder": "position",
-    "explorer.confirmDragAndDrop": false,
-    "diffEditor.renderSideBySide": true,
-    "git.autofetch": true,
-    "search.exclude": {
-      "**/node_modules": true,
-      "**/bower_components": true,
-      "**/*.code-search": true,
-      "**/tmp": true,
-      "**/.git": true
+  "telemetry.telemetryLevel": "off",
+  "extensions.verifySignature": false,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'MonoLisa', 'Droid Sans Mono', 'monospace'",
+  "workbench.colorTheme": "Tokyo Night Storm",
+  "editor.fontSize": 14,
+  "window.zoomLevel": 0.5,
+  "editor.cursorSurroundingLines": 8,
+  "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.renderWhitespace": "none",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.symbolPath": "off",
+  "breadcrumbs.symbolSortOrder": "position",
+  "explorer.confirmDragAndDrop": false,
+  "diffEditor.renderSideBySide": true,
+  "git.autofetch": true,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/tmp": true,
+    "**/.git": true
+  },
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit",
     },
-
-    "[python]": {
-      "editor.codeActionsOnSave": {
-        "source.fixAll.ruff": "explicit",
-        "source.organizeImports.ruff": "explicit",
-      },
+  },
+  "github.copilot.enable": {
+    "*": false,
+  },
+  "keyboard.dispatch": "keyCode",
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "#a9dc7660",
+  "vim.highlightedyank.duration": 250,
+  "vim.useSystemClipboard": true,
+  "vim.smartRelativeLine": true,
+  "vim.hlsearch": true,
+  "vim.leader": "<space>",
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
     },
-    "github.copilot.enable": {
-      "*": false,
+    {
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
     },
-    "keyboard.dispatch": "keyCode",
-    "extensions.experimental.affinity": {
-      "vscodevim.vim": 1
-    },
-    "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "#a9dc7660",
-    "vim.highlightedyank.duration": 250,
-    "vim.useSystemClipboard": true,
-    "vim.smartRelativeLine": true,
-    "vim.hlsearch": true,
-    "vim.leader": "<space>",
-    "vim.visualModeKeyBindings":[
-      {
-          "before": [
-              ">"
-          ],
-          "commands": [
-              "editor.action.indentLines"
-          ]
-      },
-      {
-          "before": [
-              "<"
-          ],
-          "commands": [
-              "editor.action.outdentLines"
-          ]
-      },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
-      {
-          "before": [
-              "<leader>",
-              "y",
-          ],
-          "after": [
-            "\"+",
-            "y",
-          ],
-      },
+    {
+      "before": [
+        "<leader>",
+        "y",
+      ],
+      "after": [
+        "\"+",
+        "y",
+      ],
+    },
     { // evaluate selection on Debug Repl
       "before": [
         "g",
         "e",
       ],
-      "commands": ["editor.debug.action.selectionToRepl"],
+      "commands": [
+        "editor.debug.action.selectionToRepl"
+      ],
     },
     { // add selection on watchlist 
       "before": [
@@ -89,49 +90,63 @@
         "a",
         "w",
       ],
-      "commands": ["editor.debug.action.selectionToWatch"],
+      "commands": [
+        "editor.debug.action.selectionToWatch"
+      ],
       "when": "debugState == 'running'",
     },
     {
-      "before": ["g", "w"],
-      "commands": ["workbench.debug.action.focusWatchView"],
+      "before": [
+        "g",
+        "w"
+      ],
+      "commands": [
+        "workbench.debug.action.focusWatchView"
+      ],
       "when": "debugState == 'running'",
     },
-],
-    "vim.normalModeKeyBindingsNonRecursive": [
-      {
-          "before": [
-              "<leader>",
-              "y",
-          ],
-          "after": [
-            "\"+",
-            "y",
-          ],
-      },
-      {
-        "before": [
-          "<leader>",
-          "<leader>",
-        ],
-        "commands": [
-          "workbench.action.openPreviousEditorFromHistory",
-          "workbench.action.acceptSelectedQuickOpenItem",
-        ],
-      },
-      {
-        "before": [
-          "<leader>",
-          "a",
-          "r",
-        ],
-        "commands": ["references-view.findReferences"],
-      },
-      {
-        "before": ["g", "w"],
-        "commands": ["workbench.debug.action.focusWatchView"],
-        "when": "debugState == 'running'",
-      },
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "y",
+      ],
+      "after": [
+        "\"+",
+        "y",
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "<leader>",
+      ],
+      "commands": [
+        "workbench.action.openPreviousEditorFromHistory",
+        "workbench.action.acceptSelectedQuickOpenItem",
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "a",
+        "r",
+      ],
+      "commands": [
+        "references-view.findReferences"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "w"
+      ],
+      "commands": [
+        "workbench.debug.action.focusWatchView"
+      ],
+      "when": "debugState == 'running'",
+    },
     // Command-T
     {
       "before": [
@@ -160,95 +175,206 @@
         },
       ],
     },
-      {
-        "before": ["g", "p", "d"],
-        "commands": ["editor.action.peekDefinition"],
-      },
-      {
-        "before": ["g", "h"],
-        "commands": ["editor.action.showDefinitionPreviewHover"],
-      },
-      {
-        "before": ["g", "i"],
-        "commands": ["editor.action.goToImplementation"],
-      },
-      {
-        "before": ["g", "p", "i"],
-        "commands": ["editor.action.peekImplementation"],
-      },
-      {
-        "before": ["g", "q"],
-        "commands": ["editor.action.quickFix"],
-      },
-      {
-        "before": ["g", "r"],
-        "commands": ["editor.action.referenceSearch.trigger"],
-      },
-      {
-        "before": ["g", "t"],
-        "commands": ["editor.action.goToTypeDefinition"],
-      },
-      {
-        "before": ["g", "p", "t"],
-        "commands": ["editor.action.peekTypeDefinition"],
-      },
-      {
-        "before": ["g", "f"],
-        "commands": ["editor.action.referenceSearch.trigger"],
-      },
-      {
-          "before": ["<leader>", "e"],
-          "commands": ["workbench.view.explorer"],
-      },
-      // Bookmarks extensions
-      {
-            "before": ["<leader>", "l"],
-            "commands": ["bookmarks.toggleLabeled"],
-      },
-      {
-            "before": ["<leader>", "N"],
-            "commands": ["bookmarks.jumpToPrevious"],
-      },
-      {
-            "before": ["<leader>", "n"],
-            "commands": ["bookmarks.jumpToNext"],
-        },
-      {
-            "before": ["<leader>", "m"],
-            "commands": ["bookmarks.toggle"],
-        },
-        {
-            "before": ["<leader>", "b"],
-            "commands": ["bookmarks.list"],
-        },
-        // Python run and debugging
-        {
-          "before": ["<leader>", "r"],
-          "commands": ["python.execInTerminal"],
-        },
-        {
-          "before": ["<leader>", "d"],
-          "commands": ["editor.debug.action.triggerByBreakpoint"],
-        },
-        // Github extension
-        {
-          "before": ["<leader>", "g", "a"],
-          "commands": ["openInGitHub.openActions"],
-        },
-        {
-          "before": ["<leader>", "g", "r"],
-          "commands": ["openInGitHub.openRepository"],
-        },
-        {
-          "before": ["<leader>", "g", "c"],
-          "commands": ["openInGitHub.openCommits"],
-        },
-        {
-          "before": ["<leader>", "g", "y"],
-          "commands": ["openInGitHub.copyFilePermalink"],
-        },
-    ],
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-    "editor.parameterHints.enabled": false,
-
+    {
+      "before": [
+        "g",
+        "p",
+        "d"
+      ],
+      "commands": [
+        "editor.action.peekDefinition"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "h"
+      ],
+      "commands": [
+        "editor.action.showDefinitionPreviewHover"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "i"
+      ],
+      "commands": [
+        "editor.action.goToImplementation"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "p",
+        "i"
+      ],
+      "commands": [
+        "editor.action.peekImplementation"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "q"
+      ],
+      "commands": [
+        "editor.action.quickFix"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "r"
+      ],
+      "commands": [
+        "editor.action.referenceSearch.trigger"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "t"
+      ],
+      "commands": [
+        "editor.action.goToTypeDefinition"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "p",
+        "t"
+      ],
+      "commands": [
+        "editor.action.peekTypeDefinition"
+      ],
+    },
+    {
+      "before": [
+        "g",
+        "f"
+      ],
+      "commands": [
+        "editor.action.referenceSearch.trigger"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "e"
+      ],
+      "commands": [
+        "workbench.view.explorer"
+      ],
+    },
+    // Bookmarks extensions
+    {
+      "before": [
+        "<leader>",
+        "l"
+      ],
+      "commands": [
+        "bookmarks.toggleLabeled"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "N"
+      ],
+      "commands": [
+        "bookmarks.jumpToPrevious"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "n"
+      ],
+      "commands": [
+        "bookmarks.jumpToNext"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "m"
+      ],
+      "commands": [
+        "bookmarks.toggle"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "b"
+      ],
+      "commands": [
+        "bookmarks.list"
+      ],
+    },
+    // Python run and debugging
+    {
+      "before": [
+        "<leader>",
+        "r"
+      ],
+      "commands": [
+        "python.execInTerminal"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "commands": [
+        "editor.debug.action.triggerByBreakpoint"
+      ],
+    },
+    // Github extension
+    {
+      "before": [
+        "<leader>",
+        "g",
+        "a"
+      ],
+      "commands": [
+        "openInGitHub.openActions"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "g",
+        "r"
+      ],
+      "commands": [
+        "openInGitHub.openRepository"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "g",
+        "c"
+      ],
+      "commands": [
+        "openInGitHub.openCommits"
+      ],
+    },
+    {
+      "before": [
+        "<leader>",
+        "g",
+        "y"
+      ],
+      "commands": [
+        "openInGitHub.copyFilePermalink"
+      ],
+    },
+  ],
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "editor.parameterHints.enabled": false
 }
