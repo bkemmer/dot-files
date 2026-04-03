@@ -86,3 +86,6 @@ eval "$(zoxide init zsh)"
 
 # Added by Antigravity
 [[ -d $HOME/.antigravity/antigravity/bin ]] && export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+
+# Add cargo binaries
+[[ -d $HOME/.cargo/bin ]] && export PATH="$HOME/.cargo/bin:$PATH"
