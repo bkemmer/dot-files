@@ -376,5 +376,6 @@
     },
   ],
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "editor.parameterHints.enabled": false
+  "editor.parameterHints.enabled": false,
+  "python.languageServer": "Default"
 }

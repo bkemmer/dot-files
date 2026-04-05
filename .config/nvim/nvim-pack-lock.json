@@ -9,13 +9,17 @@
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
-    "iron.nvim": {
-      "rev": "88cd340407b959f1168af2a6ae5a3d180e6df32c",
-      "src": "https://github.com/Vigemus/iron.nvim"
-    },
     "mini.nvim": {
       "rev": "3923662bf3d6ca49a9503f8d7196ea0450983e6a",
       "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "nvim-treesitter": {
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "pyrepl.nvim": {
+      "rev": "b04a4685d7f054dedcb6863666a6221f95a5b257",
+      "src": "https://github.com/dangooddd/pyrepl.nvim"
     },
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
