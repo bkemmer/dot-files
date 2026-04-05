@@ -1,4 +1,4 @@
 package/
-.DS_Store
+**/.DS_Store
 tmp.py
 .local/*
