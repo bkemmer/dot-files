@@ -1,6 +1,6 @@
 vim.pack.add({{ src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' }})
 
-require("nvim-treesitter").setup({})
+-- require("nvim-treesitter").setup({})
 require("nvim-treesitter").install({
 	"bash",
 	"c",
@@ -30,3 +30,17 @@ require("nvim-treesitter").install({
 	"xml",
 	"yaml",
 })
+
+-- Enable Highlighting by filetype
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { '<filetype>' },
+  callback = function() vim.treesitter.start() end,
+})
+
+-- Enable Treesitter-based folding
+vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.wo[0][0].foldmethod = 'expr'
+
+-- Experimental Identation
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
