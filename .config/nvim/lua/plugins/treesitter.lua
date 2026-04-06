@@ -40,6 +40,7 @@ vim.api.nvim_create_autocmd('FileType', {
 -- Enable Treesitter-based folding
 vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.wo[0][0].foldmethod = 'expr'
+vim.wo[0][0].foldlevel = 99
 
 -- Experimental Identation
 vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
