@@ -1,4 +1,4 @@
-vim.pack.add( { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' })
+vim.pack.add({{ src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' }})
 
 require("nvim-treesitter").setup({})
 require("nvim-treesitter").install({
@@ -11,8 +11,8 @@ require("nvim-treesitter").install({
 	"ini",
 	"jsdoc",
 	"json",
-    "kitty",
-    "latex",
+        "kitty",
+        "latex",
 	"lua",
 	"luadoc",
 	"luap",
