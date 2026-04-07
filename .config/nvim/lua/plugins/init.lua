@@ -1,5 +1,5 @@
 require('plugins.mini-configs')
-require('lua.plugins.treesitter')
+require('plugins.treesitter')
 require('plugins.blink')
 require('plugins.whichkey')
 require('plugins.snacks')
