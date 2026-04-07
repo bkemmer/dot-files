@@ -9,7 +9,6 @@ vim.pack.add({
         'https://github.com/folke/which-key.nvim',
         "https://github.com/romus204/tree-sitter-manager.nvim",
         { src = 'https://github.com/saghen/blink.cmp', version = 'v1' },
-        { src = 'https://github.com/neovim/nvim-lspconfig' },
 })
 vim.cmd.colorscheme('tokyonight-storm')
 

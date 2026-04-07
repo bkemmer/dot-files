@@ -6,13 +6,14 @@ Snacks.setup({
 	bigfile = { enabled = true },
 	dashboard = { enabled = false },
 	dim = { enabled = true },
-	explorer = { enabled = true, replace_netrw = true,
-              win = {
-                keys = {
-                  ["l"] = "confirm", -- enter folder / open file
-                  ["h"] = "explorer_close", -- collapse folder
-                }
-              }
+	explorer = {
+                enabled = true, replace_netrw = true,
+                win = {
+                        keys = {
+                          ["l"] = "confirm", -- enter folder / open file
+                          ["h"] = "explorer_close", -- collapse folder
+                        }
+                      },
         },
 	image = { enabled = true },
 	indent = { enabled = true },
@@ -270,6 +271,7 @@ local   keymaps = {
       end,
     }
 }
+
 -- stylua: ignore end
 for _, map in ipairs(keymaps) do
 	local opts = { desc = map.desc }

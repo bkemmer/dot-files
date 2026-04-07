@@ -13,6 +13,10 @@
       "rev": "2431902e78b76f435542d1e606f08475360068ca",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
+    "nvim-treesitter": {
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
     "pyrepl.nvim": {
       "rev": "b04a4685d7f054dedcb6863666a6221f95a5b257",
       "src": "https://github.com/dangooddd/pyrepl.nvim"
