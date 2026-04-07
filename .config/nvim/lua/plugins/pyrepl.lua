@@ -1,6 +1,6 @@
 vim.pack.add({
   "https://github.com/dangooddd/pyrepl.nvim",
-  "https://github.com/nvim-treesitter/nvim-treesitter",
+  -- "https://github.com/nvim-treesitter/nvim-treesitter",
 }, {
   confirm = false,
   load = true,

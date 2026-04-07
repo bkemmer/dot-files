@@ -1,47 +1,21 @@
-vim.pack.add({{ src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' }})
-
--- require("nvim-treesitter").setup({})
-require("nvim-treesitter").install({
-	"bash",
-	"c",
-	"diff",
-	"dockerfile",
-	"gitcommit",
-	"gitignore",
-	"ini",
-	"jsdoc",
-	"json",
-        "kitty",
-        "latex",
-	"lua",
-	"luadoc",
-	"luap",
-	"make",
-	"markdown",
-	"markdown_inline",
-	"python",
-	"query",
-	"regex",
-	"sql",
-	"terraform",
-	"toml",
-	"vim",
-	"vimdoc",
-	"xml",
-	"yaml",
+vim.pack.add({"https://github.com/romus204/tree-sitter-manager.nvim"})
+require("tree-sitter-manager").setup({
+      -- Optional: custom paths
+      -- parser_dir = vim.fn.stdpath("data") .. "/site/parser",
+      -- query_dir = vim.fn.stdpath("data") .. "/site/queries",
 })
 
--- Enable Highlighting by filetype
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { '<filetype>' },
-  callback = function() vim.treesitter.start() end,
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		local filetype = vim.bo.filetype
+		if filetype and filetype ~= "" then
+			pcall(vim.treesitter.start)
+		end
+	end,
 })
 
--- Enable Treesitter-based folding
-vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.wo[0][0].foldmethod = 'expr'
-vim.wo[0][0].foldlevel = 99
-
--- Experimental Identation
-vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.bo.indentexpr = "v:lua.vim.treesitter.indentexpr()"
+vim.wo.foldlevel = 99
