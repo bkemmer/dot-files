@@ -5,6 +5,19 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
+    "codecompanion-copilot-enterprise.nvim": {
+      "rev": "2e5edc4fd32775dfff578c283624ed97334a9372",
+      "src": "https://github.com/dyamon/codecompanion-copilot-enterprise.nvim"
+    },
+    "codecompanion.nvim": {
+      "rev": "893f56bdd41c5f58a49a1b0ab28e2ac6ad4667cc",
+      "src": "https://www.github.com/olimorris/codecompanion.nvim",
+      "version": "19.0.0 - 20.0.0"
+    },
+    "copilot.lua": {
+      "rev": "07aa57148ac28986bab9f55e87ee3d929e2726b1",
+      "src": "https://github.com/zbirenbaum/copilot.lua"
+    },
     "friendly-snippets": {
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
@@ -30,12 +43,16 @@
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-lspconfig": {
-      "rev": "bedca8b426b2fee0ccac596d167d71bbe971253f",
+      "rev": "fb5fa30626ae10f7f79f740059d3769993936ecb",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "src": "https://www.github.com/nvim-lua/plenary.nvim"
     },
     "pyrepl.nvim": {
       "rev": "b04a4685d7f054dedcb6863666a6221f95a5b257",
@@ -54,7 +71,7 @@
       "src": "https://github.com/folke/tokyonight.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "211d1a2408e4346005b2b124fd3068394eea94f0",
+      "rev": "4f899fb5d47f23ebf15aa43bb1766f2fe6cf4ab0",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "which-key.nvim": {
