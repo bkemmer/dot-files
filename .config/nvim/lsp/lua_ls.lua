@@ -1,95 +1,46 @@
----@brief
----
---- https://github.com/luals/lua-language-server
----
---- Lua language server.
----
---- `lua-language-server` can be installed by following the instructions [here](https://luals.github.io/#neovim-install).
----
---- The default `cmd` assumes that the `lua-language-server` binary can be found in `$PATH`.
----
---- If you primarily use `lua-language-server` for Neovim, and want to provide completions,
---- analysis, and location handling for plugins on runtime path, you can use the following
---- settings.
----
---- ```lua
---- vim.lsp.config('lua_ls', {
----   on_init = function(client)
----     if client.workspace_folders then
----       local path = client.workspace_folders[1].name
----       if
----         path ~= vim.fn.stdpath('config')
----         and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
----       then
----         return
----       end
----     end
----
----     client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
----       runtime = {
----         -- Tell the language server which version of Lua you're using (most
----         -- likely LuaJIT in the case of Neovim)
----         version = 'LuaJIT',
----         -- Tell the language server how to find Lua modules same way as Neovim
----         -- (see `:h lua-module-load`)
----         path = {
----           'lua/?.lua',
----           'lua/?/init.lua',
----         },
----       },
----       -- Make the server aware of Neovim runtime files
----       workspace = {
----         checkThirdParty = false,
----         library = {
----           vim.env.VIMRUNTIME,
----           -- Depending on the usage, you might want to add additional paths
----           -- here.
----           -- '${3rd}/luv/library',
----           -- '${3rd}/busted/library',
----         },
----         -- Or pull in all of 'runtimepath'.
----         -- NOTE: this is a lot slower and will cause issues when working on
----         -- your own configuration.
----         -- See https://github.com/neovim/nvim-lspconfig/issues/3189
----         -- library = vim.api.nvim_get_runtime_file('', true),
----       },
----     })
----   end,
----   settings = {
----     Lua = {},
----   },
---- })
---- ```
----
---- See `lua-language-server`'s [documentation](https://luals.github.io/wiki/settings/) for an explanation of the above fields:
---- * [Lua.runtime.path](https://luals.github.io/wiki/settings/#runtimepath)
---- * [Lua.workspace.library](https://luals.github.io/wiki/settings/#workspacelibrary)
----
-
-local root_markers1 = {
-  '.emmyrc.json',
-  '.luarc.json',
-  '.luarc.jsonc',
-}
-local root_markers2 = {
-  '.luacheckrc',
-  '.stylua.toml',
-  'stylua.toml',
-  'selene.toml',
-  'selene.yml',
-}
-
----@type vim.lsp.Config
+-- =============================================================================
+-- lsp/lua_ls.lua — Lua Language Server configuration
+-- =============================================================================
+-- Provides LSP support for Lua files, primarily for Neovim configs.
+-- =============================================================================
 return {
-  cmd = { 'lua-language-server' },
-  filetypes = { 'lua' },
-  root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers1, root_markers2, { '.git' } }
-    or vim.list_extend(vim.list_extend(root_markers1, root_markers2), { '.git' }),
-  ---@type lspconfig.settings.lua_ls
-  settings = {
-    Lua = {
-      codeLens = { enable = true },
-      hint = { enable = true, semicolon = 'Disable' },
-    },
-  },
+	cmd = { 'lua-language-server' }, -- server startup command
+	filetypes = { 'lua' }, -- activate only for .lua files
+	-- Project root markers: LSP searches for these files up the directory tree.
+	-- When a file is found — its directory becomes the "project root".
+	root_markers = {
+		'.luarc.json',   -- lua-language-server config
+		'.luarc.jsonc',  -- lua-language-server config (with comments)
+		'.luacheckrc',   -- luacheck linter config
+		'.stylua.toml',  -- stylua formatter config
+		'stylua.toml',   -- stylua formatter config (without dot)
+		'selene.toml',   -- selene linter config
+		'selene.yml',    -- selene linter config (YAML)
+		'.git',          -- git repository root
+	},
+	settings = {
+		Lua = {
+			runtime = {
+				-- Lua version: Neovim uses LuaJIT (compatible with Lua 5.4).
+				version = "Lua 5.4",
+			},
+			completion = {
+				enable = true, -- enable autocomplete for Lua-specific APIs
+			},
+			diagnostics = {
+				enable = true,
+				-- Tell lua_ls that "vim" is a global variable (not an "undefined global" error).
+				-- Without this, the entire init.lua would be red with "undefined global 'vim'" errors.
+				globals = { "vim" },
+			},
+			workspace = {
+				-- Add path to Neovim runtime files for API autocomplete.
+				-- This enables hints for vim.api.*, vim.lsp.*, vim.opt.*, etc.
+				library = { vim.env.VIMRUNTIME },
+				-- Do not prompt to configure workspace for third-party libraries.
+				-- Without this, lua_ls shows an annoying "configure your environment" popup.
+				checkThirdParty = false,
+			},
+		},
+	},
 }

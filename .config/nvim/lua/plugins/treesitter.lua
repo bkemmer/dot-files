@@ -1,9 +1,13 @@
-vim.pack.add({"https://github.com/romus204/tree-sitter-manager.nvim"})
+vim.pack.add({
+        "https://github.com/romus204/tree-sitter-manager.nvim",
+        "https://github.com/nvim-treesitter/nvim-treesitter",
+})
 require("tree-sitter-manager").setup({
       -- Optional: custom paths
       -- parser_dir = vim.fn.stdpath("data") .. "/site/parser",
       -- query_dir = vim.fn.stdpath("data") .. "/site/queries",
 })
+require("nvim-treesitter").setup()
 
 
 vim.api.nvim_create_autocmd("FileType", {

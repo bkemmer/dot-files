@@ -5,4 +5,5 @@ require('plugins.whichkey')
 require('plugins.snacks')
 require('plugins.noice')
 require('plugins.pyrepl')
-
+require('plugins.dap-view')
+require('plugins.dap')

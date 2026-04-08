@@ -94,4 +94,7 @@ km.set("v", "<space>x", ":lua<CR>", { desc = "Run visually selected lua lines" }
 -- Updates using vim.pack
 vim.keymap.set("n", "<leader>pu", "<cmd>lua vim.pack.update()<CR>")
 
-
+-- Toogle inlay_type_hints
+vim.keymap.set("n", "<leader>th", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "Toggle inlay hints" })
