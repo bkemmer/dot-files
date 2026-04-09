@@ -7,6 +7,8 @@ require('plugins.noice')
 require('plugins.pyrepl')
 require('plugins.dap-view')
 require('plugins.dap')
+require('plugins.spellwarn')
+
 require('plugins.code-companion')
 require('plugins.copilot')
 -- require('plugins.plugins-keymaps')

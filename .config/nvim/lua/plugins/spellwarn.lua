@@ -1,0 +1,32 @@
+-- vim.pack.add({
+--   "https://github.com/ravibrock/spellwarn.nvim"
+-- })
+-- require("spellwarn").setup({
+--   severity = {
+--     spellbad   = "WARN",
+--     spellcap   = "HINT",
+--     spelllocal = "HINT",
+--     spellrare  = "INFO",
+--   },
+--   suggest = true,
+--   num_suggest = 3,
+-- })
+--
+-- local spellcheck_filetypes = {
+--   "markdown",
+--   "text",
+--   "gitcommit",
+--   "plaintext",
+-- }
+--
+-- vim.opt.spellfile = {
+--   vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"),  -- english custom words
+--   vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add"),  -- PT-BR custom words
+-- }
+--
+-- local spellcheck_languages = { "en_us",  "pt_br" }
+--
+-- vim.opt.spell = true
+-- -- require("spellwarn").disable() to disable
+-- -- require("spellwarn").enable() to enable
+-- -- require("spellwarn").toggle() to toggle
