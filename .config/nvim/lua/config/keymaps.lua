@@ -16,7 +16,13 @@ km.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 km.set("n", "Q", "<Nop>", {silent = true})
 
 -- Alias to replace all to S
-km.set("n", "S", ":%s//g<Left><Left>", {desc = "Search"})
+km.set("n", "S", ":%s///g<Left><Left><Left>", {desc = "Search /"})
+-- For substitute using : as separators
+km.set("n", "<leader>;;", ":%s:::g<Left><Left><Left>", {desc = "Search :"})
+km.set("n", "<leader>;c", ":%s:::gc<Left><Left><Left><Left>", {desc = "Search : gc"})
+-- In command-line mode ("c"), when you type ;\, it expands to \(\) with the cursor placed between the parentheses, letting you type your capture group content immediately.
+km.set("c", [[;\]], [[\(\)<Left><Left>]], { desc = "Adds a group selection to the substitute command" })
+km.set("n", "<leader>nh", ":nohlsearch<CR>", { desc = "No Highlight Search" })
 
 -- Open current window in a new tab | Use <C-W><C-Q> to go back
 km.set("n", "<Leader>wo", ":tab split<CR>")
@@ -98,3 +104,5 @@ vim.keymap.set("n", "<leader>pu", "<cmd>lua vim.pack.update()<CR>")
 vim.keymap.set("n", "<leader>th", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "Toggle inlay hints" })
+
+print(vim.o.autochdir)

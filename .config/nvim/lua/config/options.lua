@@ -6,9 +6,14 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.g.have_nerd_font = false
 
 -- [[ Setting options ]]
+--
+-- Enables 24-bit RGB colors in the terminal
+vim.opt.termguicolors = true
+
+-- vim.g.have_nerd_font = true
+
 vim.o.number = true
 vim.o.relativenumber = true
 
@@ -33,6 +38,9 @@ vim.o.smartcase = true -- unless I use caps
 vim.o.wildmenu = true -- tab complete on command line
 vim.o.hlsearch = true -- highlight matching text
 vim.o.incsearch = true -- update results while I type
+
+-- Configures the behavior of the insert mode completion menu
+vim.opt.completeopt = "menu,menuone,noselect,popup"
 
 -- Keep signcolumn on by default
 vim.o.signcolumn = 'yes'
@@ -66,11 +74,19 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 vim.o.confirm = true
 
--- Tabs size
--- vim.o.tabstop = 2
--- vim.o.shiftwidth = 2
+-- Tabs
+-- Number of spaces that a <Tab> character represents
+vim.o.tabstop = 2
+-- Number of spaces to use for each step of automatic indentation
+vim.o.shiftwidth = 2
+-- Number of spaces that a <Tab> counts for during editing operations
+vim.opt.softtabstop = 2
+-- Converts tabs into spaces when typing
 vim.o.expandtab = true
-
+-- Automatically inserts an extra level of indentation in some cases
+vim.opt.smartindent = true
+-- Makes <Tab> insert 'shiftwidth' number of spaces at the start of a line
+vim.opt.smarttab = true
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
