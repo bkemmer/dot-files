@@ -1,1 +1,0 @@
-/Users/bkemmer/projects/vimpack-manual-downloader/vimpack-manual-downloader.py
