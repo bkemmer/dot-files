@@ -6,7 +6,7 @@ require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
     -- Conform will run multiple formatters sequentially
-    python = {"ruff"}, --{ "isort", "black" },
+    python = { "ruff" }, --{ "isort", "black" },
     -- You can customize some of the format options for the filetype (:help conform.format)
     rust = { "rustfmt", lsp_format = "fallback" },
     -- Conform will run the first available formatter
@@ -14,5 +14,5 @@ require("conform").setup({
   },
 })
 
-vim.keymap.set('n', '<leader>f', function() require('conform').format({async = true, lsp_format = 'fallback'}) end,
-{ desc = '[F]ormat buffer' })
+vim.keymap.set('n', '<leader>l', function() require('conform').format({ async = true, lsp_format = 'fallback' }) end,
+  { desc = '[F]ormat buffer' })
