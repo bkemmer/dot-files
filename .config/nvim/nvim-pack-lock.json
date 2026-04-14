@@ -10,7 +10,7 @@
       "src": "https://github.com/dyamon/codecompanion-copilot-enterprise.nvim"
     },
     "codecompanion.nvim": {
-      "rev": "893f56bdd41c5f58a49a1b0ab28e2ac6ad4667cc",
+      "rev": "680c445eb357c72129d175ea5d481aa9e92ae6a5",
       "src": "https://www.github.com/olimorris/codecompanion.nvim",
       "version": "19.0.0 - 20.0.0"
     },
@@ -19,7 +19,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "07aa57148ac28986bab9f55e87ee3d929e2726b1",
+      "rev": "ad7e729e9a6348f7da482be0271d452dbc4c8e2c",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "friendly-snippets": {
@@ -31,7 +31,7 @@
       "src": "https://github.com/Vigemus/iron.nvim"
     },
     "mini.nvim": {
-      "rev": "2431902e78b76f435542d1e606f08475360068ca",
+      "rev": "27a3e747a4e603b4121f5759e74020430ec7b7d5",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "noice.nvim": {
@@ -51,11 +51,11 @@
       "src": "https://github.com/mfussenegger/nvim-dap-python"
     },
     "nvim-dap-view": {
-      "rev": "e57ac4051aa56293e89991ab93bc148de35321ca",
+      "rev": "1dd4ba2307245ca9517a4b9d99f3bf80830e4397",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-lspconfig": {
-      "rev": "fb5fa30626ae10f7f79f740059d3769993936ecb",
+      "rev": "8a9378a822719346a0288fa004dab302ca3c0a8f",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -63,11 +63,11 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
-      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://www.github.com/nvim-lua/plenary.nvim"
     },
     "pyrepl.nvim": {
-      "rev": "b04a4685d7f054dedcb6863666a6221f95a5b257",
+      "rev": "4adcf0a5bb0b71b37f1067c4356fd4c702734f91",
       "src": "https://github.com/dangooddd/pyrepl.nvim"
     },
     "snacks.nvim": {
@@ -87,7 +87,7 @@
       "src": "https://github.com/folke/tokyonight.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "4f899fb5d47f23ebf15aa43bb1766f2fe6cf4ab0",
+      "rev": "fa63bc63ae08b661843d9976a43becfbd3daf76c",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "which-key.nvim": {
