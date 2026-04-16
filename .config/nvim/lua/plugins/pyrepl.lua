@@ -30,6 +30,9 @@ pyrepl.setup({
   jupytext_hook = true,
 })
 
+-- Is expected to add the kernel from a virtual environment that you wish to use:
+-- python -m ipykernel install --user --name {kernel_name}
+
 -- repl ui-related commands
 vim.keymap.set("n", "<leader>jo", pyrepl.open_repl, { desc = 'Open REPL' })
 vim.keymap.set("n", "<leader>jh", pyrepl.hide_repl, { desc = 'Hide REPL' })
