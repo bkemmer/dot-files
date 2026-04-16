@@ -17,6 +17,8 @@ km.set("n", "Q", "<Nop>", {silent = true})
 
 -- Alias to replace all to S
 km.set("n", "S", ":%s///g<Left><Left><Left>", {desc = "Search /"})
+km.set("v", "S", ":'<,'>s///g<Left><Left><Left>", {desc = "Search /"})
+
 -- For substitute using : as separators
 km.set("n", "<leader>;;", ":%s:::g<Left><Left><Left>", {desc = "Search :"})
 km.set("n", "<leader>;c", ":%s:::gc<Left><Left><Left><Left>", {desc = "Search : gc"})

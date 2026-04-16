@@ -7,7 +7,7 @@ vim.pack.add({
 })
 
 local pyrepl = require("pyrepl")
-local venv_python_path = '~/.venv_nvim/bin'
+local venv_python_path = vim.fn.expand('~/.venv_nvim/bin')
 local python_path = vim.fn.isdirectory(venv_python_path) == 1 and vim.fs.joinpath(venv_python_path, "python") or "python"
 -- default config
 pyrepl.setup({
@@ -31,25 +31,25 @@ pyrepl.setup({
 })
 
 -- repl ui-related commands
-vim.keymap.set("n", "<leader>jo", pyrepl.open_repl, {desc = 'Open REPL'})
-vim.keymap.set("n", "<leader>jh", pyrepl.hide_repl, {desc = 'Hide REPL'})
-vim.keymap.set("n", "<leader>jc", pyrepl.close_repl, {desc = 'Close REPL'})
-vim.keymap.set("n", "<leader>jt", pyrepl.toggle_repl, {desc = 'Toogle REPL'})
-vim.keymap.set("n", "<leader>ji", pyrepl.open_image_history, {desc = 'Open Image History'})
-vim.keymap.set({ "n", "t" }, "<C-j>", pyrepl.toggle_repl_focus, {desc = 'Toogle REPL Focus'})
+vim.keymap.set("n", "<leader>jo", pyrepl.open_repl, { desc = 'Open REPL' })
+vim.keymap.set("n", "<leader>jh", pyrepl.hide_repl, { desc = 'Hide REPL' })
+vim.keymap.set("n", "<leader>jc", pyrepl.close_repl, { desc = 'Close REPL' })
+vim.keymap.set("n", "<leader>jt", pyrepl.toggle_repl, { desc = 'Toogle REPL' })
+vim.keymap.set("n", "<leader>ji", pyrepl.open_image_history, { desc = 'Open Image History' })
+vim.keymap.set({ "n", "t" }, "<C-j>", pyrepl.toggle_repl_focus, { desc = 'Toogle REPL Focus' })
 
 -- send commands
-vim.keymap.set("n", "<leader>jb", pyrepl.send_buffer, {desc = 'Send Buffer to REPL'})
-vim.keymap.set("n", "<leader>jr", pyrepl.send_cell, {desc = 'Send Cell to REPL'})
-vim.keymap.set("v", "<leader>jv", pyrepl.send_visual, {desc = 'Send Visual'})
+vim.keymap.set("n", "<leader>jb", pyrepl.send_buffer, { desc = 'Send Buffer to REPL' })
+vim.keymap.set("n", "<leader>jr", pyrepl.send_cell, { desc = 'Send Cell to REPL' })
+vim.keymap.set("v", "<leader>jv", pyrepl.send_visual, { desc = 'Send Visual' })
 
 -- QoL commands
-vim.keymap.set("n", "<leader>jp", pyrepl.step_cell_backward, {desc = 'Step Cell Backward'})
-vim.keymap.set("n", "<leader>jn", pyrepl.step_cell_forward, {desc = 'Step Cell Forward'})
-vim.keymap.set("n", "<leader>je", pyrepl.export_to_notebook, {desc = 'Step Cell Backward'})
-vim.keymap.set("n", "<leader>js", ":PyreplInstall", {desc = 'PyrepInstall'})
+vim.keymap.set("n", "<leader>jp", pyrepl.step_cell_backward, { desc = 'Step Cell Backward' })
+vim.keymap.set("n", "<leader>jn", pyrepl.step_cell_forward, { desc = 'Step Cell Forward' })
+vim.keymap.set("n", "<leader>je", pyrepl.export_to_notebook, { desc = 'Step Cell Backward' })
+vim.keymap.set("n", "<leader>js", ":PyreplInstall", { desc = 'PyrepInstall' })
 
 vim.keymap.set("n", "<leader>jl", function()
   vim.cmd("PyreplSendCell")
   vim.cmd("PyreplStepCellForward")
-end)
+end, { desc = "Send Cell to REPL and Step Foward" })
