@@ -1,6 +1,7 @@
 {
   "telemetry.telemetryLevel": "off",
   "extensions.verifySignature": false,
+  "github.copilot.chat.anthropic.useMessagesApi": false,
   "terminal.integrated.defaultProfile.linux": "zsh",
   "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', 'MonoLisa', 'Droid Sans Mono', 'monospace'",
   "workbench.colorTheme": "Tokyo Night Storm",
