@@ -1,3 +1,5 @@
+require('plugins.theme-tokyonight')
+require('plugins.tiny-glimmer')
 require('plugins.mini-configs')
 require('plugins.treesitter')
 require('plugins.blink')

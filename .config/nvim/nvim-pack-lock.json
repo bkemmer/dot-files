@@ -19,7 +19,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "ad7e729e9a6348f7da482be0271d452dbc4c8e2c",
+      "rev": "aeca454727486d488a6ecbcde30db72e741e3524",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "friendly-snippets": {
@@ -31,7 +31,7 @@
       "src": "https://github.com/Vigemus/iron.nvim"
     },
     "mini.nvim": {
-      "rev": "27a3e747a4e603b4121f5759e74020430ec7b7d5",
+      "rev": "d76247d6e3ffa222784be5b156770e37c665f67e",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "noice.nvim": {
@@ -51,11 +51,11 @@
       "src": "https://github.com/mfussenegger/nvim-dap-python"
     },
     "nvim-dap-view": {
-      "rev": "1dd4ba2307245ca9517a4b9d99f3bf80830e4397",
+      "rev": "03c22bb2bc0d6ed60ee6f7351f8a5e65dd2e80d3",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-lspconfig": {
-      "rev": "8a9378a822719346a0288fa004dab302ca3c0a8f",
+      "rev": "e05fb8c3bd61d909dacff24f77f23beb644daf54",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -79,7 +79,7 @@
       "src": "https://github.com/rachartier/tiny-cmdline.nvim"
     },
     "tiny-glimmer.nvim": {
-      "rev": "932e6c2cc4a43ce578f007db1f8f61ad6798f938",
+      "rev": "1f1f26d84882b6f216cbeba548f2359c2118a876",
       "src": "https://github.com/rachartier/tiny-glimmer.nvim"
     },
     "tokyonight.nvim": {
@@ -87,7 +87,7 @@
       "src": "https://github.com/folke/tokyonight.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "fa63bc63ae08b661843d9976a43becfbd3daf76c",
+      "rev": "7b05cefbbfffc90fcd8ecc4b93f999b02ee74e3f",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "which-key.nvim": {
