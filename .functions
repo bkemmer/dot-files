@@ -23,7 +23,7 @@ prettify_json() {
 rename_files() {
 # Remove specified characters from all filenames in current directory
 # Usage: rename_files "char1" "char2" "char3" ...
-# Examples: 
+# Examples:
 #   rename_files " "           # Remove spaces
 #   rename_files " " "_"       # Remove spaces and underscores
 #   rename_files "(" ")" "[" "]"  # Remove brackets/parentheses
@@ -87,5 +87,14 @@ jupyter_vi_motion_extensions(){
   cd $(jupyter --data-dir)/nbextensions
   git clone https://github.com/lambdalisue/jupyter-vim-binding vim_binding
   jupyter nbextension enable vim_binding/vim_binding
+}
+
+git-list-stale-branchs() {
+  # list all stale branchs with more than 90 days unchanged
+  [[ -n "$1" ]] || { echo "Expecting a filename in the ARG"; return }
+  git for-each-ref --sort=committerdate refs/remotes/ \
+    --format="%(committerdate:short) %(refname:short)" | \
+    awk -v cutoff="$(date -d '90 days ago' +%Y-%m-%d 2>/dev/null || date -v-90d +%Y-%m-%d)" \
+    '$1 < cutoff' > "$1"
 }
 
