@@ -1,4 +1,4 @@
-require('plugins.theme-tokyonight')
+require('plugins.theme')
 require('plugins.tiny-glimmer')
 require('plugins.mini-configs')
 require('plugins.treesitter')
