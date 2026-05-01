@@ -89,3 +89,6 @@ eval "$(zoxide init zsh)"
 
 # Add cargo binaries
 [[ -d $HOME/.cargo/bin ]] && export PATH="$HOME/.cargo/bin:$PATH"
+
+# opencode
+export PATH=/home/bkemmer/.opencode/bin:$PATH
