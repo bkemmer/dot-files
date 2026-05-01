@@ -7,9 +7,8 @@ vim.pack.add({
 })
 
 local pyrepl = require("pyrepl")
-local venv_python_path = vim.fn.expand('~/.venv_nvim/bin')
-local python_path = vim.fn.isdirectory(venv_python_path) == 1 and vim.fs.joinpath(venv_python_path, "python") or "python"
-
+-- local venv_python_path = vim.fn.expand('~/.venv_nvim/bin')
+-- local python_path = vim.fn.isdirectory(venv_python_path) == 1 and vim.fs.joinpath(venv_python_path, "python") or "python"
 -- default config
 pyrepl.setup({
   split_horizontal = false,
@@ -25,7 +24,7 @@ pyrepl.setup({
   image_provider = "placeholders",
   -- can also be a function for advanced use cases
   cell_pattern = "^#.?%%.*$",
-  python_path = python_path,
+  -- python_path = python_path,
   preferred_kernel = "python3",
   -- automatically prompt to convert notebook files into python scripts
   jupytext_hook = true,
