@@ -5,6 +5,10 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
+    "code-preview.nvim": {
+      "rev": "9b963a737839c00ced3e231dce5ad9cb41a000c9",
+      "src": "https://github.com/Cannon07/code-preview.nvim"
+    },
     "codecompanion-copilot-enterprise.nvim": {
       "rev": "2e5edc4fd32775dfff578c283624ed97334a9372",
       "src": "https://github.com/dyamon/codecompanion-copilot-enterprise.nvim"

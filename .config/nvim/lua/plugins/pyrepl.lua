@@ -9,6 +9,7 @@ vim.pack.add({
 local pyrepl = require("pyrepl")
 local venv_python_path = vim.fn.expand('~/.venv_nvim/bin')
 local python_path = vim.fn.isdirectory(venv_python_path) == 1 and vim.fs.joinpath(venv_python_path, "python") or "python"
+
 -- default config
 pyrepl.setup({
   split_horizontal = false,
