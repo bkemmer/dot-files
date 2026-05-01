@@ -43,7 +43,7 @@
       "src": "https://github.com/metalelf0/kintsugi-nvim"
     },
     "mini.nvim": {
-      "rev": "be81509b7160aa02264a59789164a2e1c4a6750a",
+      "rev": "0f339bf5c93f392dc5d2417d47d7b9edc5f96fe8",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "miniharp.nvim": {
@@ -67,11 +67,11 @@
       "src": "https://github.com/mfussenegger/nvim-dap-python"
     },
     "nvim-dap-view": {
-      "rev": "6e7c49a107f70af237543413690a60a63d8d7725",
+      "rev": "e8199a2c2202415785b65799fa92e1a1cd2f4d4f",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-lspconfig": {
-      "rev": "b66a8ce16b141cd26576267e2d1f371d658b7bb7",
+      "rev": "31026a13eefb20681124706a79fc1df6bf11ab27",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
