@@ -1,4 +1,4 @@
-sudo apt update && sudo apt install stow ripgrep fd-find fzf bat
+sudo apt update && sudo apt install stow ripgrep fd-find fzf bat ffmpeg
 alias bat=batcat
 
 wget https://github.com/neovim/neovim/releases/download/v0.12.0/nvim-linux-x86_64.tar.gz
