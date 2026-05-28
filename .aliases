@@ -27,7 +27,7 @@ alias dve="source ~/.venv/bin/activate"
 alias ipykernel_install="python -m ipykernel install --user --name"
 
 # dot-files folder
-export DOTPROJ='$HOME/projects/dot-files'
+export DOTPROJ="$HOME/projects/dot-files"
 export PLUGINS_NVIM="$HOME/.local/share/nvim/site/pack/deps"
 alias simple_nvim='XDG_CONFIG_HOME=$HOME/.simple_config nvim'
 
@@ -50,7 +50,7 @@ alias fzfprev='fzf --preview="bat --color=always {}"'
 alias fzfnvim='nvim $(fzf --preview="bat --color=always --style=numbers {}" --bind shift-up:preview-page-up,shift-down:preview-page-down)'
 
 # clipboard
-alias xclipc="xclip $1 -selection clipboard"
+xclipc() { xclip "$1" -selection clipboard; }
 
 # date
 alias fdate="date +'%F %A'"

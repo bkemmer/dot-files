@@ -92,4 +92,4 @@ eval "$(zoxide init zsh)"
 [[ -d $HOME/.cargo/bin ]] && export PATH="$HOME/.cargo/bin:$PATH"
 
 # opencode
-export PATH=/home/bkemmer/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
