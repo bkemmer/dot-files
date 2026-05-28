@@ -8,6 +8,7 @@
 ^/LICENSE.*
 ^/COPYING
 ^/TODOs.md
+^/SUGGESTIONS.md
 
 # custom stow ignore
 Makefile

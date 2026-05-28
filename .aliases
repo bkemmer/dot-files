@@ -5,8 +5,6 @@ alias gs="git status"
 alias gc="git commit"
 
 
-alias v="vim"
-
 # typos
 alias sl=ls
 alias abt=bat
@@ -31,11 +29,13 @@ export DOTPROJ="$HOME/projects/dot-files"
 export PLUGINS_NVIM="$HOME/.local/share/nvim/site/pack/deps"
 alias simple_nvim='XDG_CONFIG_HOME=$HOME/.simple_config nvim'
 
-# nvidia
-alias nvidia_monitor="watch -n0.1 nvidia-smi"
+if [[ "$OSTYPE" == linux-gnu* ]]; then
+  # nvidia
+  alias nvidia_monitor="watch -n0.1 nvidia-smi"
+fi
 
 # get current branch
-alias gcb='git rev-parse --abbrev-ref HEAD | xclip'
+gcb() { git rev-parse --abbrev-ref HEAD | if command -v pbcopy &>/dev/null; then pbcopy; else xclip -selection clipboard; fi }
 
 # force gs to be git status command instead of Ghostscript
 alias gs='command git status'
@@ -43,7 +43,9 @@ alias gs='command git status'
 # run tree to show hidden files but not .git folder
 alias ta='tree -aI .git '
 
-alias restart_gnome="xdotool key 'Alt+F2+r' && sleep 0.2 && xdotool key 'Return'"
+if [[ "$OSTYPE" == linux-gnu* ]]; then
+  alias restart_gnome="xdotool key 'Alt+F2+r' && sleep 0.2 && xdotool key 'Return'"
+fi
 
 # fzf
 alias fzfprev='fzf --preview="bat --color=always {}"'

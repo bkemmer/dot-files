@@ -4,6 +4,23 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# pyenv
+PYENV_ROOT="$HOME/.pyenv"
+if [[ -d $PYENV_ROOT/bin ]] then
+  export PYENV_ROOT
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+
+# Added by Antigravity
+[[ -d $HOME/.antigravity/antigravity/bin ]] && export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+
+# Add cargo binaries
+[[ -d $HOME/.cargo/bin ]] && export PATH="$HOME/.cargo/bin:$PATH"
+
+# opencode
+export PATH=$HOME/.opencode/bin:$PATH
+
 ZSH_THEME="spaceship"
 
 plugins=(
@@ -16,10 +33,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# create a function to test if a command exists
-command_exists() {
-  command -v "$1" >/dev/null 2>&1
-}
+[[ -f $HOME/.functions ]] && source $HOME/.functions
 
 # User configuration
 export MANPATH="/usr/local/man:$MANPATH"
@@ -43,14 +57,6 @@ if [[ -f $HOME/.aliases ]]; then
     source $HOME/.aliases
 fi
 
-# pyenv
-PYENV_ROOT="$HOME/.pyenv"
-if [[ -d $PYENV_ROOT/bin ]] then
-  export PYENV_ROOT
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-fi
-
 # venv wrapper
 [[ -f $HOME/.venv_wrapper ]] && source $HOME/.venv_wrapper
 # enabling C-s in vim
@@ -58,8 +64,7 @@ stty -ixon
 
 # red hat specific
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	if cat /etc/*-release | grep -q 'Red Hat Enterprise Linux'; then
-		source $HOME/.functions
+	if grep -q 'Red Hat Enterprise Linux' /etc/*-release; then
     [[ -f $HOME/.rhel_others ]] && source $HOME/.rhel_configs
   else
     [[ -f $HOME/.popos_configs ]] && source $HOME/.popos_configs
@@ -78,18 +83,9 @@ export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p
 # fzf entry
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# neofetch
-if command_exists neofetch; then neofetch; fi
+# fastfetch
+if command_exists fastfetch; then fastfetch; fi
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 eval "$(zoxide init zsh)"
-
-# Added by Antigravity
-[[ -d $HOME/.antigravity/antigravity/bin ]] && export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
-
-# Add cargo binaries
-[[ -d $HOME/.cargo/bin ]] && export PATH="$HOME/.cargo/bin:$PATH"
-
-# opencode
-export PATH=$HOME/.opencode/bin:$PATH

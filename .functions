@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+command_exists() {
+  command -v "$1" >/dev/null 2>&1
+}
+
 json_echo() {
 # prettify json content
   echo $1 | jq '.' --tab | bat --color=always -l json
@@ -86,7 +90,7 @@ jupyter_vi_motion_extensions(){
   jupyter nbextension enable vim_binding/vim_binding
 }
 
-git-list-stale-branchs() {
+git-list-stale-branches() {
   # list all stale branchs with more than 90 days unchanged
   [[ -n "$1" ]] || { echo "Expecting a filename in the ARG"; return }
   git for-each-ref --sort=committerdate refs/remotes/ \
