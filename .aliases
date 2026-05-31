@@ -35,7 +35,7 @@ if [[ "$OSTYPE" == linux-gnu* ]]; then
 fi
 
 # get current branch
-gcb() { git rev-parse --abbrev-ref HEAD | if command -v pbcopy &>/dev/null; then pbcopy; else xclip -selection clipboard; fi }
+get_cwd_branch() { git rev-parse --abbrev-ref HEAD | if command -v pbcopy &>/dev/null; then pbcopy; else xclip -selection clipboard; fi }
 
 # force gs to be git status command instead of Ghostscript
 alias gs='command git status'
