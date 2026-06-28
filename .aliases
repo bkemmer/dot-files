@@ -24,6 +24,10 @@ alias dve="source ~/.venv/bin/activate"
 # create a ipykernel
 alias ipykernel_install="python -m ipykernel install --user --name"
 
+# check if bluetooth is blocked
+alias check_bluetooth="rfkill list bluetooth"
+alias unblock_bluetooth="sudo rfkill unblock bluetooth"
+
 # dot-files folder
 export DOTPROJ="$HOME/projects/dot-files"
 export PLUGINS_NVIM="$HOME/.local/share/nvim/site/pack/deps"
