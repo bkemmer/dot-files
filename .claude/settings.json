@@ -1,0 +1,27 @@
+{
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y @owloops/claude-powerline@latest"
+  },
+  "enabledPlugins": {
+    "pyright-lsp@claude-plugins-official": true,
+    "ponytail@ponytail": true,
+    "claude-powerline@claude-powerline": true
+  },
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "claude-powerline": {
+      "source": {
+        "source": "github",
+        "repo": "Owloops/claude-powerline"
+      }
+    }
+  },
+  "theme": "dark"
+}

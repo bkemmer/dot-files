@@ -1,0 +1,56 @@
+{
+  "theme": "gruvbox",
+  "display": {
+    "style": "tui",
+    "charset": "text",
+    "colorCompatibility": "auto",
+    "autoWrap": true,
+    "tui": {
+      "fitContent": false,
+      "minWidth": 45,
+      "padding": { "horizontal": 1 },
+      "separator": { "column": "" },
+      "title": {
+        "left": "{model}",
+        "right": "{dir}"
+      },
+      "segments": {
+        "git.headVal": {
+          "items": ["{branch}", "{status}", "{ahead}", "{behind}"],
+          "gap": 1
+        }
+      },
+      "breakpoints": [
+        {
+          "minWidth": 0,
+          "areas": [
+            "git.icon     git.headVal     git.headVal     git.headVal     git.working",
+            "---",
+            "context.icon  context.bar  context.bar  context.pct  context.tokens",
+            "block.icon    block.bar    block.bar    block.value  block.time"
+          ],
+          "columns": ["auto", "1fr", "auto", "auto", "auto"],
+          "align": ["left", "left", "right", "right", "right"]
+        }
+      ]
+    },
+    "lines": [
+      {
+        "segments": {
+          "directory": { "enabled": true, "showBasename": true },
+          "git": { "enabled": true, "showAheadBehind": true },
+          "model": { "enabled": true },
+          "context": { "enabled": true, "autocompactBuffer": 0 },
+          "block": { "enabled": true, "type": "tokens" }
+        }
+      }
+    ]
+  },
+  "budget": {
+    "session": { "warningThreshold": 80 }
+  },
+  "modelContextLimits": {
+    "sonnet": 1000000,
+    "opus": 200000
+  }
+}
