@@ -1,9 +1,24 @@
 #THEME SPACESHIP
 LS_COLORS=$LS_COLORS:'ow=01;34:' ; export LS_COLORS
 
+SPACESHIP_USER_SHOW=false
+SPACESHIP_HOST_SHOW=false
+
+spaceship_shot_user() {
+  local short_user
+  short_user="${USER%@*}"
+
+  spaceship::section \
+    --color yellow \
+    --prefix "" \
+    --suffix " " \
+    "$short_user"
+}
+
 SPACESHIP_PROMPT_ORDER=(
 	venv		# Active virtualenv
-	user		# Username section
+	# user		# Username section
+	short_user 		# Short Username section
 	dir 		# Current directory section
 	host		# Hostname section
 	git 		# Git section (git branch + git_status)
@@ -14,7 +29,6 @@ SPACESHIP_PROMPT_ORDER=(
 	char		# Prompt character
 )
 
-SPACESHIP_USER_SHOW="always" # Shows System user name before directory name
 
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
