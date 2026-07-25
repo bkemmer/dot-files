@@ -1,1 +1,4 @@
-never add any co-author in the commit messages
+# Global instructions
+
+## Git commits
+- Do not add `Co-Authored-By` trailers to commit messages.

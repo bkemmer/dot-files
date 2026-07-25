@@ -1,0 +1,64 @@
+# herdr config — mirrors ~/.tmux.conf where the concepts overlap.
+# herdr is not tmux: it has workspaces > tabs > panes (+ agent rows), a server
+# that persists sessions natively, and a themed UI instead of a status line.
+
+onboarding = false
+
+[theme]
+# Your tmux palette (#c4b28a / #181616 / #c4746e) is Kanagawa.
+name = "kanagawa"
+
+[theme.custom]
+# tmux pane-active-border-style 'fg=#c4b28a'
+accent = "#c4b28a"
+
+[terminal]
+# tmux: set-option -g default-shell /bin/zsh
+default_shell = "/bin/zsh"
+# tmux: new-window / split -c "#{pane_current_path}"  (inherit source cwd)
+new_cwd = "follow"
+
+[keys]
+# tmux: set-option -g prefix C-a
+prefix = "ctrl+a"
+
+# tmux: bind - split-window -v   (minus is a supported key name)
+split_horizontal = "prefix+minus"
+# tmux used | for split-window -h; '|' isn't a bindable key name in herdr,
+# so vertical split stays on the default. Change if you find a chord you like.
+split_vertical = "prefix+v"
+
+# tmux: bind r source-file ~/.tmux.conf   (prefix+r is herdr's resize mode,
+# so reload is moved to a free chord instead of colliding)
+reload_config = "prefix+shift+r"
+
+# tmux next/prev window (C-n / C-p) -> herdr tabs (defaults, listed for clarity)
+next_tab = "prefix+n"
+previous_tab = "prefix+p"
+
+# tmux vim-tmux-navigator used C-h/j/k/l with vim awareness. herdr can't do the
+# is_vim passthrough, so pane focus stays under the prefix.
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+[ui]
+# tmux: set -g mouse on
+mouse_capture = true
+# tmux copy-mode-vi y -> pbcopy; herdr copies drag selections automatically.
+copy_on_select = true
+# tmux: bind c new-window opened instantly; don't prompt for a tab name.
+prompt_new_tab_name = false
+
+# tmux killed all bells; herdr's point is agent notifications, so turn them on.
+[ui.toast]
+delivery = "system"   # desktop notification when a background agent finishes / needs input
+
+[ui.sound]
+enabled = true
+
+[session]
+# Replaces tmux-resurrect + tmux-continuum: herdr's server persists sessions and
+# resumes agent panes on restart natively.
+resume_agents_on_restore = true
