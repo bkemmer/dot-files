@@ -32,6 +32,9 @@ split_vertical = "prefix+v"
 # so reload is moved to a free chord instead of colliding)
 reload_config = "prefix+shift+r"
 
+# tmux: bind , rename-window   (herdr default was prefix+shift+t)
+rename_tab = "prefix+comma"
+
 # tmux next/prev window (C-n / C-p) -> herdr tabs (defaults, listed for clarity)
 next_tab = "prefix+n"
 previous_tab = "prefix+p"
