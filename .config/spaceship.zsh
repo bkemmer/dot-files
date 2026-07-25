@@ -4,7 +4,7 @@ LS_COLORS=$LS_COLORS:'ow=01;34:' ; export LS_COLORS
 SPACESHIP_USER_SHOW=false
 SPACESHIP_HOST_SHOW=false
 
-spaceship_shot_user() {
+spaceship_short_user() {
   local short_user
   short_user="${USER%@*}"
 
