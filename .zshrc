@@ -83,6 +83,7 @@ export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p
 # fzf entry
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
 # fastfetch
 if command_exists fastfetch; then fastfetch; fi
 
