@@ -2,3 +2,11 @@ package/
 **/.DS_Store
 tmp.py
 .local/*
+
+# Claude Code runtime state lives in ~/.claude; only these are dotfiles-managed
+.claude/*
+!.claude/CLAUDE.md
+!.claude/claude-powerline.json
+!.claude/settings.json
+!.claude/agents
+!.claude/agents/**
