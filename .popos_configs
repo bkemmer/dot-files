@@ -1,5 +1,5 @@
 qwen-server() {
-  llama-server -m Qwen3.6-27B-Q5_K_M.gguf \
+  llama-server -hf unsloth/Qwen3.6-27B-GGUF:UD-Q5_K_XL \
     -ngl 99 --split-mode layer -ts 16,11 \
     -fa on -ctk q8_0 -ctv q8_0 -c 65536 \
     --temp 0.6 --top-p 0.95 --top-k 20 --presence-penalty 0.0 \
