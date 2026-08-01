@@ -10,3 +10,7 @@ tmp.py
 !.claude/settings.json
 !.claude/agents
 !.claude/agents/**
+
+# herdr runtime state lives in ~/.config/herdr; only config.toml is dotfiles-managed
+.config/herdr/*
+!.config/herdr/config.toml
