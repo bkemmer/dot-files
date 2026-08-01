@@ -1,3 +1,5 @@
+@$HOME/AGENTS.md
+
 # Global instructions
 
 ## Git commits
