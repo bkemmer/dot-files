@@ -48,6 +48,9 @@ Do not run these without explicit confirmation from the user.
 - **Never commit** unless explicitly asked by the user (e.g., "commit this", "git commit", "push")
 - Do not run `git add`, `git commit`, or `git push` on your own
 
+## Python
+- Prefer `uv` over `pip` (`uv add`, `uv run`, `uv sync`), unless the project already uses a different tool
+
 ## File Discovery
 - When reading or listing repository files, **skip** `.git/` and `.venv/` directories
 - Use `find . -not -path './.git/*' -not -path './.venv/*'` or `ls` with appropriate filters
