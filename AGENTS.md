@@ -42,6 +42,7 @@ Do not run these without explicit confirmation from the user.
 - no `sleep`-loop polling
 - no `find /` (scan from a known root)
 - no interactive flags (`-i`) — agents can't respond to prompts
+- prefer `read` over `sed`
 
 ## Git
 - **Never commit** unless explicitly asked by the user (e.g., "commit this", "git commit", "push")
