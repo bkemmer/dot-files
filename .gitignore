@@ -11,6 +11,11 @@ tmp.py
 !.claude/agents
 !.claude/agents/**
 
+# pi runtime state (auth.json, sessions) lives in ~/.pi/agent; only extensions are dotfiles-managed
+.pi/agent/*
+!.pi/agent/extensions
+!.pi/agent/extensions/**
+
 # herdr runtime state lives in ~/.config/herdr; only config.toml is dotfiles-managed
 .config/herdr/*
 !.config/herdr/config.toml
