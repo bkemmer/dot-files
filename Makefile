@@ -3,6 +3,7 @@
 .PHONY: symlink_linux_vscode
 .PHONY: symlink_macos_vscode
 .PHONY: install_vscode_extensions
+.PHONY: claude_settings
 .PHONY: setup
 .PHONY: help
 
@@ -21,6 +22,9 @@ symlink_macos_vscode: ## Same but for MACOS
 	ln -sf ${PWD}/vscode/keybindings.json ${HOME}/Library/Application\ Support/Code/User/keybindings.json
 install_vscode_extensions: ## install or update the vscode extensions
 	grep -v // vscode/extensions | xargs -L1 code --force --install-extension
+
+claude_settings: ## Copy (not symlink) .claude/settings.json to $HOME, overwrites local /model changes
+	cp -i ${PWD}/.claude/settings.json ${HOME}/.claude/settings.json
 
 setup: ## Setup the environment
 	@echo "Setting up the environment"

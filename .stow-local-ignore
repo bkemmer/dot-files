@@ -11,6 +11,8 @@
 ^/SUGGESTIONS.md
 
 # custom stow ignore
+# not symlinked: /model rewrites it in place, which would dirty the repo
+^/\.claude/settings\.json$
 Makefile
 scripts
 projects_basics
