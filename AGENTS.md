@@ -50,6 +50,7 @@ Do not run these without explicit confirmation from the user.
 
 ## Python
 - Prefer `uv` over `pip` (`uv add`, `uv run`, `uv sync`), unless the project already uses a different tool
+- Always use `pytest` and `pytest-mock` for unit tests
 
 ## File Discovery
 - When reading or listing repository files, **skip** `.git/` and `.venv/` directories
