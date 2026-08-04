@@ -19,3 +19,6 @@ tmp.py
 # herdr runtime state lives in ~/.config/herdr; only config.toml is dotfiles-managed
 .config/herdr/*
 !.config/herdr/config.toml
+
+# ngrok
+.config/ngrok/ngrok.yml
