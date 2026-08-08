@@ -47,6 +47,11 @@ Do not run these without explicit confirmation from the user.
 ## Git
 - **Never commit** unless explicitly asked by the user (e.g., "commit this", "git commit", "push")
 - Do not run `git add`, `git commit`, or `git push` on your own
+- Write commit messages, PR titles and bodies in **English**
+
+## Language
+- Plans and design documents: **English**
+- Code comments, docstrings and UI text follow whatever the project already uses
 
 ## Python
 - Prefer `uv` over `pip` (`uv add`, `uv run`, `uv sync`), unless the project already uses a different tool
