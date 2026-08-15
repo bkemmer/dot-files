@@ -1,5 +1,22 @@
+PI_NODE="$HOME/.local/share/pi-node/node-v22.23.1-linux-x64/bin/node"
+[ -x "$PI_NODE" ] && alias pi="$PI_NODE $HOME/.local/bin/pi"
+
+
 qwen-server() {
-  llama-server -hf unsloth/Qwen3.6-27B-GGUF:UD-Q5_K_XL \
+  # "image" as first arg keeps mmproj enabled but on CPU (--no-mmproj-offload) for image input;
+  # otherwise mmproj is skipped entirely (--no-mmproj). Rest of args pass through to llama-server.
+  if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    echo "Usage: qwen-server [image] [llama-server args...]"
+    echo "  image   keep mmproj on CPU (--no-mmproj-offload) for image input"
+    echo "  (default: mmproj disabled via --no-mmproj)"
+    return
+  fi
+  local mmproj_flag="--no-mmproj"
+  if [ "$1" = "image" ]; then
+    mmproj_flag="--no-mmproj-offload"
+    shift
+  fi
+  llama-server -hf unsloth/Qwen3.8-27B-GGUF:UD-Q5_K_XL \
     -ngl 99 \
     --split-mode layer \
     -ts 18,11 \
@@ -8,7 +25,7 @@ qwen-server() {
     -ctv q8_0 \
     -c 131072 \
     --parallel 1 \
-    --no-mmproj \
+    "$mmproj_flag" \
     --reasoning-preserve \
     --temp 0.6 \
     --top-p 0.95 \
@@ -16,3 +33,4 @@ qwen-server() {
     --presence-penalty 0.0 \
     "$@"
 }
+

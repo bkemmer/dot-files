@@ -2,6 +2,9 @@
 # herdr is not tmux: it has workspaces > tabs > panes (+ agent rows), a server
 # that persists sessions natively, and a themed UI instead of a status line.
 
+# Resize mode itself has no configurable keys: once in it, use arrows/hjkl to
+# grow/shrink the active pane in that direction, press r again to equalize.
+
 onboarding = false
 
 [theme]
@@ -30,6 +33,7 @@ split_vertical = "prefix+v"
 
 # tmux: bind r source-file ~/.tmux.conf   (prefix+r is herdr's resize mode,
 # so reload is moved to a free chord instead of colliding)
+# using herdr's default for reload_config
 reload_config = "prefix+shift+r"
 
 # tmux: bind , rename-window   (herdr default was prefix+shift+t)
