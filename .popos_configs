@@ -20,7 +20,7 @@ qwen-server() {
     -ngl 99 \
     --split-mode layer \
     -ts 18,11 \
-    -fa on \
+    --flash-attn on \
     -ctk q8_0 \
     -ctv q8_0 \
     -c 131072 \
