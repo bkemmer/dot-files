@@ -26,11 +26,15 @@ qwen-server() {
     -c 131072 \
     --parallel 1 \
     "$mmproj_flag" \
+    --jinja \
+    --slot-save-path /tmp/llama-slots \
     --reasoning-preserve \
     --temp 0.6 \
     --top-p 0.95 \
     --top-k 20 \
+    --min-p 0.0 \
     --presence-penalty 0.0 \
+    --repeat-penalty 1.0 \
     "$@"
 }
 
