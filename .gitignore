@@ -8,6 +8,8 @@ tmp.py
 !.claude/CLAUDE.md
 !.claude/claude-powerline.json
 !.claude/settings.json
+!.claude/skills
+!.claude/skills/**
 !.claude/agents
 !.claude/agents/**
 
