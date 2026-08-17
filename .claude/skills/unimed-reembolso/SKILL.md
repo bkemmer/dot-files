@@ -59,6 +59,8 @@ as the source set for a single reimbursement request.
 
 ## Terapias — campos obrigatórios
 
+- Especialidade (ex.: Fonoaudiologia, Fisioterapia, Psicoterapia, Terapia
+  Ocupacional, etc.)
 - Quantidade de sessões
 - Data das sessões (cada uma)
 - Valor de cada sessão
@@ -86,6 +88,7 @@ as the source set for a single reimbursement request.
 **Paciente:** <nome>
 **Gerado a partir de:** <lista de arquivos-fonte>
 
+- Especialidade: <valor>
 - Quantidade de sessões: <n>
 - Data das sessões: <data1, data2, ...>
 - Valor de cada sessão: R$ <valor>
