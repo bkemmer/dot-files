@@ -23,6 +23,10 @@ export PATH=$HOME/.opencode/bin:$PATH
 
 ZSH_THEME="spaceship"
 
+# zsh-syntax-highlighting default comment color (fg=black,bold) is invisible on dark backgrounds
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[comment]='fg=244'
+
 plugins=(
 	safe-paste
 	git
