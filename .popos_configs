@@ -1,3 +1,5 @@
+export LLAMA_CACHE="$HOME/.cache/llama.cpp"
+
 PI_NODE="$HOME/.local/share/pi-node/node-v22.23.1-linux-x64/bin/node"
 [ -x "$PI_NODE" ] && alias pi="$PI_NODE $HOME/.local/bin/pi"
 
@@ -11,11 +13,13 @@ qwen-server() {
     echo "  (default: mmproj disabled via --no-mmproj)"
     return
   fi
+  local slot_save_path="/tmp/llama-slots"
   local mmproj_flag="--no-mmproj"
   if [ "$1" = "image" ]; then
     mmproj_flag="--no-mmproj-offload"
     shift
   fi
+  mkdir -p "$slot_save_path"
   llama-server -hf unsloth/Qwen3.8-27B-GGUF:UD-Q5_K_XL \
     -ngl 99 \
     --split-mode layer \
@@ -27,7 +31,7 @@ qwen-server() {
     --parallel 1 \
     "$mmproj_flag" \
     --jinja \
-    --slot-save-path /tmp/llama-slots \
+    --slot-save-path "$slot_save_path" \
     --reasoning-preserve \
     --temp 0.6 \
     --top-p 0.95 \
