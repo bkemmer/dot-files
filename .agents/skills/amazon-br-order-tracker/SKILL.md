@@ -42,10 +42,12 @@ user how far back to go, before navigating anywhere:
 
 If the user already gave a date or range in their request (e.g. "since
 July", "last 2 months", "just this last order"), use that directly
-without asking again. If this is a refresh of a file this skill
-produced before, read the existing JSONL's newest `order_date` and
-offer that as the default cutoff ("since your last export on
-2026-08-17?") rather than asking from scratch.
+without asking again. If this is a refresh and a prior
+`YYYYMMDD_pedidos_amazon.jsonl` export exists (check the working
+directory and any connected folder — the date prefix makes the most
+recent one sort last), read its newest `order_date` and offer that as
+the default cutoff ("since your last export on 2026-08-17?") rather
+than asking from scratch.
 
 When running unattended (a scheduled task, no one to answer) and no
 cutoff was given anywhere in the prompt, default to the last 3 months
@@ -147,12 +149,22 @@ Record this against the matching order row.
 
 ### 4. Produce the output files
 
+Prefix both filenames with the date the extraction is run, in
+`YYYYMMDD_` format (the run date, not the cutoff date or any order
+date) — e.g. run this on 2026-08-23 and the files are
+`20260823_pedidos_amazon.jsonl` and `20260823_resumo_pedidos.md`. This
+keeps successive exports on the same account sortable by filename and
+lets a later run find the most recent prior export (see step 0) without
+opening each file. Get the run date from the system clock (`date
++%Y%m%d` or equivalent) rather than assuming — don't hardcode a date
+from an earlier run of this skill.
+
 Write two files:
 
-- `pedidos_amazon.jsonl` — one JSON object per line, one line per order.
-  Use this field set (omit a field, don't null it, when it doesn't
-  apply — e.g. `recurring_detail` only when `recurring_purchase` is
-  true):
+- `YYYYMMDD_pedidos_amazon.jsonl` — one JSON object per line, one line
+  per order. Use this field set (omit a field, don't null it, when it
+  doesn't apply — e.g. `recurring_detail` only when `recurring_purchase`
+  is true):
   ```json
   {"order_date": "2026-08-17", "order_number": "701-0356301-4574600", "items": ["Nouê Tonalizante Camuflage Medium 140ml"], "quantity": 1, "total_brl": 147.0, "delivery_status": "Entregue 19/08/2026", "return_refund_status": "Elegivel para devolucao ate 18/09/2026", "recurring_purchase": false}
   ```
@@ -173,18 +185,18 @@ Write two files:
     that order.
   Write with `ensure_ascii=False` (or equivalent) so Portuguese
   accented characters are stored as literal UTF-8, not `\uXXXX` escapes.
-- `resumo_pedidos.md` — a short summary: total order count, sum of
-  charged amounts, a table of returned/refunded orders, a table of
-  cancelled orders, and (if applicable) a fully annotated section for
-  any order the user specifically asked about, including the related
-  transaction/installment detail from step 3.
+- `YYYYMMDD_resumo_pedidos.md` — a short summary: total order count,
+  sum of charged amounts, a table of returned/refunded orders, a table
+  of cancelled orders, and (if applicable) a fully annotated section
+  for any order the user specifically asked about, including the
+  related transaction/installment detail from step 3.
 
 Verify the JSONL output before delivering: every line parses as valid
 JSON, every `order_date` is on or after the cutoff (none should have
 slipped past it), and the sum of `total_brl` looks sane — run a quick
 `python3 -c` script that reads the file back with `json.loads` per line
 and checks count/date-range/sum, rather than trusting manual
-transcription. Note in the chat reply and in `resumo_pedidos.md` what
+transcription. Note in the chat reply and in `YYYYMMDD_resumo_pedidos.md` what
 cutoff was used and how many orders it covered (don't just state a raw
 count against Amazon's total order count, since that total includes
 orders outside the requested range by design).
