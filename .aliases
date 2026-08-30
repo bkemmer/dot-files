@@ -39,6 +39,9 @@ if [[ "$OSTYPE" == linux-gnu* ]]; then
   alias nvidia_monitor="watch -n0.1 nvidia-smi"
 fi
 
+# use xdg-open as `open` on systems without it (e.g. Linux)
+command -v open &>/dev/null || alias open=xdg-open
+
 # get current branch
 get_cwd_branch() { git rev-parse --abbrev-ref HEAD | if command -v pbcopy &>/dev/null; then pbcopy; else xclip -selection clipboard; fi }
 
