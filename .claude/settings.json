@@ -1,8 +1,8 @@
 {
-  "model": "sonnet",
   "permissions": {
-    "defaultMode": "manual"
+    "defaultMode": "default"
   },
+  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "npx -y @owloops/claude-powerline@latest"
@@ -26,5 +26,6 @@
       }
     }
   },
-  "theme": "dark"
+  "theme": "dark",
+  "agentPushNotifEnabled": true
 }

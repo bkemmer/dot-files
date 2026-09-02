@@ -69,7 +69,8 @@ stty -ixon
 # red hat specific
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	if grep -q 'Red Hat Enterprise Linux' /etc/*-release; then
-    [[ -f $HOME/.rhel_others ]] && source $HOME/.rhel_configs
+    [[ -f $HOME/.rhel_configs ]] && source $HOME/.rhel_configs
+    [[ -f $HOME/.rhel_configs_others ]] && source $HOME/.rhel_configs_others
   else
     [[ -f $HOME/.popos_configs ]] && source $HOME/.popos_configs
   fi

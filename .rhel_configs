@@ -12,7 +12,7 @@ alias clear_keyring="rm ~/.local/share/keyrings/login.keyring"
 # functions
 update_dot_files() {
   dl_and_mv_repo https://github.com/bkemmer/dot-files/archive/refs/heads/main.zip dot-files-main dot-files $HOME/Downloads $HOME/projects/
-  cd $HOME/projects/dot-files
+  cd "$HOME/projects/dot-files" || return 1
   git init > /dev/null
   git add .
   git commit -m "default commit" > /dev/null
