@@ -6,7 +6,7 @@ command_exists() {
 
 json_echo() {
 # prettify json content
-  echo $1 | jq '.' --tab | bat --color=always -l json
+  printf '%s\n' "$1" | jq '.' --tab | bat --color=always -l json
 }
 
 
@@ -16,10 +16,14 @@ prettify_json() {
 # Examples:
 #   prettify_json "formatted"     # Creates 'formatted' folder with prettified JSON files
 # Note: Processes all files in current directory, creates output folder if needed
+  local output_dir=$1
 
-  { ! [[ -d $1 ]] } && echo "Creating folder $1" && mkdir $1
+  if [[ ! -d $output_dir ]]; then
+    echo "Creating folder $output_dir"
+    mkdir -p "$output_dir"
+  fi
   for file in *; do
-    [[ -f $file ]] && cat $file | jq '.' --tab > $1/$file
+    [[ -f $file ]] && jq '.' --tab < "$file" > "$output_dir/$file"
   done
 }
 
@@ -40,43 +44,45 @@ rename_files() {
 }
 
 ask() {
+  local reply
   while true; do
-    read -p "Existing $INSTALL_FOLDER/$DEST, should be replaced? ([y]/n) " -r
-    REPLY=${REPLY:-"y"}
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-      return 1
-    elif [[ $REPLY =~ ^[Nn]$ ]]; then
+    printf "Existing %s/%s, should be replaced? ([y]/n) " "$INSTALL_FOLDER" "$DEST"
+    IFS= read -r reply
+    reply=${reply:-"y"}
+    if [[ $reply == [Yy] ]]; then
       return 0
+    elif [[ $reply == [Nn] ]]; then
+      return 1
     fi
   done
 
 }
 # functions
 dl_and_mv_repo(){
-    URL=$1              # url to zip file with the master branch of the repository
-    ZIP=$2              # name of the zip and unziped folder ex.: dot-file-main.zip and dot-file-main
-    DEST=$3             # name of the destination folder
-    DOWNLOAD_FOLDER=$4  # path to the download folder
-    INSTALL_FOLDER=$5   # path to be installed
+    local URL=$1              # url to zip file with the master branch of the repository
+    local ZIP=$2              # name of the zip and unziped folder ex.: dot-file-main.zip and dot-file-main
+    local DEST=$3             # name of the destination folder
+    local DOWNLOAD_FOLDER=$4  # path to the download folder
+    local INSTALL_FOLDER=$5   # path to be installed
 
-    if [[ -d $INSTALL_FOLDER/$DEST ]]; then
+    if [[ -d "$INSTALL_FOLDER/$DEST" ]]; then
       ask || { echo "Exiting..." && return 1; }
     fi
     echo ""
-    [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] && rm $DOWNLOAD_FOLDER/$ZIP.zip
+    [[ -e "$DOWNLOAD_FOLDER/$ZIP.zip" ]] && rm "$DOWNLOAD_FOLDER/$ZIP.zip"
     echo "Download $URL waiting for it under $DOWNLOAD_FOLDER with filename: $ZIP.zip"
     xdg-open $URL
-    while ! [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]];do sleep 1; done
+    while ! [[ -e "$DOWNLOAD_FOLDER/$ZIP.zip" ]];do sleep 1; done
     echo ""
-    cd $DOWNLOAD_FOLDER
+    cd "$DOWNLOAD_FOLDER" || return 1
     { [[ -e $DOWNLOAD_FOLDER/$ZIP.zip ]] && sleep 2 } || { echo "$ZIP.zip file not found. Exiting"; exit 1; }
-    unzip -qq $ZIP.zip
-    [[ -d $DOWNLOAD_FOLDER/$DEST ]] && rm -r $DOWNLOAD_FOLDER/$DEST
-    mv $ZIP $DEST
-    [[ -d $INSTALL_FOLDER/$DEST/.git ]] && rm -rf $INSTALL_FOLDER/$DEST/.git
-    [[ -d $INSTALL_FOLDER/$DEST ]] && rm -r $INSTALL_FOLDER/$DEST
-    mv $DEST $INSTALL_FOLDER/
-    rm $ZIP.zip
+    unzip -qq "$ZIP.zip"
+    [[ -d "$DOWNLOAD_FOLDER/$DEST" ]] && rm -r "$DOWNLOAD_FOLDER/$DEST"
+    mv "$ZIP" "$DEST"
+    [[ -d "$INSTALL_FOLDER/$DEST/.git" ]] && rm -rf "$INSTALL_FOLDER/$DEST/.git"
+    [[ -d  "$INSTALL_FOLDER/$DEST" ]] && rm -r "$INSTALL_FOLDER/$DEST"
+    mv "$DEST" "$INSTALL_FOLDER/"
+    rm "$ZIP.zip"
     echo ""
 }
 export dl_and_mv_repo
@@ -84,8 +90,8 @@ export dl_and_mv_repo
 # Function to install vim motions on jupyter
 jupyter_vi_motion_extensions(){
   pip install jupyter_contrib_nbextensions
-  mkdir -p $(jupyter --data-dir)/nbextensions
-  cd $(jupyter --data-dir)/nbextensions
+  mkdir -p "$(jupyter --data-dir)/nbextensions" || return 1
+  cd "$(jupyter --data-dir)/nbextensions"
   git clone https://github.com/lambdalisue/jupyter-vim-binding vim_binding
   jupyter nbextension enable vim_binding/vim_binding
 }
@@ -101,12 +107,17 @@ y() {
   rm -f -- "$tmp"
 }
 
-git-list-stale-branches() {
+git_list_stale_branches() {
   # list all stale branchs with more than 90 days unchanged
-  [[ -n "$1" ]] || { echo "Expecting a filename in the ARG"; return }
+  local output_file=$1
+  if [[ -z "$output_file" ]]; then
+    echo "Expecting a filename in the ARG"
+  fi
+
   git for-each-ref --sort=committerdate refs/remotes/ \
     --format="%(committerdate:short) %(refname:short)" | \
     awk -v cutoff="$(date -d '90 days ago' +%Y-%m-%d 2>/dev/null || date -v-90d +%Y-%m-%d 2>/dev/null)" \
-    '$1 < cutoff' > "$1"
+    '$1 < cutoff' > "$output_file"
 }
 
+alias git-list-stale-branches='git_list_stale_branches'
