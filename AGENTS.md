@@ -43,6 +43,7 @@ Do not run these without explicit confirmation from the user.
 - no `find /` (scan from a known root)
 - no interactive flags (`-i`) — agents can't respond to prompts
 - prefer `read` over `sed`
+- prefer `vim` over `nano` if an editor is needed
 
 ## Git
 - **Never commit** unless explicitly asked by the user (e.g., "commit this", "git commit", "push")
