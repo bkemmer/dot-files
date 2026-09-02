@@ -67,6 +67,11 @@ prompt_new_tab_name = false
 [ui.toast]
 delivery = "system"   # desktop notification when a background agent finishes / needs input
 
+[ui.toast.clipboard]
+# default bottom-center sits under pasted text; move it out of the way.
+# options: top-left, top-right, bottom-left, bottom-right, top-center, bottom-center
+position = "top-right"
+
 [ui.sound]
 enabled = true
 
