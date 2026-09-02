@@ -50,6 +50,11 @@ focus_pane_down = "prefix+j"
 focus_pane_up = "prefix+k"
 focus_pane_right = "prefix+l"
 
+# defaults (prefix+shift+n / prefix+shift+w) collide with next_tab (n) and
+# workspace_picker (w) as look-alike chords; moved to free unshifted keys.
+new_workspace = "prefix+a"
+rename_workspace = "prefix+m"
+
 [ui]
 # tmux: set -g mouse on
 mouse_capture = true
