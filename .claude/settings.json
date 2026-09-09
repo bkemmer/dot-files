@@ -2,7 +2,7 @@
   "permissions": {
     "defaultMode": "default"
   },
-  "model": "sonnet",
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "npx -y @owloops/claude-powerline@latest"
@@ -27,5 +27,6 @@
     }
   },
   "theme": "dark",
+  "includeCoAuthoredBy": false,
   "agentPushNotifEnabled": true
 }
