@@ -121,3 +121,12 @@ git_list_stale_branches() {
 }
 
 alias git-list-stale-branches='git_list_stale_branches'
+
+yt_dlp_codec() {
+  # download forcing the progressive H.264/AAC stream instead of VP9/DASH
+  # (VP9 in .mp4 is rejected by WhatsApp and most native players)
+  # Usage: yt_dlp_codec <url> [extra yt-dlp args]
+  yt-dlp -f 'best[vcodec^=avc1]/1' "$@"
+}
+
+alias yt-dlp-codec='yt_dlp_codec'
