@@ -15,8 +15,9 @@ return {
 
 	filetypes = { "python" }, -- activate only for .py files
 
-	-- Project root detection via vim.fs.root.
-	-- 0 — the buffer for which the LSP is being started.
-	-- Walks up the directory tree until it finds .git/ or pyproject.toml.
-	root_dir = vim.fs.root(0, { ".git/", "pyproject.toml", "requirements.txt"}),
+	-- Project root markers: Neovim walks up the directory tree per-buffer until
+	-- one of these is found. (A `root_dir = vim.fs.root(0, ...)` here would be
+	-- evaluated once, when this file is read, and freeze the root to whatever
+	-- buffer happened to exist at startup.)
+	root_markers = { "pyproject.toml", "requirements.txt", ".git" },
 }

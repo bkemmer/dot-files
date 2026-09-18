@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader>jh", pyrepl.hide_repl, { desc = 'Hide REPL' })
 vim.keymap.set("n", "<leader>jc", pyrepl.close_repl, { desc = 'Close REPL' })
 vim.keymap.set("n", "<leader>jt", pyrepl.toggle_repl, { desc = 'Toogle REPL' })
 vim.keymap.set("n", "<leader>ji", pyrepl.open_image_history, { desc = 'Open Image History' })
-vim.keymap.set({ "n", "t" }, "<C-j>", pyrepl.toggle_repl_focus, { desc = 'Toogle REPL Focus' })
+vim.keymap.set({ "n", "t" }, "<leader>jf", pyrepl.toggle_repl_focus, { desc = 'Toogle REPL Focus' })
 
 -- send commands
 vim.keymap.set("n", "<leader>jb", pyrepl.send_buffer, { desc = 'Send Buffer to REPL' })
