@@ -1,4 +1,5 @@
 {
+  "includeCoAuthoredBy": false,
   "permissions": {
     "defaultMode": "default"
   },
@@ -10,7 +11,8 @@
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
     "ponytail@ponytail": true,
-    "claude-powerline@claude-powerline": true
+    "claude-powerline@claude-powerline": true,
+    "lua-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
@@ -27,6 +29,5 @@
     }
   },
   "theme": "dark",
-  "includeCoAuthoredBy": false,
   "agentPushNotifEnabled": true
 }
