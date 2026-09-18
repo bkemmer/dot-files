@@ -21,6 +21,13 @@ nvim --headless -c "lua vim.defer_fn(function()
   vim.cmd('qa')
 end, 1000)" || status=1
 
+printf '\n=== behavioural assertions ===\n'
+nvim --headless -c "lua vim.defer_fn(function()
+  local ok, err = pcall(dofile, '$DIR/test_behaviour.lua')
+  if not ok then io.write('SUITE ERROR: ' .. tostring(err) .. '\n'); vim.cmd('cq') end
+  vim.cmd('qa')
+end, 1000)" || status=1
+
 printf '\n=== integration checks ===\n'
 sh "$DIR/test_integration.sh" || status=1
 
