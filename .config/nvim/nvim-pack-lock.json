@@ -9,10 +9,6 @@
       "rev": "998deddb57135c4c0634682ca0dd33054bcced59",
       "src": "https://github.com/Cannon07/code-preview.nvim"
     },
-    "codecompanion-copilot-enterprise.nvim": {
-      "rev": "2e5edc4fd32775dfff578c283624ed97334a9372",
-      "src": "https://github.com/dyamon/codecompanion-copilot-enterprise.nvim"
-    },
     "codecompanion.nvim": {
       "rev": "3d83aaa78ed125ea403fe8c975e51f07cf0c49b0",
       "src": "https://www.github.com/olimorris/codecompanion.nvim",
@@ -34,17 +30,9 @@
       "rev": "b4d01b0fdf3c9a549961c2f9ffe8dc09be166219",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
-    "iron.nvim": {
-      "rev": "0168b419bc7df70cd2d97c2ec8158b6b002450b2",
-      "src": "https://github.com/Vigemus/iron.nvim"
-    },
     "kanagawa.nvim": {
       "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
       "src": "https://github.com/rebelot/kanagawa.nvim"
-    },
-    "kintsugi-nvim": {
-      "rev": "6c8b881e6aea8ee1e3361a00858b5b1a3488d885",
-      "src": "https://github.com/metalelf0/kintsugi-nvim"
     },
     "mini.nvim": {
       "rev": "ac5dffcc52b8378fbb15efeb0497a83e57a0b01c",
@@ -53,14 +41,6 @@
     "miniharp.nvim": {
       "rev": "c21b5bed7d7cc51c13fa00deb09197d330c8a062",
       "src": "https://github.com/vieitesss/miniharp.nvim"
-    },
-    "noice.nvim": {
-      "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
-      "src": "https://github.com/folke/noice.nvim"
-    },
-    "nui.nvim": {
-      "rev": "10fc361835c856ba4233ef5ea135b919bf3dce97",
-      "src": "https://github.com/MunifTanjim/nui.nvim"
     },
     "nvim-dap": {
       "rev": "cfa2d58f4537aca6ca83e2de1a0d9f1491121264",
@@ -73,14 +53,6 @@
     "nvim-dap-view": {
       "rev": "e766b3d8acef97e7e8b29f7f421aa4977b9978e1",
       "src": "https://github.com/igorlfs/nvim-dap-view"
-    },
-    "nvim-lspconfig": {
-      "rev": "ffd261c09c3dabd0bf1a438f47a8ae3b22f3c3ff",
-      "src": "https://github.com/neovim/nvim-lspconfig"
-    },
-    "nvim-tmux-navigation": {
-      "rev": "4898c98702954439233fdaf764c39636681e2861",
-      "src": "https://github.com/alexghergh/nvim-tmux-navigation"
     },
     "nvim-treesitter": {
       "rev": "9a168f6357ed21c3a636e1727bc7d382abc451b8",
@@ -113,10 +85,6 @@
     "tiny-glimmer.nvim": {
       "rev": "9a48d8a7436231cb16d47c88f924702e5602870a",
       "src": "https://github.com/rachartier/tiny-glimmer.nvim"
-    },
-    "tokyonight.nvim": {
-      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
-      "src": "https://github.com/folke/tokyonight.nvim"
     },
     "tree-sitter-manager.nvim": {
       "rev": "1425eacb78bfee34face0fe06a8384ac3c4d9c8e",

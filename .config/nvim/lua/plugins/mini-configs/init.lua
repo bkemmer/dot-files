@@ -35,6 +35,16 @@ require('mini.sessions').setup({
   autoread = true
 })
 
+-- mini's autoread calls MiniSessions.read() on VimEnter; read() echoes
+-- "There are no detected sessions" in every directory that doesn't have one,
+-- which is most of them. Keep autoread, drop the warning: gate only the
+-- no-argument call. Reads with an explicit session name behave as before.
+local mini_sessions_read = MiniSessions.read
+MiniSessions.read = function(session_name, opts)
+  if session_name == nil and vim.tbl_count(MiniSessions.detected) == 0 then return end
+  return mini_sessions_read(session_name, opts)
+end
+
 -- Simple and easy statusline.
 --  You could remove this setup call if you don't like it,
 --  and try some other statusline plugin

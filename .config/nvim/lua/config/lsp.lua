@@ -22,6 +22,8 @@ vim.lsp.enable({
 })
 
 -- Configure diagnostic display (errors, warnings, hints).
+-- No namespace argument, so this is the GLOBAL default: it applies to every
+-- filetype and every diagnostic producer, not just the servers enabled above.
 vim.diagnostic.config({
     -- Virtual text to the right of the code line.
     -- prefix "●" — marker before the error message.
@@ -37,17 +39,22 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.HINT]  = "󰌵 ", -- hint icon
         },
     },
-    -- Underline problematic spots in the code.
-    underline = true,
+    -- Text underneath the line rather than at the end of it. Off for now.
+    virtual_lines = false,
+    -- Underline problematic spots, but only WARN and above — underlining
+    -- every hint leaves the whole buffer squiggly.
+    underline = { severity = { min = vim.diagnostic.severity.WARN } },
     -- Don't update diagnostics in insert mode — less flickering while typing.
     update_in_insert = false,
     -- Sort by severity: errors above warnings.
     severity_sort = true,
-    -- Float window config for <leader>d (show diagnostic details).
+    -- Float window config (show diagnostic details).
     float = {
-        border = "rounded", -- rounded border
-        source = true,      -- show source (e.g. "ruff" or "lua_ls")
+        border = "rounded",  -- rounded border
+        source = "if_many",  -- name the source only when several are attached
     },
+    -- Auto-open the float when jumping with [d and ]d.
+    jump = { float = true },
 })
 
 -- Enable code lens globally.

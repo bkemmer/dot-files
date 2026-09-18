@@ -189,7 +189,6 @@ local keymaps = {
   { '<leader>s"', function() Snacks.picker.registers() end,                               desc = "Registers" },
   { '<leader>s/', function() Snacks.picker.search_history() end,                          desc = "History" },
   { "<leader>sa", function() Snacks.picker.autocmds() end,                                desc = "Autocmds" },
-  { "<leader>sb", function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
   { "<leader>sc", function() Snacks.picker.command_history() end,                         desc = "Command History" },
   { "<leader>sC", function() Snacks.picker.commands() end,                                desc = "Commands" },
   { "<leader>sd", function() Snacks.picker.diagnostics() end,                             desc = "Diagnostics" },
@@ -201,7 +200,6 @@ local keymaps = {
   { "<leader>sl", function() Snacks.picker.loclist() end,                                 desc = "Location List" },
   { "<leader>sm", function() Snacks.picker.marks() end,                                   desc = "[M]arks" },
   { "<leader>sM", function() Snacks.picker.man() end,                                     desc = "Man Pages" },
-  { "<leader>sp", function() Snacks.picker.lazy() end,                                    desc = "Search for Plugin Spec" },
   { "<leader>sq", function() Snacks.picker.qflist() end,                                  desc = "Quickfix List" },
   { "<leader>sR", function() Snacks.picker.resume() end,                                  desc = "Resume" },
   { "<leader>su", function() Snacks.picker.undo() end,                                    desc = "Undo History" },
@@ -217,28 +215,25 @@ local keymaps = {
   { "gai",        function() Snacks.picker.lsp_incoming_calls() end,                      desc = "C[a]lls Incoming",             has = "callHierarchy/incomingCalls" },
   { "gao",        function() Snacks.picker.lsp_outgoing_calls() end,                      desc = "C[a]lls Outgoing",             has = "callHierarchy/outgoingCalls" },
   -- buffers
-  { "<leader>bd", function() Snacks.bufdelete() end,                                      desc = "[D]elete [b]uffer",            mode = { "n" }, },
+  -- <leader>bd / <leader>bD are mini.bufremove (see mini-configs/mini_keymaps.lua)
   { "<leader>bo", function() Snacks.bufdelete.other() end,                                desc = "[D]elete [o]ther buffers",     mode = { "n" }, },
   -- terminal
-  { "<leader>fT", function() Snacks.terminal() end,                                       desc = "Terminal (cwd)",               mode = "n", },
-  { "<leader>ft", function() Snacks.terminal(nil, { cwd = vim.fn.getcwd() }) end,         desc = "Terminal (Root Dir)",          mode = "n", },
-  { "<c-:>",      function() Snacks.terminal(nil, { cwd = vim.fn.getcwd() }) end,         desc = "Terminal (Root Dir)",          mode = "n", },
+  -- snacks defaults the terminal cwd to vim.fn.getcwd(0), so no opts needed.
+  -- <c-_> is the same physical key as <c-/>: most terminals send Ctrl+/ as 0x1F.
+  { "<leader>ft", function() Snacks.terminal() end,                                       desc = "Terminal",                     mode = "n", },
   { "<c-/>",      function() Snacks.terminal() end,                                       desc = "Toggle Terminal" },
-  { "<c-_>",      function() Snacks.terminal(nil, { cwd = vim.fn.getcwd() }) end,         desc = "which_key_ignore",             mode = "n", },
   -- Other
   { "<leader>z",  function() Snacks.zen() end,                                            desc = "Toggle Zen Mode" },
   { "<leader>Z",  function() Snacks.zen.zoom() end,                                       desc = "Toggle Zoom" },
   { "<leader>.",  function() Snacks.scratch() end,                                        desc = "Toggle Scratch Buffer" },
-  { "<leader>S",  function() Snacks.scratch.select() end,                                 desc = "Select Scratch Buffer" },
-  { "<leader>n",  function() Snacks.notifier.show_history() end,                          desc = "Notification History" },
-  { "<leader>bd", function() Snacks.bufdelete() end,                                      desc = "Delete Buffer" },
+  { "<leader>.s", function() Snacks.scratch.select() end,                                 desc = "Select Scratch Buffer" },
   { "<leader>cR", function() Snacks.rename.rename_file() end,                             desc = "Rename File" },
   { "<leader>gB", function() Snacks.gitbrowse() end,                                      desc = "Git Browse",                   mode = { "n", "v" } },
   { "<leader>gg", function() Snacks.lazygit() end,                                        desc = "Lazygit" },
   { "<leader>un", function() Snacks.notifier.hide() end,                                  desc = "Dismiss All Notifications" },
   { "<c-_>",      function() Snacks.terminal() end,                                       desc = "which_key_ignore" },
-  { "]]",         function() Snacks.words.jump(vim.v.count1) end,                         desc = "Next Reference",               mode = { "n", "t" } },
-  { "[[",         function() Snacks.words.jump(-vim.v.count1) end,                        desc = "Prev Reference",               mode = { "n", "t" } },
+  -- ]] and [[ deliberately left to vim's builtin section motions.
+  -- (They were bound to Snacks.words.jump while words.enabled = false.)
   {
     "<leader>N",
     desc = "Neovim News",
