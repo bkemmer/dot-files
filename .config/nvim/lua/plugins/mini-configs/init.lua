@@ -17,7 +17,12 @@ require('mini.ai').setup()
 -- - sr)'  - [S]urround [R]eplace [)] [']
 require('mini.surround').setup()
 
-require('mini.operators').setup()
+-- `replace` would claim `gr`, but snacks binds that to LSP references and
+-- loads later, so the operator was dead while `grr` (replace line) still
+-- worked -- a leftover that looked functional. Disabled explicitly.
+-- The other operators keep their prefixes: g= evaluate, gm multiply,
+-- gs sort, gx exchange (mini moves the builtin gx to gX).
+require('mini.operators').setup({ replace = { prefix = '' } })
 require('mini.pairs').setup()
 require('mini.bracketed').setup()
 require('mini.extra').setup()

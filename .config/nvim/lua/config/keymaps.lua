@@ -10,7 +10,7 @@ km.set("n", "<space>", "<Nop>", {silent = true})
 km.set('n', '<leader>w', '<cmd>write<cr>', {desc = 'Save'})
 
 -- Select all text
-km.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
+km.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>', { desc = 'Select [a]ll' })
 
 -- " 'Q' in normal mode enters Ex mode. You almost never want this.-
 km.set("n", "Q", "<Nop>", {silent = true})
@@ -29,7 +29,7 @@ km.set("c", [[;\]], [[\(\)<Left><Left>]], { desc = "Adds a group selection to th
 km.set("n", "<leader>nh", ":nohlsearch<CR>", { desc = "No Highlight Search" })
 
 -- Open current window in a new tab | Use <C-W><C-Q> to go back
-km.set("n", "<Leader>wo", ":tab split<CR>")
+km.set("n", "<Leader>wo", ":tab split<CR>", { desc = "[W]indow to new tab" })
 
 -- Shortcut for :tabnew
 km.set("n", "<C-t>", ":tabnew<Space>")
@@ -75,13 +75,13 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 -- For running lua scripts
-km.set("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Run current file" })
+km.set("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Run current file" })  -- note: <leader><space> is also a mapping, so this waits out timeoutlen
 km.set("n", "<space>x", ":.lua<CR>", { desc = "Run current lua line" })
 km.set("v", "<space>x", ":lua<CR>", { desc = "Run visually selected lua lines" })
 
 
 -- Updates using vim.pack
-vim.keymap.set("n", "<leader>pu", "<cmd>lua vim.pack.update()<CR>")
+vim.keymap.set("n", "<leader>pu", "<cmd>lua vim.pack.update()<CR>", { desc = "[P]lugins: [u]pdate" })
 
 -- Toogle inlay_type_hints
 vim.keymap.set("n", "<leader>th", function()

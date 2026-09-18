@@ -193,6 +193,7 @@ local keymaps = {
   { "<leader>sC", function() Snacks.picker.commands() end,                                desc = "Commands" },
   { "<leader>sd", function() Snacks.picker.diagnostics() end,                             desc = "Diagnostics" },
   { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end,                      desc = "Buffer Diagnostics" },
+  { "<leader>sh", function() Snacks.picker.help() end,                                    desc = "[S]earch [h]elp tags" },
   { "<leader>sH", function() Snacks.picker.highlights() end,                              desc = "Highlights" },
   { "<leader>si", function() Snacks.picker.icons() end,                                   desc = "Icons" },
   { "<leader>sj", function() Snacks.picker.jumps() end,                                   desc = "Jumps" },
@@ -207,7 +208,10 @@ local keymaps = {
   -- LSP
   { "gd",         function() Snacks.picker.lsp_definitions() end,                         desc = "[G]oto [d]efinition" },
   { "gD",         function() Snacks.picker.lsp_declarations() end,                        desc = "[G]oto [D]eclaration" },
-  { "gr",         function() Snacks.picker.lsp_references() end,                          nowait = true,                         desc = "[G]oto [R]eferences" },
+  -- references lives on <leader>sr, not gr: a command on `gr` would make it
+  -- both a mapping and the prefix for nvim's built-in gr* LSP keys (grn
+  -- rename, gra code action, grx codelens), forcing a timeoutlen pause.
+  { "<leader>sr", function() Snacks.picker.lsp_references() end,                         desc = "[S]earch [r]eferences" },
   { "gI",         function() Snacks.picker.lsp_implementations() end,                     desc = "[G]oto [I]mplementation" },
   { "gy",         function() Snacks.picker.lsp_type_definitions() end,                    desc = "[G]oto T[y]pe Definition" },
   { "<leader>ss", function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },

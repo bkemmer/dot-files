@@ -168,6 +168,38 @@ check("no kitty ColorScheme autocmd remains",
 check("QuitIfNoNamedBuffer is no longer global", _G.QuitIfNoNamedBuffer == nil, "still in _G")
 is_mapped("<leader>q quit", "<leader>q")
 
+-- 19b. The gr namespace: nvim 0.11's built-in LSP keys.
+-- `gr` must stay a pure prefix -- a command there makes every press wait out
+-- timeoutlen before the built-ins underneath it can resolve.
+not_mapped("gr is a prefix only, so it does not wait on timeoutlen", "gr")
+for _, k in ipairs({ "grn", "gra", "grr", "gri", "grt", "grx" }) do
+  is_mapped("lsp builtin " .. k, k)
+end
+is_mapped("references picker on <leader>sr", "<leader>sr")
+is_mapped("help picker on <leader>sh", "<leader>sh")
+
+-- 19c. Labels this audit corrected. Each was wrong because nothing checked it.
+check("gs is mini.operators sort, not surround",
+  (mapped("gs") or ""):lower():find("sort") ~= nil,
+  "gs = " .. tostring(mapped("gs")))
+check("gx is mini.operators exchange",
+  (mapped("gx") or ""):lower():find("exchange") ~= nil,
+  "gx = " .. tostring(mapped("gx")))
+check("gX is the system handler",
+  (mapped("gX") or ""):lower():find("system handler") ~= nil,
+  "gX = " .. tostring(mapped("gX")))
+check("s is flash jump (mini.surround hangs off it)",
+  (mapped("s") or ""):lower():find("flash") ~= nil,
+  "s = " .. tostring(mapped("s")))
+is_mapped("mini.surround add is reachable", "sa")
+-- mini.operators replace is retired: it was shadowed by the references picker
+check("mini.operators replace no longer claims gr",
+  (mapped("grr") or ""):find("references") ~= nil,
+  "grr = " .. tostring(mapped("grr")))
+for _, k in ipairs({ "\\s", "\\w", "\\i", "\\h" }) do
+  is_mapped("mini.basics toggle " .. k, k)
+end
+
 -- 20. folding actually engaged (foldexpr was inert under foldmethod=manual)
 check("foldmethod == expr", vim.o.foldmethod == "expr", "got " .. vim.o.foldmethod)
 check("foldexpr is treesitter", vim.o.foldexpr:find("treesitter") ~= nil, "got " .. vim.o.foldexpr)

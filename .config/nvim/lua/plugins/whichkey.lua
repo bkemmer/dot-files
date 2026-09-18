@@ -7,7 +7,9 @@ wk.setup({
 	preset = "helix",
 })
 wk.add({
+	{ "<leader>.", group = "scratch" },
 	{ "<leader>;", group = "substitute" },
+	{ "<leader>n", group = "notifications" },
 	{ "<leader>j", group = "python repl" },
 	{ "<leader>m", group = "miniharp marks" },
 	{ "<leader>r", group = "review" },
@@ -23,8 +25,22 @@ wk.add({
 	{ "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" } },
 	{ "[", group = "prev" },
 	{ "]", group = "next" },
-	{ "g", group = "goto" },
-	{ "gs", group = "surround" },
+	{ "g", group = "goto/operators" },
+	{ "s", group = "surround" },          -- mini.surround (s is also Flash Jump)
+	{ "gs", group = "sort" },             -- mini.operators
+	{ "gx", group = "exchange" },         -- mini.operators
+	{ "ga", group = "calls" },            -- lsp call hierarchy
+	-- nvim 0.11 ships these six LSP mappings by default. grn and gra are the
+	-- only bindings for rename-symbol and code-action anywhere in this config.
+	{ "gr", group = "lsp" },
+	{ "grn", desc = "Rename symbol" },
+	{ "gra", desc = "Code action" },
+	{ "grx", desc = "Run codelens" },
+	{ "grr", desc = "References (quickfix; picker is <leader>sr)" },
+	{ "gri", desc = "Implementation (also gI)" },
+	{ "grt", desc = "Type definition (also gy)" },
+	{ "gc", group = "comment" },          -- mini.comment
+	{ "\\", group = "toggles" },           -- mini.basics
 	{ "z", group = "fold" },
 	{
 		"<leader>b",
@@ -42,7 +58,7 @@ wk.add({
 		end,
 	},
 	-- better descriptions
-	{ "gx", desc = "Open with system app" },
+	{ "gX", desc = "Open with system app" },  -- mini.operators moves builtin gx here
 	{
 		"<leader>fC",
 		group = "Copy Path",
