@@ -62,7 +62,7 @@ as the source set for a single reimbursement request.
 - Especialidade (ex.: Fonoaudiologia, Fisioterapia, Psicoterapia, Terapia
   Ocupacional, etc.)
 - Quantidade de sessões
-- Data das sessões (cada uma)
+- Data das sessões (cada uma, uma por linha em sub-lista)
 - Valor de cada sessão
 - Valor total
 
@@ -90,7 +90,10 @@ as the source set for a single reimbursement request.
 
 - Especialidade: <valor>
 - Quantidade de sessões: <n>
-- Data das sessões: <data1, data2, ...>
+- Data das sessões:
+  - <data1>
+  - <data2>
+  - <...>
 - Valor de cada sessão: R$ <valor>
 - Valor total: R$ <valor>
 
