@@ -200,6 +200,16 @@ for _, k in ipairs({ "\\s", "\\w", "\\i", "\\h" }) do
   is_mapped("mini.basics toggle " .. k, k)
 end
 
+-- 19d. Insert-mode <C-s> is signature help, not save.
+-- mini.basics' `basic` mappings claim <C-s> in Normal, Insert and Visual,
+-- overwriting nvim's documented insert default (:help i_CTRL-S).
+check("insert <C-s> is signature help",
+  (vim.fn.maparg("<C-s>", "i", false, true).desc or ""):lower():find("signature") ~= nil,
+  "i <C-s> = " .. tostring(vim.fn.maparg("<C-s>", "i", false, true).desc))
+check("normal <C-s> still saves",
+  (vim.fn.maparg("<C-s>", "n", false, true).desc or ""):lower():find("save") ~= nil,
+  "n <C-s> = " .. tostring(vim.fn.maparg("<C-s>", "n", false, true).desc))
+
 -- 20. folding actually engaged (foldexpr was inert under foldmethod=manual)
 check("foldmethod == expr", vim.o.foldmethod == "expr", "got " .. vim.o.foldmethod)
 check("foldexpr is treesitter", vim.o.foldexpr:find("treesitter") ~= nil, "got " .. vim.o.foldexpr)

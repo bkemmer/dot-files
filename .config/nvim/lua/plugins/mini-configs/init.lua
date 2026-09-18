@@ -1,5 +1,12 @@
 vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
 require('mini.basics').setup()
+
+-- mini.basics' `basic` mappings bind <C-s> to save in Normal, Insert and
+-- Visual mode, which overwrites nvim 0.11's documented insert-mode default of
+-- signature_help (:help i_CTRL-S). There is no per-key opt-out, so restore it
+-- here for Insert only -- Normal and Visual keep saving, so <Esc><C-s> and
+-- <leader>w both still work.
+vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, { desc = 'Signature help' })
 require('mini.notify').setup()
 
 -- Better Around/Inside textobjects
