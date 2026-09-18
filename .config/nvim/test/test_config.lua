@@ -210,6 +210,13 @@ check("normal <C-s> still saves",
   (vim.fn.maparg("<C-s>", "n", false, true).desc or ""):lower():find("save") ~= nil,
   "n <C-s> = " .. tostring(vim.fn.maparg("<C-s>", "n", false, true).desc))
 
+-- 19e. gO is mini.basics' blank-line, NOT lsp document_symbol. Deliberate --
+-- see the note in mini-configs/init.lua. Asserted so it is not "fixed" later.
+check("gO is put-blank-line-above, by choice",
+  (mapped("gO") or ""):lower():find("empty line") ~= nil,
+  "gO = " .. tostring(mapped("gO")))
+is_mapped("lsp symbols picker covers what gO would have", "<leader>ss")
+
 -- 20. folding actually engaged (foldexpr was inert under foldmethod=manual)
 check("foldmethod == expr", vim.o.foldmethod == "expr", "got " .. vim.o.foldmethod)
 check("foldexpr is treesitter", vim.o.foldexpr:find("treesitter") ~= nil, "got " .. vim.o.foldexpr)

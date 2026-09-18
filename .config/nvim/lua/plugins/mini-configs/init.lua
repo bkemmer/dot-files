@@ -7,6 +7,14 @@ require('mini.basics').setup()
 -- here for Insert only -- Normal and Visual keep saving, so <Esc><C-s> and
 -- <leader>w both still work.
 vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, { desc = 'Signature help' })
+
+-- DELIBERATE: mini.basics also takes `gO` (put blank line above), which nvim
+-- otherwise maps to vim.lsp.buf.document_symbol(). Kept as mini's, because:
+--   * help and :Man buffers map gO buffer-locally, and buffer-local beats
+--     global, so their table-of-contents still works untouched;
+--   * <leader>ss / <leader>sS already give LSP symbols through a snacks
+--     picker with fuzzy search and preview, which beats the default.
+-- Only the LSP outline is shadowed, and it is covered twice over. Not a bug.
 require('mini.notify').setup()
 
 -- Better Around/Inside textobjects
