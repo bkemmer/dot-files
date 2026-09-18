@@ -10,7 +10,7 @@
 -- =============================================================================
 return {
 	cmd = { "ruff", "server" }, -- LSP server mode
-	filetype = { "python" }, -- activate only for .py files
+	filetypes = { "python" }, -- activate only for .py files
 	-- Project root markers: LSP will search for these files up the directory tree.
 	root_markers = { "pyproject.toml", "ruff.toml", ".ruff.toml" },
 	-- Fixes position encoding mismatch between Neovim and Ruff.

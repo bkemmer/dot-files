@@ -6,35 +6,28 @@ vim.pack.add({
   'https://github.com/rafamadriz/friendly-snippets',
 })
 
--- Lazy load on first insert mode entry (may not necessary)
-local group = vim.api.nvim_create_augroup("BlinkCmpLazyLoad", { clear = true })
-vim.api.nvim_create_autocmd("InsertEnter", {
-  pattern = "*",
-  group = group,
-  once = true,
-  callback = function()
-    require("blink.cmp").setup({
-      keymap = { preset = "super-tab" },
-      appearance = {
-        nerd_font_variant = "mono",
-        use_nvim_cmp_as_default = true,
-      },
-      completion = {
-        documentation = { auto_show = false },
-        menu = {
-          draw = {
-            columns = {
-              { "label", "label_description", gap = 1 },
-              { "kind_icon", "kind", gap = 1 },
-              { "source_name" },
-            },
-          },
+-- vim.pack already loads the plugin at startup, so deferring setup() only
+-- delayed configuration (no cmdline completion until the first InsertEnter).
+require("blink.cmp").setup({
+  keymap = { preset = "super-tab" },
+  appearance = {
+    nerd_font_variant = "mono",
+    use_nvim_cmp_as_default = true,
+  },
+  completion = {
+    documentation = { auto_show = false },
+    menu = {
+      draw = {
+        columns = {
+          { "label", "label_description", gap = 1 },
+          { "kind_icon", "kind", gap = 1 },
+          { "source_name" },
         },
       },
-      sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
-      },
-      fuzzy = { implementation = "prefer_rust" },
-    })
-  end,
+    },
+  },
+  sources = {
+    default = { "lsp", "path", "snippets", "buffer" },
+  },
+  fuzzy = { implementation = "prefer_rust" },
 })

@@ -9,12 +9,8 @@
       "rev": "998deddb57135c4c0634682ca0dd33054bcced59",
       "src": "https://github.com/Cannon07/code-preview.nvim"
     },
-    "codecompanion-copilot-enterprise.nvim": {
-      "rev": "2e5edc4fd32775dfff578c283624ed97334a9372",
-      "src": "https://github.com/dyamon/codecompanion-copilot-enterprise.nvim"
-    },
     "codecompanion.nvim": {
-      "rev": "fd07e440c115e318031c5f3f8c746f01eb4cac56",
+      "rev": "3d83aaa78ed125ea403fe8c975e51f07cf0c49b0",
       "src": "https://www.github.com/olimorris/codecompanion.nvim",
       "version": "19.0.0 - 20.0.0"
     },
@@ -23,7 +19,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "7e6723aabea044519462958ffcea68d7985c5ed0",
+      "rev": "b2b899f93544047ac94d452ecd5af1e63a94377a",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "flash.nvim": {
@@ -31,39 +27,23 @@
       "src": "https://github.com/folke/flash.nvim"
     },
     "friendly-snippets": {
-      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
+      "rev": "b4d01b0fdf3c9a549961c2f9ffe8dc09be166219",
       "src": "https://github.com/rafamadriz/friendly-snippets"
-    },
-    "iron.nvim": {
-      "rev": "1ad44e4e82ad31b7df1cdb7f154c707bfd0d303c",
-      "src": "https://github.com/Vigemus/iron.nvim"
     },
     "kanagawa.nvim": {
       "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
       "src": "https://github.com/rebelot/kanagawa.nvim"
     },
-    "kintsugi-nvim": {
-      "rev": "6c8b881e6aea8ee1e3361a00858b5b1a3488d885",
-      "src": "https://github.com/metalelf0/kintsugi-nvim"
-    },
     "mini.nvim": {
-      "rev": "9d01f392b33fb2ba36fbc87fc0bf4453e63ffb0a",
+      "rev": "ac5dffcc52b8378fbb15efeb0497a83e57a0b01c",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "miniharp.nvim": {
       "rev": "c21b5bed7d7cc51c13fa00deb09197d330c8a062",
       "src": "https://github.com/vieitesss/miniharp.nvim"
     },
-    "noice.nvim": {
-      "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
-      "src": "https://github.com/folke/noice.nvim"
-    },
-    "nui.nvim": {
-      "rev": "10fc361835c856ba4233ef5ea135b919bf3dce97",
-      "src": "https://github.com/MunifTanjim/nui.nvim"
-    },
     "nvim-dap": {
-      "rev": "9e848e09a697ee95302a3ef2dd43fd6eb709e570",
+      "rev": "cfa2d58f4537aca6ca83e2de1a0d9f1491121264",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-python": {
@@ -74,20 +54,12 @@
       "rev": "e766b3d8acef97e7e8b29f7f421aa4977b9978e1",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
-    "nvim-lspconfig": {
-      "rev": "ee1e369181a9e64904cdd7b739e98c70778cfc71",
-      "src": "https://github.com/neovim/nvim-lspconfig"
-    },
-    "nvim-tmux-navigation": {
-      "rev": "4898c98702954439233fdaf764c39636681e2861",
-      "src": "https://github.com/alexghergh/nvim-tmux-navigation"
-    },
     "nvim-treesitter": {
-      "rev": "427e9222363d07c32d6db6169e4049c28d58d141",
+      "rev": "9a168f6357ed21c3a636e1727bc7d382abc451b8",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "898ee307df58f854d11cd7edd06472574d48014e",
+      "rev": "5c7b0263797dfd1bd6202f2b219f3b53a80b2187",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
     "plenary.nvim": {
@@ -98,24 +70,24 @@
       "rev": "8e7d4fc0a97b421a6ede49f4b2ea35114690deb2",
       "src": "https://github.com/dangooddd/pyrepl.nvim"
     },
+    "review.nvim": {
+      "rev": "17908cbdb498b3a1023c0689461a85bc6b3e165b",
+      "src": "https://github.com/vuki656/review.nvim"
+    },
     "snacks.nvim": {
       "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "tiny-cmdline.nvim": {
-      "rev": "e247d9ee4c980734f8f8bf616d31e0ab7c27485d",
+      "rev": "d83700b48d8ff5625dbef4029af071db559544e5",
       "src": "https://github.com/rachartier/tiny-cmdline.nvim"
     },
     "tiny-glimmer.nvim": {
       "rev": "9a48d8a7436231cb16d47c88f924702e5602870a",
       "src": "https://github.com/rachartier/tiny-glimmer.nvim"
     },
-    "tokyonight.nvim": {
-      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
-      "src": "https://github.com/folke/tokyonight.nvim"
-    },
     "tree-sitter-manager.nvim": {
-      "rev": "023590c8f068788a0513a4409bf37ff7f9d1deff",
+      "rev": "1425eacb78bfee34face0fe06a8384ac3c4d9c8e",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "which-key.nvim": {

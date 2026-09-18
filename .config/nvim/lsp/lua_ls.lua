@@ -21,8 +21,8 @@ return {
 	settings = {
 		Lua = {
 			runtime = {
-				-- Lua version: Neovim uses LuaJIT (compatible with Lua 5.4).
-				version = "Lua 5.4",
+				-- Neovim embeds LuaJIT (Lua 5.1 plus a few 5.2/5.3 extensions).
+				version = "LuaJIT",
 			},
 			completion = {
 				enable = true, -- enable autocomplete for Lua-specific APIs

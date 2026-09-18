@@ -2,15 +2,15 @@ local km = vim.keymap
 
 -- [[ Basic Keymaps ]]
 
--- leader key to space
+-- leader key to space (vim.g.mapleader itself is set in config/options.lua,
+-- which must happen before any mapping is defined)
 km.set("n", "<space>", "<Nop>", {silent = true})
-vim.g.mapleader = " "
 
 -- save files
 km.set('n', '<leader>w', '<cmd>write<cr>', {desc = 'Save'})
 
 -- Select all text
-km.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
+km.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>', { desc = 'Select [a]ll' })
 
 -- " 'Q' in normal mode enters Ex mode. You almost never want this.-
 km.set("n", "Q", "<Nop>", {silent = true})
@@ -29,7 +29,7 @@ km.set("c", [[;\]], [[\(\)<Left><Left>]], { desc = "Adds a group selection to th
 km.set("n", "<leader>nh", ":nohlsearch<CR>", { desc = "No Highlight Search" })
 
 -- Open current window in a new tab | Use <C-W><C-Q> to go back
-km.set("n", "<Leader>wo", ":tab split<CR>")
+km.set("n", "<Leader>wo", ":tab split<CR>", { desc = "[W]indow to new tab" })
 
 -- Shortcut for :tabnew
 km.set("n", "<C-t>", ":tabnew<Space>")
@@ -41,22 +41,9 @@ km.set("n", "<C-d>", "<C-d>zz")
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Diagnostic Config & Keymaps
-vim.diagnostic.config {
-  update_in_insert = false,
-  severity_sort = true,
-  float = { border = 'rounded', source = 'if_many' },
-  underline = { severity = { min = vim.diagnostic.severity.WARN } },
-
-  -- Can switch between these as you prefer
-  virtual_text = true, -- Text shows up at the end of the line
-  virtual_lines = false, -- Text shows up underneath the line, with virtual lines
-
-  -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
-  jump = { float = true },
-}
-
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+-- NOTE: diagnostics are configured in config/lsp.lua (single global call).
+-- NOTE: <leader>q is quit_if_no_named_buffer (config/exiting.lua).
+-- For diagnostics use <leader>sd / <leader>sD (snacks pickers).
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -87,26 +74,16 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
--- For substitute using : as separators
-km.set("n", "<leader>;;", ":%s:::g<Left><Left><Left>")
-km.set("n", "<leader>;c", ":%s:::gc<Left><Left><Left><Left>")
--- km.set("n", "<leader>;<backslash>", "\(\)<Left><Left>")
-
-km.set("c", [[;\]], [[\(\)<Left><Left>]], { desc = "Adds a group selection to the substitute command" })
-km.set("n", "<leader>nh", ":nohlsearch<CR>", { desc = "No Highlight Search" })
-
 -- For running lua scripts
-km.set("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Run current file" })
+km.set("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Run current file" })  -- note: <leader><space> is also a mapping, so this waits out timeoutlen
 km.set("n", "<space>x", ":.lua<CR>", { desc = "Run current lua line" })
 km.set("v", "<space>x", ":lua<CR>", { desc = "Run visually selected lua lines" })
 
 
 -- Updates using vim.pack
-vim.keymap.set("n", "<leader>pu", "<cmd>lua vim.pack.update()<CR>")
+vim.keymap.set("n", "<leader>pu", "<cmd>lua vim.pack.update()<CR>", { desc = "[P]lugins: [u]pdate" })
 
 -- Toogle inlay_type_hints
 vim.keymap.set("n", "<leader>th", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "Toggle inlay hints" })
-
-print(vim.o.autochdir)

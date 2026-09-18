@@ -11,61 +11,50 @@ require("tree-sitter-manager").setup({
 -- require("nvim-treesitter").setup()
 -- require("nvim-treesitter-textobjects").setup()
 
-require('nvim-treesitter').setup({
-  highlight = { enable = true },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      -- init_selection = 'gnn',
-      -- scope_incremental = 'grc',
-      node_incremental = '+',
-      node_decremental = '-',
-    },
-  },
-  indent = { enable = true },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ['a='] = { query = '@assignment.outer', desc = '@assignment.outer' },
-        ['i='] = { query = '@assignment.inner', desc = '@assignment.inner' },
-        ['[='] = { query = '@assignment.lhs', desc = '@assignment.lhs' },
-        [']='] = { query = '@assignment.rhs', desc = '@assignment.rhs' },
-        -- vim use m for methods e.g. [m
-        ['am'] = { query = '@function.outer', desc = '@function.outer' },
-        ['im'] = { query = '@function.inner', desc = '@function.inner' },
-        ['ac'] = { query = '@call.outer', desc = '@call.outer' },
-        ['ic'] = { query = '@call.inner', desc = '@call.inner' },
-        -- not selecting multiple lines of comment - FIXME
-        -- ic = { query = '@comment.inner', desc = '@comment.inner' },
-        -- ac = { query = '@comment.outer', desc = '@comment.outer' },
-        ['aC'] = { query = '@class.outer', desc = '@class.outer' },
-        ['iC'] = { query = '@class.inner', desc = '@class.inner' },
-        -- a taken by 
-        ['aA'] = { query = '@parameter.outer', desc = '@parameter.outer' },
-        ['iA'] = { query = '@parameter.inner', desc = '@parameter.inner' },
-        ['as'] = {
-          query = '@local.scope',
-          query_group = 'locals',
-          desc = '@local.scope',
-        },
-        ['at'] = { query = '@type' },
-      },
-    },
-  },
+-- On the `main` branch, setup() only honours `install_dir` — highlight,
+-- indent, incremental_selection and textobjects are wired up by hand below.
+require('nvim-treesitter').setup()
+
+require('nvim-treesitter-textobjects').setup({
+  select = { lookahead = true },
 })
+
+local select = require('nvim-treesitter-textobjects.select')
+
+-- vim uses m for methods e.g. [m; `a`/`c`/`s` are taken by argument/call/scope
+local textobjects = {
+  ['a='] = '@assignment.outer',
+  ['i='] = '@assignment.inner',
+  ['am'] = '@function.outer',
+  ['im'] = '@function.inner',
+  ['ac'] = '@call.outer',
+  ['ic'] = '@call.inner',
+  ['aC'] = '@class.outer',
+  ['iC'] = '@class.inner',
+  ['aA'] = '@parameter.outer',
+  ['iA'] = '@parameter.inner',
+  ['at'] = '@type',
+}
+
+for lhs, query in pairs(textobjects) do
+  vim.keymap.set({ 'x', 'o' }, lhs, function() select.select_textobject(query, 'textobjects') end, { desc = query })
+end
+
+-- @local.scope lives in the `locals` query group, not `textobjects`
+vim.keymap.set({ 'x', 'o' }, 'as', function() select.select_textobject('@local.scope', 'locals') end,
+  { desc = '@local.scope' })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "*",
-	callback = function()
-		local filetype = vim.bo.filetype
-		if filetype and filetype ~= "" then
-			pcall(vim.treesitter.start)
-		end
-	end,
+  pattern = "*",
+  callback = function(args)
+    if vim.bo[args.buf].filetype == "" then return end
+    if pcall(vim.treesitter.start) then
+      -- set after the ftplugin has run, otherwise it overwrites us
+      vim.bo[args.buf].indentexpr = "v:lua.vim.treesitter.indentexpr()"
+    end
+  end,
 })
 
-vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.bo.indentexpr = "v:lua.vim.treesitter.indentexpr()"
-vim.wo.foldlevel = 99
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldmethod = "expr"
+vim.o.foldlevel = 99

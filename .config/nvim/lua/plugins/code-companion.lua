@@ -32,17 +32,3 @@ require("codecompanion").setup({
     },
   },
   })
-
-require("codecompanion").setup({
-  adapters = {
-    http = {
-      anthropic = function()
-        return require("codecompanion.adapters").extend("anthropic", {
-          env = {
-            api_key = "MY_OTHER_ANTHROPIC_KEY",
-          },
-        })
-      end,
-    },
-  },
-})

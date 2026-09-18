@@ -88,6 +88,3 @@ vim.opt.smartindent = true
 -- Makes <Tab> insert 'shiftwidth' number of spaces at the start of a line
 vim.opt.smarttab = true
 
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-

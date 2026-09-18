@@ -7,23 +7,40 @@ wk.setup({
 	preset = "helix",
 })
 wk.add({
-	{ "<leader><tab>", group = "tabs" },
+	{ "<leader>.", group = "scratch" },
+	{ "<leader>;", group = "substitute" },
+	{ "<leader>n", group = "notifications" },
+	{ "<leader>j", group = "python repl" },
+	{ "<leader>m", group = "miniharp marks" },
+	{ "<leader>r", group = "review" },
+	{ "<leader>t", group = "toggle" },
 	{ "<leader>c", group = "code" },
 	{ "<leader>d", group = "debug" },
-	{ "<leader>D", group = "Diffview", icon = { icon = "", color = "orange" } },
-	{ "<leader>p", group = "Yanky", icon = { icon = "󰃮 ", color = "yellow" } },
+	{ "<leader>p", group = "plugins (vim.pack)" },
 	{ "<leader>dp", group = "profiler" },
 	{ "<leader>f", group = "file/find" },
 	{ "<leader>g", group = "git" },
-	{ "<leader>gh", group = "hunks" },
-	{ "<leader>q", group = "quit/session" },
 	{ "<leader>s", group = "search" },
+	{ "<leader>S", group = "session" },
 	{ "<leader>u", group = "ui", icon = { icon = "󰙵 ", color = "cyan" } },
-	{ "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
 	{ "[", group = "prev" },
 	{ "]", group = "next" },
-	{ "g", group = "goto" },
-	{ "gs", group = "surround" },
+	{ "g", group = "goto/operators" },
+	{ "s", group = "surround" },          -- mini.surround (s is also Flash Jump)
+	{ "gs", group = "sort" },             -- mini.operators
+	{ "gx", group = "exchange" },         -- mini.operators
+	{ "ga", group = "calls" },            -- lsp call hierarchy
+	-- nvim 0.11 ships these six LSP mappings by default. grn and gra are the
+	-- only bindings for rename-symbol and code-action anywhere in this config.
+	{ "gr", group = "lsp" },
+	{ "grn", desc = "Rename symbol" },
+	{ "gra", desc = "Code action" },
+	{ "grx", desc = "Run codelens" },
+	{ "grr", desc = "References (quickfix; picker is <leader>sr)" },
+	{ "gri", desc = "Implementation (also gI)" },
+	{ "grt", desc = "Type definition (also gy)" },
+	{ "gc", group = "comment" },          -- mini.comment
+	{ "\\", group = "toggles" },           -- mini.basics
 	{ "z", group = "fold" },
 	{
 		"<leader>b",
@@ -41,7 +58,7 @@ wk.add({
 		end,
 	},
 	-- better descriptions
-	{ "gx", desc = "Open with system app" },
+	{ "gX", desc = "Open with system app" },  -- mini.operators moves builtin gx here
 	{
 		"<leader>fC",
 		group = "Copy Path",
@@ -72,27 +89,28 @@ wk.add({
 			end,
 			desc = "Copy relative file path",
 		},
-		{
-			"<leader>?",
-			function()
-				require("which-key").show({ global = false })
-			end,
-			desc = "Buffer Keymaps (which-key)",
-		},
-		{
-			"<c-w><space>",
-			function()
-				require("which-key").show({ keys = "<c-w>", loop = true })
-			end,
-			desc = "Window Hydra Mode (which-key)",
-		},
+	},
+	-- NOTE: these two are siblings of the <leader>fC group, not members of it.
+	-- Nested inside it they were silently never registered.
+	{
+		"<leader>?",
+		function()
+			require("which-key").show({ global = false })
+		end,
+		desc = "Buffer Keymaps (which-key)",
+	},
+	{
+		"<c-w><space>",
+		function()
+			require("which-key").show({ keys = "<c-w>", loop = true })
+		end,
+		desc = "Window Hydra Mode (which-key)",
 	},
 	{
 		-- Nested mappings are allowed and can be added in any order
 		-- Most attributes can be inherited or overridden on any level
 		-- There's no limit to the depth of nesting
 		mode = { "n", "v" }, -- NORMAL and VISUAL mode
-		{ "<leader>q", "<cmd>q<cr>", desc = "Quit" }, -- no need to specify mode since it's inherited
 		{ "<leader>w", "<cmd>w<cr>", desc = "Write" },
 	},
 })

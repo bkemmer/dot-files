@@ -1,13 +1,3 @@
--- Not used 
--- local spellcheck_filetypes = {
---   "markdown",
---   "text",
---   "gitcommit",
---   "plaintext",
--- }
-
--- local spellcheck_languages = { "en_us",  "pt_br" }
-
 vim.opt.spellfile = {
   vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"),  -- English custom words
   vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add"),  -- PT-BR custom words
