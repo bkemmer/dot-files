@@ -59,6 +59,8 @@ wk.add({
 	},
 	-- better descriptions
 	{ "gX", desc = "Open with system app" },  -- mini.operators moves builtin gx here
+	{ "gO", desc = "Blank line above (mini.basics; shadows LSP doc symbols)" },  -- see mini-configs/init.lua
+	{ "go", desc = "Blank line below (mini.basics)" },
 	{
 		"<leader>fC",
 		group = "Copy Path",
