@@ -50,6 +50,16 @@ focus_pane_down = "prefix+j"
 focus_pane_up = "prefix+k"
 focus_pane_right = "prefix+l"
 
+# No built-in flat "browse and select" agent picker exists yet (see
+# herdrdev/herdr#157, discussion #1117). Closest available: indexed jump by
+# sidebar position, and blind next/previous cycling.
+# ctrl+1..9 doesn't fire in this setup: ctrl+digit has no legacy terminal
+# encoding (unlike ctrl+letter's fixed ASCII control codes). shift+1..9 is
+# a plain shifted char instead, confirmed working here.
+focus_agent = "prefix+shift+1..9"
+next_agent = "prefix+ctrl+n"      # mirrors next_tab's plain n
+previous_agent = "prefix+ctrl+p"  # mirrors previous_tab's plain p
+
 # defaults (prefix+shift+n / prefix+shift+w) collide with next_tab (n) and
 # workspace_picker (w) as look-alike chords; moved to free unshifted keys.
 new_workspace = "prefix+a"
