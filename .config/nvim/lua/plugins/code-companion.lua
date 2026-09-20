@@ -8,27 +8,4 @@ vim.pack.add({
 })
 
 
-require("codecompanion").setup({
-  adapters = {
-    http = {
-      copilot = function()
-        return require("codecompanion.adapters").extend("copilot", {
-          env = {
-            api_key = "GITHUB_COPILOT_TOKEN",
-          },
-        })
-      end,
-    },
-  },
-  strategies = {
-    chat = {
-      adapter = "copilot",
-    },
-    inline = {
-      adapter = "copilot",
-    },
-    agent = {
-      adapter = "copilot",
-    },
-  },
-  })
+require("codecompanion").setup()

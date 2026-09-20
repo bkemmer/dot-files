@@ -49,17 +49,6 @@ check("ruff filetypes == {python}",
   vim.deep_equal(vim.lsp.config.ruff.filetypes, { "python" }),
   "got " .. vim.inspect(vim.lsp.config.ruff.filetypes))
 
--- 3. codecompanion: single setup() call, copilot adapter survives
-local cc = require("codecompanion.config").config
-for _, s in ipairs({ "chat", "inline", "agent" }) do
-  check("codecompanion " .. s .. " adapter == copilot",
-    cc.interactions[s] and cc.interactions[s].adapter == "copilot",
-    "got " .. vim.inspect(cc.interactions[s] and cc.interactions[s].adapter))
-end
-check("codecompanion copilot adapter override intact",
-  type(cc.adapters.http.copilot) == "function",
-  "expected a function, got " .. type(cc.adapters.http.copilot))
-
 -- 4. treesitter textobjects rewired for the `main` branch
 for lhs, query in pairs({ ["am"] = "@function.outer", ["im"] = "@function.inner",
                           ["ac"] = "@call.outer",     ["ic"] = "@call.inner",
