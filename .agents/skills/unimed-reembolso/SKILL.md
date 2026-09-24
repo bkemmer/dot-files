@@ -72,13 +72,14 @@ as the source set for a single reimbursement request.
 **Dados do médico/clínica (prestador)**
 - CPF ou CNPJ do prestador de serviço (CNPJ preferencialmente, quando o
   prestador tiver os dois)
-- CEP
-- Número do endereço
-- Complemento (ap, cj, etc.) — só se houver
 - Nome do profissional
 - Tipo do conselho (CRM, CREFITO, CRP, CRFa, etc.)
 - Estado do conselho (UF)
-- Número do registro do profissional no conselho
+- Número do registro do profissional no conselho (só dígitos, sem pontos)
+
+- CEP
+- Número do endereço
+- Complemento (ap, cj, etc.) — só se houver
 
 ### Template — Terapias
 
@@ -101,13 +102,14 @@ as the source set for a single reimbursement request.
 
 ## Dados do médico/clínica
 - CPF ou CNPJ do prestador: <valor>
-- CEP: <valor>
-- Número do endereço: <valor>
-- Complemento: <valor, se houver>
 - Nome do profissional: <valor>
 - Tipo do conselho: <ex. CREFITO>
 - Estado do conselho: <UF>
-- Número do registro no conselho: <valor>
+- Número do registro no conselho: <só dígitos, ex. 144229>
+
+- CEP: <valor>
+- Número do endereço: <valor>
+- Complemento: <valor, se houver>
 ```
 
 ## Consulta Médica — campos obrigatórios
@@ -121,13 +123,14 @@ as the source set for a single reimbursement request.
 
 **Dados do médico/clínica (prestador)**
 - CPF ou CNPJ do prestador de serviço
-- CEP
-- Número do endereço
-- Complemento (ap, cj, etc.) — só se houver
 - Nome do profissional
 - Tipo do conselho (CRM, etc.)
 - Estado do conselho (UF)
-- Número do registro do profissional no conselho
+- Número do registro do profissional no conselho (só dígitos, sem pontos)
+
+- CEP
+- Número do endereço
+- Complemento (ap, cj, etc.) — só se houver
 
 ### Template — Consulta Médica
 
@@ -145,13 +148,14 @@ as the source set for a single reimbursement request.
 
 ## Dados do médico/clínica
 - CPF ou CNPJ do prestador: <valor>
-- CEP: <valor>
-- Número do endereço: <valor>
-- Complemento: <valor, se houver>
 - Nome do profissional: <valor>
 - Tipo do conselho: <ex. CRM>
 - Estado do conselho: <UF>
-- Número do registro no conselho: <valor>
+- Número do registro no conselho: <só dígitos, ex. 144229>
+
+- CEP: <valor>
+- Número do endereço: <valor>
+- Complemento: <valor, se houver>
 ```
 
 ## Notes
@@ -159,6 +163,9 @@ as the source set for a single reimbursement request.
 - Brazilian CPF/CNPJ, CEP, and currency values should be transcribed exactly
   as printed (keep the formatting, e.g. `51.528.666/0001-58`, `02416-060`,
   `390,00`) — the user will copy-paste these into the form.
+- Exception: the professional's council registration number (CRM, CREFITO,
+  etc.) is written with digits only — strip dots and other separators
+  (e.g. `CRM: 144.229` → `144229`).
 - If a provider's professional council appears as "Crefito 3" followed by a
   number (common in fisioterapia NFS-e from São Paulo), the council is
   CREFITO, the number is the digits, and the estado is the state the
